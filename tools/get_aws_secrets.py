@@ -6,7 +6,7 @@ yml_configs = {}
 with open('config.yml', 'r') as yml_file:
     yml_configs = yaml.safe_load(yml_file)
 
-NO_AWS = True
+NO_AWS = False
 if NO_AWS == False:
     from botocore.exceptions import ClientError
     import boto3

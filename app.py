@@ -12,6 +12,7 @@ from db_con import get_db_instance, get_db
 
 from tools.token_required import token_required
 from tools.get_aws_secrets import get_secrets
+from tools.get_twillio_client import get_sms_client
 
 from tools.logging import logger
 
@@ -25,10 +26,12 @@ FlaskJSON(app)
 
 #g is flask for a global var storage 
 def init_new_env():
-    if 'db' not in g:
-        g.db = get_db()
+    #To connect to DB
+    #if 'db' not in g:
+    #    g.db = get_db()
 
     g.secrets = get_secrets()
+    g.sms_client = get_sms_client()
 
 #This gets executed by default by the browser if no page is specified
 #So.. we redirect to the endpoint we want to load the base page
