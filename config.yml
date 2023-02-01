@@ -1,0 +1,5 @@
+secrets:
+        secret_name : "dev_cis_444_secrets"
+        region_name : "us-west-2"
+
+

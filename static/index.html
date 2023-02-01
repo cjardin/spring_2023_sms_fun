@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	     <script src="https://code.jquery.com/jquery-3.6.0.js" 
+		     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	     <script src="/static/cis444.js"></script>
+    </head>
+    <body>
+
+	<script>
+		function send_form(){
+			$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
+                       		function(data, textStatus) {
+					//this gets called when browser receives response from server
+					console.log(data.token);
+					//Set global JWT
+					jwt = data.token;
+					//make secure call with the jwt
+					get_books();
+				}, "json").fail( function(response) {
+					//this gets called if the server throws an error
+					console.log("error");
+					console.log(response);
+				});
+			return false;
+		}
+
+		function get_books(){
+			 //make secure call with the jwt
+			secure_get_with_token("/secure_api/get_books", {} , function(data){
+					console.log("got books"); 
+					console.log(data); 
+					$('#buybook').show();
+					},
+                                                function(err){ console.log(err) });
+		}
+                function buy_book(book_id){
+                         //make secure call with the jwt
+                        secure_get_with_token("/secure_api/get_books", {"book_id" : book_id} , function(data){console.log("got books"); console.log(data)},
+                                                function(err){ console.log(err) });
+                }
+
+	</script>
+            <div id="login">
+	    	<form >
+  			<label for="fname">First name:</label><br>
+  				<input type="text" id="fname" name="fname" value="John"><br>
+  			<label for="password">Password:</label><br>
+  				<input type="password" id="password" name="password" value="12212"><br><br>
+  			<input type="submit" value="Signup" onclick="return send_form();">
+		</form>
+	    </div>
+	    <button id="buybook" onclick="buy_book(1234)" style="display:none" >Buy Book</button>
+    </body>
+</html>
+
