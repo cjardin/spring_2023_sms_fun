@@ -1,3 +1,6 @@
+# Ignore permissions files, don't commit accidentally!
+*.pem
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
