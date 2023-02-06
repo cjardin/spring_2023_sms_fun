@@ -2,6 +2,6 @@ secrets:
         secret_name : "twillio_creds"
         region_name : "us-west-1"
 twillio:
-        phone_number: "+18583467661"
+        phone_number: "+18587275787"
 
 
