@@ -4,6 +4,8 @@ from flask_json import FlaskJSON, JsonError, json_response, as_json
 
 from tools.logging import logger
 
+from textblob import TextBlob
+
 import random
 import json
 
@@ -20,15 +22,26 @@ with open('chatbot_corpus.json', 'r') as myfile:
 def handle_request():
     logger.debug(request.form)
 
+    # Refresh JSON for every request
+    with open('chatbot_corpus.json', 'r') as myfile:
+        CORPUS = json.loads(myfile.read())
+
     response = 'NOT FOUND'
 
-    sent_input = str(request.form['Body']).lower()
+    # Sanitize inputs; set to lowercase, strip trailing whitespace
+    sent_input = str(request.form['Body']).lower().strip()
     if sent_input in CORPUS['input']:
         response = random.choice(CORPUS['input'][sent_input])
     else:
-        CORPUS['input'][sent_input] = ['DID NOT FIND']
-        with open('chatbot_corpus.json', 'w') as myfile:
-            myfile.write(json.dumps(CORPUS, indent=4 ))
+        try:
+            #TODO we need to generate response on a unique input
+            blob = TextBlob(sent_input)
+            response = "I haven't heard of " + blob.noun_phrases[0] + ", who's in it?"
+            CORPUS['input'][sent_input] = [response]
+            with open('chatbot_corpus.json', 'w') as myfile:
+                myfile.write(json.dumps(CORPUS, indent=4 ))
+        except:
+            response = "Uhhh, I have no idea what we're talking about. Sorry.."
 
     logger.debug(response)
 
