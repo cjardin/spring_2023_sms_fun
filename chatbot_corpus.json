@@ -1,0 +1,21 @@
+{
+    "input": {
+        "hello": [
+            "piss off",
+            "party",
+            "slay"
+        ],
+        "party": [
+            "\u2764\ufe0f"
+        ],
+        "h": [
+            "DID NOT FIND"
+        ],
+        "aaaaaaaaaaaaaaaaaaa": [
+            "DID NOT FIND"
+        ],
+        "\\": [
+            "DID NOT FIND"
+        ]
+    }
+}
