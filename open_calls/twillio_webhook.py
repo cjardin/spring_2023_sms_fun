@@ -3,8 +3,11 @@ from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 
 from tools.logging import logger
+from users.actors import actor
 
 import random
+import json
+import pickle
 
 yml_configs = {}
 BODY_MSGS = []
@@ -18,13 +21,44 @@ with open('some_reponses.txt', 'r') as myfile:
 	all_file = myfile.read()
 
 
+COMMENTS = {}
+
+with open('chatbot_comments.json', 'r') as myfile:
+	COMMENTS = json.loads(myfile.read())
+
 
 def handle_request():
 	logger.debug(request.form)
 
+	act = None
+	
+	if exists( f"users/{request.form['From']}.pkl") :
+		with open(f"users/{request.form['From']}.pkl", 'rb') as p:
+			act = pickle.load(p)
+	else:
+		act = actor(request.form['From'])
+		
+	act.save_msg(request.form['Body'])
+	logger.debug(act.prev_msgs)
+	
+	with open (f"users/{request.form['From']}.pkl", 'wb') as p:
+		pickle.dump(act,p)
+		
+	response = 'NOT FOUND'
+	
+	sent_input = str(request.form['Body']).lower()
+	if sent_input in COMMENTS['input']:
+		response = random.choice(COMMENTS['input'][sent_input])
+	else:
+		COMMENTS['input'][sent_input] = ['DID NOT FIND']
+		with open('chatbot_comments.json','w') as myfile:
+			myfile.write(json.dumps(COMMENTS, indent= 4))
+	
+	logger.debug(response)
+
 	message = g.sms_client.messges.create(
-		body=random.choice(all_file.splitlines()),
+		body=response,
 		from_=yml_configs['twillio']['phone_number'],
 		to=request.form['From'])
-    	print(request.form['Body'])
 	return json_response( status = "ok" )
+	
