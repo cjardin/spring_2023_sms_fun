@@ -56,7 +56,7 @@ def handle_request():
 	
 	logger.debug(response)
 
-	message = g.sms_client.messges.create(
+	message = g.sms_client.messages.create(
 		body=response,
 		from_=yml_configs['twillio']['phone_number'],
 		to=request.form['From'])
