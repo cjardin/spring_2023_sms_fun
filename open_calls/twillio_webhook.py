@@ -21,10 +21,10 @@ with open('config.yml', 'r') as yml_file:
 #	all_file = myfile.read()
 
 
-COMMENTS = {}
+CORPUS = {}
 
 with open('chatbot_comments.json', 'r') as myfile:
-	COMMENTS = json.loads(myfile.read())
+	CORPUS = json.loads(myfile.read())
 
 
 def handle_request():
@@ -47,12 +47,12 @@ def handle_request():
 	response = 'NOT FOUND'
 	
 	sent_input = str(request.form['Body']).lower()
-	if sent_input in COMMENTS['input']:
-		response = random.choice(COMMENTS['input'][sent_input])
+	if sent_input in CORPUS['input']:
+		response = random.choice(CORPUS['input'][sent_input])
 	else:
-		COMMENTS['input'][sent_input] = ['DID NOT FIND']
+		CORPUS['input'][sent_input] = ['DID NOT FIND']
 		with open('chatbot_comments.json','w') as myfile:
-			myfile.write(json.dumps(COMMENTS, indent= 4))
+			myfile.write(json.dumps(CORPUS, indent= 4))
 	
 	logger.debug(response)
 
