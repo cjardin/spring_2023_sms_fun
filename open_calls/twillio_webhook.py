@@ -1,6 +1,7 @@
 import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
+from os.path import exists
 
 from tools.logging import logger
 from users.actors import actor
