@@ -1,0 +1,31 @@
+{
+	"input": {
+	
+		"hello": [
+				"Whats up",
+				"Hey",
+				"Hi"		
+		
+		
+		],		
+		"hi": [
+		
+				"Hola"
+				"Hiyo"
+				"Hello"
+					
+		],
+		"Sigh": [
+				"You Good"
+				"Everything Ok?"
+				"How are you today?"
+		],
+	
+	
+		"Hey": [
+				"Yo"
+				"Konichiwa"
+		]
+	
+	}
+}
