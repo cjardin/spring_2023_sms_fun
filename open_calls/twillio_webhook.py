@@ -4,7 +4,7 @@ from flask_json import FlaskJSON, JsonError, json_response, as_json
 from os.path import exists
 
 from tools.logging import logger
-from users.actors import actor
+from players.actors import actor
 
 import random
 import json
@@ -62,4 +62,3 @@ def handle_request():
 		from_=yml_configs['twillio']['phone_number'],
 		to=request.form['From'])
 	return json_response( status = "ok" )
-	
