@@ -33,8 +33,8 @@ def handle_request():
 
 	act = None
 	
-	if exists( f"users/{request.form['From']}.pkl") :
-		with open(f"users/{request.form['From']}.pkl", 'rb') as p:
+	if exists( "users/{request.form['From']}.pkl") :
+		with open("users/{request.form['From']}.pkl", 'rb') as p:
 			act = pickle.load(p)
 	else:
 		act = actor(request.form['From'])
@@ -42,7 +42,7 @@ def handle_request():
 	act.save_msg(request.form['Body'])
 	logger.debug(act.prev_msgs)
 	
-	with open (f"users/{request.form['From']}.pkl", 'wb') as p:
+	with open ("users/{request.form['From']}.pkl", 'wb') as p:
 		pickle.dump(act,p)
 		
 	response = 'NOT FOUND'
