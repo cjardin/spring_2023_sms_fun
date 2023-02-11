@@ -17,8 +17,8 @@ with open('config.yml', 'r') as yml_file:
     yml_configs = yaml.safe_load(yml_file)
 
 #open file to grab responses
-with open('some_reponses.txt', 'r') as myfile:
-	all_file = myfile.read()
+#with open('some_reponses.txt', 'r') as myfile:
+#	all_file = myfile.read()
 
 
 COMMENTS = {}
