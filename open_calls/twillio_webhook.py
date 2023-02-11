@@ -26,8 +26,5 @@ def handle_request():
 		body=random.choice(all_file.splitlines()),
 		from_=yml_configs['twillio']['phone_number'],
 		to=request.form['From'])
-
-    #print(request.form['Body'])
-
-
-    	return json_response( status = "ok" )
+    	print(request.form['Body'])
+	return json_response( status = "ok" )
