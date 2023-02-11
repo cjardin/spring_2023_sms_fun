@@ -1,6 +1,16 @@
 secrets:
         secret_name : "twillio_creds"
         region_name : "us-west-1"
+
+
+chatbot:
+        name: "ModBot"
+
+chatmembers:
+        name: "Werewolf"
+        name: "Hitman"
+
+
 twillio:
         phone_number: "+18582982838"
 
