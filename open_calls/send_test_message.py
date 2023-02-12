@@ -9,8 +9,10 @@ with open('config.yml', 'r') as yml_file:
 
 def handle_request():
     message = g.sms_client.messages.create(
+    
                      body="Join Earth's mightiest heroes. Like Kevin Bacon.",
                      from_=yml_configs['twillio']['phone_number'],
-                     to='+18584423590'
+                     to=request.form('From')
+                     
                  )
     return json_response( sid = message.sid )
