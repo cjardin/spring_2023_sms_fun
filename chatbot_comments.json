@@ -25,7 +25,25 @@
 		"Hey": [
 				"Yo"
 				"Konichiwa"
-		]
+		],
+        	"heyo": [
+        	    "DID NOT FIND"
+        	],
+        	"yo": [
+        	    "DID NOT FIND"
+        	],
+        	"testing first": [
+        	    "DID NOT FIND"
+        	],
+        	"testing second ": [
+        	    "DID NOT FIND"
+        	],
+        	"\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d": [
+        	    "DID NOT FIND"
+        	],
+        	"your favorite": [
+        	    "DID NOT FIND"
+        	]
 	
 	}
 }
