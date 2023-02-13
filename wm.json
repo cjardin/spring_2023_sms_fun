@@ -1,20 +1,39 @@
 {
 	"init": {
 	
+		"content": " Hey ",
+		"next_state": "choose"
+		
+		},
+		
+		"choose": {
+		
+				"content" : "Would you like to play Werewolf or Mafia: Type 1 for Werewolf and 2 for Mafia",
+				"next_state" : [
+						{
+							"input" : "1",
+							"next_state" : "start_werewolf"
+							
+						}
+						{
+							"input" : "2",
+							"next_state" : "start_mafia"
+							
+							
+						}
+						]
+						
+		},
+	
 		"content": [
 				"Whats up",
 				"Hey",
 				"Hi"		
 		
 		
-		],
 		
-		
-		
-		"your favorite": [
-        	    "DID NOT FIND"
         	    
         	]
 	
-	}
 }
+
