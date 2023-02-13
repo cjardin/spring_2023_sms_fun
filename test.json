@@ -1,0 +1,21 @@
+{
+	"init": {
+			"content": "something",
+			"next_state": "choose"
+		},
+	"choose": {
+			"content": "something",
+			"next_state": [
+					{
+						"input": "yes",
+						"next_state": "",
+						"point_delta": 1
+					},
+					{
+						"input": "no",
+						"next_state": "",
+						"point_delta": -1
+					}
+					
+		}
+}
