@@ -3,17 +3,16 @@ from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 
 from tools.logging import logger
+from things.actors import actor
 
 import random
 import json
+import pickle
 
 yml_configs = {}
 BODY_MSGS = []
 with open('config.yml', 'r') as yml_file:
     yml_configs = yaml.safe_load(yml_file)
-
-import random
-import json
 
 CORPUS = {}
 
@@ -22,6 +21,20 @@ with open('chatbot_corpus.json', 'r') as myfile:
 
 def handle_request():
     logger.debug(request.form)
+
+    # pickling
+    act = None
+    if exists(f"users/{request.form['From']}.pkl"):
+        with open(f"users/{request.form['From']}.pkl", 'rb') as p:
+            actor = pickle.load(p)
+    else:
+        act = actor(request.form['From'])
+
+    act.save_msg(request.form['Body'])
+    logger.debug(act.prev_msgs)
+
+    with open(f"user/{request.form['Form']}.pkl", 'wb') as p:
+        pickle.dump(act,p)
 
     response = 'NOT FOUND'
 
