@@ -1,13 +1,14 @@
 import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
-
+from os.path import exists
+from util.actors import actor
 from tools.logging import logger
-
 from textblob import TextBlob
 
 import random
 import json
+import pickle
 
 yml_configs = {}
 BODY_MSGS = []
@@ -25,6 +26,22 @@ def handle_request():
     # Refresh JSON for every request
     with open('chatbot_corpus.json', 'r') as myfile:
         CORPUS = json.loads(myfile.read())
+
+    #Check if phone number has saved history
+    act = None
+    if exists( f"users/{request.form['From']}.pkl") :
+        with open(f"users/{request.form['From']}.pkl", 'rb') as p:
+            act = pickle.load(p)
+    else:
+        #If no history, start recording
+        act= actor(request.form['From'])
+
+    act.save_msg(request.form['Body'])
+
+    logger.debug(act.prev_msgs)
+
+    with open(f"users/{request.form['From']}.pkl", 'wb') as p:
+        pickle.dump(act,p)
 
     response = 'NOT FOUND'
 
