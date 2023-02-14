@@ -1,36 +1,44 @@
 {
     "input": {
         "hello": [
-            "piss off",
-            "party",
-            "slay"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "party": [
-            "\u2764\ufe0f"
+            "Oh, didn't realize you were invited"
+            "Do we have a party coming up?"
         ],
         "h": [
-            "DID NOT FIND"
+            ".... Gonna need some more to go on, ma dude"
         ],
         "aaaaaaaaaaaaaaaaaaa": [
-            "DID NOT FIND"
+            "Oh frick, do you need some assitance??"
         ],
         "\\": [
-            "DID NOT FIND"
+            "Sorry, I am not a bot. I don't read terminal"
         ],
         "l": [
-            "DID NOT FIND"
+            ".... Gonna need some more to go on, ma dude"
         ],
         "hi": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "pogchamp": [
-            "DID NOT FIND"
+            "Pog?"
+            "Poggers?"
         ],
         "heyo": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",            
+		"Hey! How can I assit you?"
         ],
         "yo": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "testing first": [
             "DID NOT FIND"
@@ -42,7 +50,7 @@
             "DID NOT FIND"
         ],
         "your favorite": [
-            "DID NOT FIND"
+            "Obviously you, you kinda give meaning to my job."
         ]
     }
 }
