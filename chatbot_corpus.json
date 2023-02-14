@@ -6,7 +6,7 @@
             "Hey! How can I assit you?"
         ],
         "party": [
-            "Oh, didn't realize you were invited"
+            "Oh, didn't realize you were invited",
             "Do we have a party coming up?"
         ],
         "h": [
@@ -27,7 +27,7 @@
             "Hey! How can I assit you?"
         ],
         "pogchamp": [
-            "Pog?"
+            "Pog?",
             "Poggers?"
         ],
         "heyo": [
@@ -51,6 +51,16 @@
         ],
         "your favorite": [
             "Obviously you, you kinda give meaning to my job."
-        ]
+        ],
+        "idk": [
+            "Wow, you sure know a lot!",
+            "That's the best answer I've heard all day!",
+            "Hold on, I need a sec to process that good of an answer"
+        ],
+        "you": [
+            "Me?!?",
+            "Stop, you're making me blush!",
+            "You couldn't pick something other than me?"  
+      ]
     }
 }
