@@ -1,0 +1,48 @@
+{
+    "input": {
+        "hello": [
+            "piss off",
+            "party",
+            "slay"
+        ],
+        "party": [
+            "\u2764\ufe0f"
+        ],
+        "h": [
+            "DID NOT FIND"
+        ],
+        "aaaaaaaaaaaaaaaaaaa": [
+            "DID NOT FIND"
+        ],
+        "\\": [
+            "DID NOT FIND"
+        ],
+        "l": [
+            "DID NOT FIND"
+        ],
+        "hi": [
+            "DID NOT FIND"
+        ],
+        "pogchamp": [
+            "DID NOT FIND"
+        ],
+        "heyo": [
+            "DID NOT FIND"
+        ],
+        "yo": [
+            "DID NOT FIND"
+        ],
+        "testing first": [
+            "DID NOT FIND"
+        ],
+        "testing second ": [
+            "DID NOT FIND"
+        ],
+        "\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d": [
+            "DID NOT FIND"
+        ],
+        "your favorite": [
+            "DID NOT FIND"
+        ]
+    }
+}
