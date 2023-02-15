@@ -2,6 +2,6 @@ secrets:
         secret_name : "twillio_creds"
         region_name : "us-west-1"
 chatbot:
-        name: "Bianca Del Rio"
+        name: "Sarcasm Bot"
 twillio:
         phone_number: "+18582833207"

@@ -14,9 +14,10 @@ for w in words: #Goes through our list of words
         wordsFiltered.append(w) #If not, append to the list
 
 print(wordsFiltered)#This shows all words that were NOT stopwords
+
 tokens = word_tokenize(test) #Tokenizes the individual words
-print(pos_tag(tokens))
+print(pos_tag(tokens)) #Prints tag of each word
 tokens = sent_tokenize(test) #Tokenizes the full sentence
-print(pos_tag(tokens))
-sia = SentimentIntensityAnalyzer()
-print(sia.polarity_scores(test))
+print(pos_tag(tokens)) #Prints tag of each sentence
+sia = SentimentIntensityAnalyzer() #Needed instance
+print(sia.polarity_scores(test)) #Test the context of the sentence, positve, negative, or neutral
