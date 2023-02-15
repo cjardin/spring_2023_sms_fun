@@ -74,5 +74,24 @@
 		"No way",
 		"Sure"
 	],
+        "what time is it": [
+            "Idk, you tell me!",
+            "Can you not read your phone?",
+      	    "Time for you to hurry up"
+      	],
+      	"where are you": [
+            "In your heart",
+            "I'm not comfortable telling you...",
+            "In your house"
+      	],
+      	"Youre lame": [
+            "So are you",
+            "Then why are you texting me?",
+            "And yet you're here texting me?"
+      	],
+      	"whats up": [
+            "The sky",
+            "Nothing much"
+      	]
     }
 }
