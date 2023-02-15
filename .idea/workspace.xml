@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="Cleaned up stat order so its not just a haphazard mess">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameclass.py" afterDir="false" />
-    </list>
+    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,14 +94,22 @@
       <option name="project" value="LOCAL" />
       <updated>1676428448781</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="attempting to push it on to my personal branch">
+      <created>1676502454685</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676502454685</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed up cellmon class - need to edit for specific cellmons now" />
     <MESSAGE value="added first cellmon, can just spam the shit out of the rest now" />
     <MESSAGE value="Cleaned up stat order so its not just a haphazard mess" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up stat order so its not just a haphazard mess" />
+    <MESSAGE value="attempting to push it on to my personal branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempting to push it on to my personal branch" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
