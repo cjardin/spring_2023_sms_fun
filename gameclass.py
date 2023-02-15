@@ -6,7 +6,7 @@ class Player:
 
 
 class Cellmon:
-
+#test commit on desktop installation
     def __init__(self, level, baseHP=0, baseAttack=0, baseSpAttack=0, baseDefense=0, baseSpDef=0, baseSpeed=0, species ="Cellmon"):
         self.species = species
         self.level = level
