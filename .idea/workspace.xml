@@ -80,13 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676420106144</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cleaned up stat order so its not just a haphazard mess">
+      <created>1676421344380</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676421344380</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed up cellmon class - need to edit for specific cellmons now" />
     <MESSAGE value="added first cellmon, can just spam the shit out of the rest now" />
-    <option name="LAST_COMMIT_MESSAGE" value="added first cellmon, can just spam the shit out of the rest now" />
+    <MESSAGE value="Cleaned up stat order so its not just a haphazard mess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up stat order so its not just a haphazard mess" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
