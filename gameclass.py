@@ -261,7 +261,7 @@ class Fiamelon(Cellmon):
         self.baseDefense = baseDefense
         self.baseSpDef = baseSpDef
 class Armordillo(Cellmon):
-    def __init__(self, level, baseHP=3, baseAttack=4, baseSpAttack=5, baseDefense=2, baseSpDef=6, baseSpeed=4, species = "Fiamelon"):
+    def __init__(self, level, baseHP=3, baseAttack=4, baseSpAttack=5, baseDefense=2, baseSpDef=6, baseSpeed=4, species = "Armordillo"):
         self.species = species
         self.level = level
         self.maxHP = baseHP * level
