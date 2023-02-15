@@ -20,26 +20,33 @@ CORPUS = {}
 with open('chatbot_corpus.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
+def fetch_history(from_number):
+    act = None
+    #Check if phone number has saved history
+    if exists( f"users/{from_number}.pkl") :
+        with open(f"users/{from_number}.pkl", 'rb') as p:
+            act = pickle.load(p)
+    else:
+        #If no history, start recording
+        act= actor(from_number)
+    return act
+
 def handle_request():
-    logger.debug(request.form)
+    # logger.debug(request.form)
 
     # Refresh JSON for every request
     with open('chatbot_corpus.json', 'r') as myfile:
         CORPUS = json.loads(myfile.read())
 
-    #Check if phone number has saved history
-    act = None
-    if exists( f"users/{request.form['From']}.pkl") :
-        with open(f"users/{request.form['From']}.pkl", 'rb') as p:
-            act = pickle.load(p)
-    else:
-        #If no history, start recording
-        act= actor(request.form['From'])
+    # Fetch conversation history
+    act = fetch_history(request.form['From'])
 
+    #Save incoming message to history
     act.save_msg(request.form['Body'])
 
     logger.debug(act.prev_msgs)
 
+    # Write history to file
     with open(f"users/{request.form['From']}.pkl", 'wb') as p:
         pickle.dump(act,p)
 
