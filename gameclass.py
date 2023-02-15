@@ -1,54 +1,70 @@
 class Player:
-  def __init__(user, name, number, party):
-    user.name = name
-    user.number = number
-    user.party = party[:3]
+    def __init__(user, name, number, party):
+        user.name = name
+        user.number = number
+        user.party = party[:3]
 
 
 class Cellmon:
-    def __init__(Cmon,Cname, HP,  Atck, SpAtck, Def, SpDef, Speed, Exp, level):
-        Cmon.Cname= Cname
-        Cmon.HP = HP
-        Cmon.Atck = Atck
-        Cmon.SpAtck = SpAtck
-        Cmon.Def= Def
-        Cmon.SpDef = SpDef
-        Cmon.Speed = Speed
-        Cmon.Exp= Exp
-        Cmon.level= level
+
+    def __init__(self, level, baseAttack=5, baseDefense=2, baseSpDef=1, baseSpeed=3, baseHP=2, baseSpAttack=4):
+        self.level = level
+        self.maxHP = baseHP*level
+        self.speed = baseSpeed*level
+        self.spDef = baseSpDef*level
+        self.defense = baseDefense*level
+        self.attack = baseAttack*level
+        self.spAttack = baseSpAttack*level
+
+
+        self.baseHP= baseHP
+        self.currentHP=baseHP
+        self.baseAttack=baseAttack
+        self.baseDefense=baseDefense
+        self.baseSpeed=baseSpeed
+        self.baseSpAttack=baseSpAttack
+        self.baseSpDef=baseSpDef
+
+
+
+
+    def level_up(self):
+        print("You've leveled up! ")
+        self.maxHP = self.maxHP + self.baseHP
+        self.attack = self.attack+ self.baseAttack
+        self.defense = self.defense + self.baseDefense
+        self.spAttack = self.spAttack + self.baseSpAttack
+        self.spDef = self.spDef + self.baseSpDef
+        self.speed = self.speed + self.baseSpeed
+        self.level+=1
+        self.printMaxStats()
+
+
+    def printMaxStats(self):
+        print("Level: ", self.level, "\nMaximum HP: ", self.maxHP, "\nAttack: ",self.attack,"\nDefense: ",self.defense, "\nSpAttack: ", self.spAttack)
+        print("SpDef: ",self.spDef,"\nSpeed: ",self.speed)
+
+class Aichu(Cellmon):
+    baseHP = 10
+    baseAtck = 3
+    baseSpAtck = 4
+    baseDef = 3
+    baseSpDef = 3
+    baseSpeed = 3
+
+
+
 
 class Location:
     def __init__(Area, Aname, mobs):
-        Area.Aname= Aname
-        Area.mobs= mobs[:4]
+        Area.Aname = Aname
+        Area.mobs = mobs[:4]
 
-def Cellmon_info(C):
-    print("Name: "+ C.Cname )
-    print("Level: "+ str(C.level))
-    print("HP: "+ str(C.HP))
-    print("Attack: "+ str(C.Atck))
-    print("Defense: "+ str(C.Def))
-    print("Special Attack: "+ str(C.SpAtck))
-    print("Special Defense: "+ str(C.SpDef))
-    print("Speed: "+ str(C.Speed))
-    print("Exp: "+ str(C.Exp))
-    
-C1 = Cellmon("Aichu", 10, 3, 6, 2, 3, 5,0,1)
-C2 = Cellmon("Terrasaur",12,7,2,4,2,4,0,1)
-C3= Cellmon("Verizard",10,4,5,5,5,7,0,1)
-C4= Cellmon("Gekkip",9,6,7,3,3,5,0,1)
 
-L1= Location("Lake", [C2,C3,C4])
 
-p1 = Player("Elijah","8585278481", [C1] )
 
-print(p1.name)
-print(p1.number)
-Cellmon_info(p1.party[0])
-C4.level= C4.level+1
-print(C4.level)
-for i in range(0, len(L1.mobs)):
-    print(L1.mobs[i].Cname)
-
+cellmon =  Cellmon(1)
+cellmon.printMaxStats()
+cellmon.level_up()
 
 
