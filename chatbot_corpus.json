@@ -1,28 +1,46 @@
 {
-    "input": {
-        "hello": [
-            "Nice to meet you, where you been?"
-        ],
-        "what???": [
-            "I could show you incredible things"
-        ],
-        "what can you talk about?": [
-            "Magic, madness, heaven, sin"
-        ],
-        "what did you see?": [
-            "Saw you there, and I thought"
-        ],
-        "beautiful": [
-            "Oh my God, look at that face"
-        ],
-        "scared": [
-            "You look like my next mistake"
-        ],
-        "love": [
-            "Love's a game, wanna play?"
-        ],
-        "ayyy": [
-            "Ayy"
-        ]
-    }
+  "input": {
+    "hello": [
+      "Nice to meet you, where you been?"
+    ],
+    "what???": [
+      "I could show you incredible things"
+    ],
+    "what can you talk about?": [
+      "Magic, madness, heaven, sin"
+    ],
+    "what did you see?": [
+      "Saw you there, and I thought"
+    ],
+    "beautiful": [
+      "Oh my God, look at that face"
+    ],
+    "scared": [
+      "You look like my next mistake"
+    ],
+    "love": [
+      "Love's a game, wanna play?"
+    ],
+    "ayyy": [
+      "Ayy"
+    ],
+    "forever": [
+      "It's gonna be forever, or it's gonna go down in flames."
+    ],
+    "your ex": [
+      "Got a long list of ex-lovers"
+    ],
+    "not true": [
+      "Sorry, I can't see facts through all my fury"
+    ],
+    "changed my mind": [
+      "People are people and sometimes we change our mind"
+    ],
+    "messed up": [
+      "Today is never too late to be brand new"
+    ],
+    "sounds fun": [
+      "Babe, don't threaten me with a good time"
+    ]
+  }
 }
