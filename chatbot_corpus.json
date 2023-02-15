@@ -61,6 +61,18 @@
             "Me?!?",
             "Stop, you're making me blush!",
             "You couldn't pick something other than me?"  
-      ]
+        ],
+	"feeling": [
+		"I'm having the best day of my life",
+		"I'm indifferent",
+		"Let's not talk about how I feel",
+		"I should be asking how you feel"
+	],
+	"?" : [
+		"Are you really asking me that?"
+		"How could I possibly know?"
+		"No way"
+		"Sure"
+	],
     }
 }
