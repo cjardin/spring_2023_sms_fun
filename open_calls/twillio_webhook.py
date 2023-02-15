@@ -59,8 +59,16 @@ def handle_request():
     else:
         try:
             #TODO we need to generate response on a unique input
+            
+            #TODO Identify conversation state / topic
+
+            #TODO Problem space reduction 
+            
             blob = TextBlob(sent_input)
             response = "I haven't heard of " + blob.noun_phrases[0] + ", who's in it?"
+            
+            #TODO Contextual response generation 
+            
             CORPUS['input'][sent_input] = [response]
             with open('chatbot_corpus.json', 'w') as myfile:
                 myfile.write(json.dumps(CORPUS, indent=4 ))
