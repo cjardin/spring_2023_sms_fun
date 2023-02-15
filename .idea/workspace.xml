@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="">
+    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="added first cellmon, can just spam the shit out of the rest now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameclass.py" afterDir="false" />
     </list>
@@ -66,7 +66,20 @@
       <option name="presentableId" value="Default" />
       <updated>1675729366445</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixed up cellmon class - need to edit for specific cellmons now">
+      <created>1676419226635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676419226635</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed up cellmon class - need to edit for specific cellmons now" />
+    <MESSAGE value="added first cellmon, can just spam the shit out of the rest now" />
+    <option name="LAST_COMMIT_MESSAGE" value="added first cellmon, can just spam the shit out of the rest now" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
