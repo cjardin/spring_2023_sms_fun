@@ -1,7 +1,11 @@
 {
   "input": {
     "hello": [
-      "Nice to meet you, where you been?"
+      "Nice to meet you, where you been?",
+      "Hello! how are you?", 
+      "Hello!",
+      "Fantastic, it is great to see you",
+      "Roy told me you were coming" 
     ],
     "what???": [
       "I could show you incredible things"
