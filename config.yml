@@ -1,10 +1,6 @@
 secrets:
         secret_name : "twillio_creds"
         region_name : "us-west-1"
-college:
-        name: "WhatsAMatterU"
-chatbot:
-        name: "Bianca Del Rio"
 twillio:
         phone_number: "+18587275787"
 
