@@ -29,14 +29,12 @@ def handle_request():
             actor = pickle.load(p)
     else:
         act = actor(request.form['From'])
-
     act.save_msg(request.form['Body'])
     logger.debug(act.prev_msgs)
-
     with open(f"user/{request.form['Form']}.pkl", 'wb') as p:
         pickle.dump(act,p)
 
-    response = 'NOT FOUND'
+    response = 'response here'
 
     sent_input = str(request.form['Body']).lower()
     if sent_input in CORPUS['input']:

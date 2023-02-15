@@ -6,4 +6,7 @@ sia = SentimentIntensityAnalyzer()
 
 input_sen = 'I Hate COVID'
 print(input_sen)
-print(sia.polarity_scores('Wow. NLTK IS SICK!'))
+print(sia.polarity_scores(input_sen))
+
+tokens = nltk.word_tokenize(input_sen)
+
