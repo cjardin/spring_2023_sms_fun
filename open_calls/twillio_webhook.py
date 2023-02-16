@@ -46,5 +46,4 @@ def handle_request():
                      from_=yml_configs['twillio']['phone_number'],
                      to=request.form['From'])
     
-    # test
     return json_response( status = "ok" )
