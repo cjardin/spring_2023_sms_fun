@@ -27,7 +27,7 @@ def handle_request():
     act = None
     if os.path.exists(f"users/{request.form['From']}.pkl"):
         with open(f"users/{request.form['From']}.pkl", 'rb') as p:
-            actor = pickle.load(p)
+            act = pickle.load(p)
     else:
         act = actor(request.form['From'])
     act.save_msg(request.form['Body'])
