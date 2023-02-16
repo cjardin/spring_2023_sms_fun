@@ -21,6 +21,7 @@ with open('chatbot_corpus.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
 def handle_request():
+    # user info
     logger.debug(request.form)
 
     # pickling
@@ -35,8 +36,7 @@ def handle_request():
     with open(f"users/{request.form['From']}.pkl", 'wb') as p:
         pickle.dump(act,p)
 
-    response = 'response here'
-
+    # corpus
     sent_input = str(request.form['Body']).lower()
     if sent_input in CORPUS['input']:
         response = random.choice(CORPUS['input'][sent_input])
@@ -45,8 +45,9 @@ def handle_request():
         with open('chatbot_corpus.json', 'w') as myfile:
             myfile.write(json.dumps(CORPUS, indent=4 ))
 
+    # response back
+    response = 'response here'
     logger.debug(response)
-
     message = g.sms_client.messages.create(
                      body=response,
                      from_=yml_configs['twillio']['phone_number'],
