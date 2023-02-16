@@ -32,7 +32,7 @@ def handle_request():
         act = actor(request.form['From'])
     act.save_msg(request.form['Body'])
     logger.debug(act.prev_msgs)
-    with open(f"user/{request.form['Form']}.pkl", 'wb') as p:
+    with open(f"user/{request.form['From']}.pkl", 'wb') as p:
         pickle.dump(act,p)
 
     response = 'response here'
