@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # server ip
-.starting_server.txt
+starting_server.txt
