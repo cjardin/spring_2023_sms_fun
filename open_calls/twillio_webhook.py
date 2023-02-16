@@ -22,7 +22,8 @@ with open('chatbot_corpus.json', 'r') as myfile:
 
 def handle_request():
     # user info
-    logger.debug(request.form)
+    #logger.debug(request.form)
+    logger.debug(request.form['From'])
 
     # pickling
     act = None
