@@ -1,0 +1,2 @@
+ssh -i keys/cs471.pem ubuntu@52.53.202.162
+./start_server.sh
