@@ -7,8 +7,9 @@ from actors import actor
 
 import random
 import json
-import pickle
-import os
+from pickleing import pickle
+#import pickle
+#import os
 
 yml_configs = {}
 BODY_MSGS = []
@@ -26,16 +27,7 @@ def handle_request():
     logger.debug(request.form['From'])
 
     # pickling
-    act = None
-    if os.path.exists(f"users/{request.form['From']}.pkl"):
-        with open(f"users/{request.form['From']}.pkl", 'rb') as p:
-            act = pickle.load(p)
-    else:
-        act = actor(request.form['From'])
-    act.save_msg(request.form['Body'])
-    logger.debug(act.prev_msgs)
-    with open(f"users/{request.form['From']}.pkl", 'wb') as p:
-        pickle.dump(act,p)
+    pickle(request.form)
 
     # corpus
     sent_input = str(request.form['Body']).lower()
