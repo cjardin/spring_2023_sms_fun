@@ -1,3 +1,4 @@
+#!/home/ubuntu/anaconda3/bin/python3
 from flask import Flask,render_template,request, redirect, url_for, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 import jwt
@@ -24,7 +25,7 @@ app = Flask(__name__)
 #add in flask json
 FlaskJSON(app)
 
-#g is flask for a global var storage 
+#g is flask for a global var storage
 def init_new_env():
     #To connect to DB
     #if 'db' not in g:
