@@ -7,10 +7,20 @@ with open('config.yml', 'r') as yml_file:
     yml_configs = yaml.safe_load(yml_file)
 
 
-def handle_request():
+def send_message(form):
     message = g.sms_client.messages.create(
-                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                     from_=yml_configs['twillio']['phone_number'],
-                     to='+18584423590'
+                     body = '',
+                     from_ = yml_configs['twillio']['phone_number'],
+                     to = form['From'],
                  )
-    return json_response( sid = message.sid )
+    return json_response(sid = message.sid)
+
+def send_picture(form, media_url):
+    message = g.sms_client.messages.create(
+                    from_ = yml_configs['twillio']['phone_number'],
+                    media_url = media_url,
+                    to = form['From'],
+    )
+    return json_response(sid = message.sid)
+
+
