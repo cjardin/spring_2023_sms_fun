@@ -5,6 +5,8 @@ from tools.logging import logger
 import random
 import json
 from pickles import pickling
+from send_test_message import send_message, send_picture
+from os import path
 
 yml_configs = {}
 BODY_MSGS = []
@@ -32,7 +34,10 @@ def handle_request():
         CORPUS['input'][sent_input] = ['DID NOT FIND']
         with open('chatbot_corpus.json', 'w') as myfile:
             myfile.write(json.dumps(CORPUS, indent=4 ))
+    ##########
+    ########## need seperate file w function that takes sent_input and generates and returns a response
 
+    
     # response back
     response = 'response here'
     logger.debug(response)
@@ -40,5 +45,12 @@ def handle_request():
                      body=response,
                      from_=yml_configs['twillio']['phone_number'],
                      to=request.form['From'])
+    
+    # send message
+    send_message(request.form, "Insert Response Here")
+    # send picture
+    picture_name = "catfish-image"
+    send_picture(request.form, picture_name)
+    
     
     return json_response( status = "ok" )
