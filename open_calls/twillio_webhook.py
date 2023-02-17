@@ -1,15 +1,10 @@
 import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
-
 from tools.logging import logger
-from actors import actor
-
 import random
 import json
-from pickleing import pickle
-#import pickle
-#import os
+from pickles import pickling
 
 yml_configs = {}
 BODY_MSGS = []
@@ -17,17 +12,17 @@ with open('config.yml', 'r') as yml_file:
     yml_configs = yaml.safe_load(yml_file)
 
 CORPUS = {}
-
 with open('chatbot_corpus.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
+### Main
 def handle_request():
     # user info
     #logger.debug(request.form)
     logger.debug(request.form['From'])
 
     # pickling
-    pickle(request.form)
+    pickling(request.form)
 
     # corpus
     sent_input = str(request.form['Body']).lower()
