@@ -20,7 +20,7 @@ def send_message(form, body):
 def send_picture(form, picture_name):
     message = g.sms_client.messages.create(
                     from_ = yml_configs['twillio']['phone_number'],
-                    media_url = media_urls[f'{picture_name}'],
+                    media_url = media_urls['images'][f'{picture_name}'],
                     to = form['From'],
     )
     return json_response(sid = message.sid)
