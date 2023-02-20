@@ -4,7 +4,7 @@ class Player:
         user.number = number
         user.party = party[:3]
 
-#TEST COMMIT Lol
+
 class Cellmon:
 #test commit on desktop installation
 #please dear god work
