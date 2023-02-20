@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="attempting to push it on to my personal branch">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot_corpus.json" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot_corpus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_con.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_con.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameclass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_body.txt" beforeDir="false" afterPath="$PROJECT_DIR$/my_body.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_calls/hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_calls/hello.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_calls/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_calls/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_calls/send_test_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_calls/send_test_message.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/open_calls/twillio_webhook.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_calls/twillio_webhook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_server.txt" beforeDir="false" afterPath="$PROJECT_DIR$/open_server.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secure_calls/get_books.py" beforeDir="false" afterPath="$PROJECT_DIR$/secure_calls/get_books.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cis444.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/cis444.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/get_aws_secrets.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/get_aws_secrets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/get_twillio_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/get_twillio_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/token_required.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/token_required.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/token_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/token_tools.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +25,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
-  }
-}</component>
-  <component name="RunManager" selected="Python.Cellmon">
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Python.gameclass">
     <configuration name="Cellmon" type="PythonConfigurationType" factoryName="Python">
       <module name="Cellmon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,9 +56,6 @@
     <configuration name="gameclass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="C:\Users\denni\OneDrive\Documents\GitHub\Cellmon\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
