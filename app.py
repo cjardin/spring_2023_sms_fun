@@ -1,3 +1,4 @@
+#!/home/ubuntu/anaconda3/bin/python3
 from flask import Flask, redirect, g, make_response
 
 import traceback
