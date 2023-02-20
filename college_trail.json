@@ -1,33 +1,33 @@
 {
 	"init" : {
-			"content": "Hi and you suck!",
+			"content": "Hello there....",
 			"next_state": "choose"
 		},
 	"choose" : {
-			"content" : "choose your fate.. Type CS or LS",
+			"content" : "choose your reaction.. Type 1A or 1B",
 			"next_state" : [
 					 { 
-						 "input" : "CS",
-						 "next_state" : "start_cs",
+						 "input" : "1A",
+						 "next_state" : "path_1A",
 						 "point_delta" : 1
 					},
 					{
-                                                 "input" : "LS",
-                                                 "next_state" : "start_ls",
+                                                 "input" : "1B",
+                                                 "next_state" : "path_1B",
 						 "point_delta" : -1
                                         }
 				]
 		},
-	"start_cs" : {
-				"content" : "You win",
+	"path_1A" : {
+				"content" : "Why Hello! ",
 				"next_state" : "end"
 		},
-	"start_ls" : {
-				"content": "Wrong choice",
+	"path_1B" : {
+				"content": "WTF",
 				"next_state": "choose"
 		},
 	"end"  : {
-			"content" : "done"
+			"content" : "byeeee"
 		}
 
 }
