@@ -42,4 +42,6 @@ Harry: Wait
 Harry: why don’t we get to know each other more? 
 
 You: why?
+
+You: Because I can
 .....
