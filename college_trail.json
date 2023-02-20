@@ -1,0 +1,33 @@
+{
+	"init" : {
+			"content": "Hi and you suck!",
+			"next_state": "choose"
+		},
+	"choose" : {
+			"content" : "choose your fate.. Type CS or LS",
+			"next_state" : [
+					 { 
+						 "input" : "CS",
+						 "next_state" : "start_cs",
+						 "point_delta" : 1
+					},
+					{
+                                                 "input" : "LS",
+                                                 "next_state" : "start_ls",
+						 "point_delta" : -1
+                                        }
+				]
+		},
+	"start_cs" : {
+				"content" : "You win",
+				"next_state" : "end"
+		},
+	"start_ls" : {
+				"content": "Wrong choice",
+				"next_state": "choose"
+		},
+	"end"  : {
+			"content" : "done"
+		}
+
+}
