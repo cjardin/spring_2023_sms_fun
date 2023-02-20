@@ -1,0 +1,3 @@
+This file intentionally left empty. (Well, except for this notice).
+
+This file normally contains user data, all of which should be ignored by Git. Git's index only tracks files, it cannot track empty directories. Having this file here keeps you from having to clone the directory every time you clone the repository.
