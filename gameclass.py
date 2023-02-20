@@ -1,8 +1,9 @@
 class Player:
-    def __init__(user, name, number, party):
+    def __init__(user, name, number, party,partynum):
         user.name = name
         user.number = number
         user.party = party[:3]
+        user.partynum= partynum
 
 
 class Cellmon:
