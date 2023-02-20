@@ -286,10 +286,10 @@ class Location:
         Area.mobs = mobs[:4]
 
 
-cellmon = Cellmon(1)
-cellmon.printMaxStats()
-cellmon.level_up()
+#cellmon = Cellmon(1)
+#cellmon.printMaxStats()
+#cellmon.level_up()
 
-pikablu = Aichu(1)
-pikablu.printMaxStats()
-pikablu.level_up()
+#pikablu = Aichu(1)
+#pikablu.printMaxStats()
+#pikablu.level_up()
