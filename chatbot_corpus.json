@@ -1,36 +1,44 @@
 {
     "input": {
         "hello": [
-            "piss off",
-            "party",
-            "slay"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "party": [
-            "\u2764\ufe0f"
+            "Oh, didn't realize you were invited",
+            "Do we have a party coming up?"
         ],
         "h": [
-            "DID NOT FIND"
+            ".... Gonna need some more to go on, ma dude"
         ],
         "aaaaaaaaaaaaaaaaaaa": [
-            "DID NOT FIND"
+            "Oh frick, do you need some assitance??"
         ],
         "\\": [
-            "DID NOT FIND"
+            "Sorry, I am not a bot. I don't read terminal"
         ],
         "l": [
-            "DID NOT FIND"
+            ".... Gonna need some more to go on, ma dude"
         ],
         "hi": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "pogchamp": [
-            "DID NOT FIND"
+            "Pog?",
+            "Poggers?"
         ],
         "heyo": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",            
+		"Hey! How can I assit you?"
         ],
         "yo": [
-            "DID NOT FIND"
+            "Sup",
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "testing first": [
             "DID NOT FIND"
@@ -42,7 +50,48 @@
             "DID NOT FIND"
         ],
         "your favorite": [
-            "DID NOT FIND"
-        ]
+            "Obviously you, you kinda give meaning to my job."
+        ],
+        "idk": [
+            "Wow, you sure know a lot!",
+            "That's the best answer I've heard all day!",
+            "Hold on, I need a sec to process that good of an answer"
+        ],
+        "you": [
+            "Me?!?",
+            "Stop, you're making me blush!",
+            "You couldn't pick something other than me?"  
+        ],
+	"feeling": [
+		"I'm having the best day of my life",
+		"I'm indifferent",
+		"Let's not talk about how I feel",
+		"I should be asking how you feel"
+	],
+	"?" : [
+		"Are you really asking me that?",
+		"How could I possibly know?",
+		"No way",
+		"Sure"
+	],
+        "what time is it": [
+            "Idk, you tell me!",
+            "Can you not read your phone?",
+      	    "Time for you to hurry up"
+      	],
+      	"where are you": [
+            "In your heart",
+            "I'm not comfortable telling you...",
+            "In your house"
+      	],
+      	"Youre lame": [
+            "So are you",
+            "Then why are you texting me?",
+            "And yet you're here texting me?"
+      	],
+      	"whats up": [
+            "The sky",
+            "Nothing much"
+      	]
     }
 }
