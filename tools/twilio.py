@@ -11,6 +11,6 @@ sms_client = None
 def get_sms_client():
     global sms_client
 
-    sms_client = client = Client(g.secrets['twilio_account'], g.secrets['twilio_token'])
+    sms_client = client = Client(g.secrets['twiio_account'], g.secrets['twiio_token'])
 
     return sms_client

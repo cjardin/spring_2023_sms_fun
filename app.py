@@ -3,11 +3,11 @@ from flask import Flask, redirect, g, make_response
 
 import traceback
 
-from tools.get_aws_secrets import get_secrets
-from tools.get_twillio_client import get_sms_client
+from tools.secrets import get_secrets
+from tools.twilio import get_sms_client
 
 from tools.logging import logger
-from bin.twillio_webhook import handle_request
+from bin.twilio_webhook import handle_request
 
 #Create our app
 app = Flask(__name__)
