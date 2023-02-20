@@ -1,5 +1,5 @@
 secrets:
-        secret_name : "twillio_creds"
+        secret_name : "twilio_creds"
         region_name : "us-west-1"
 chatbot:
         name: "Sarcasm Bot"
