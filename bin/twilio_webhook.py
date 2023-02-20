@@ -1,12 +1,9 @@
 import yaml
 from flask import request, g
-from flask_json import FlaskJSON, JsonError, json_response, as_json
 from os.path import exists
 
-
 from tools.logging import logger
-from things.actors import actor
-
+from classes.actors import actor
 
 import random
 import json
@@ -29,13 +26,13 @@ def handle_request():
     act = None
     if exists( f"users/{request.form['From']}.pkl") :
         with open(f"users/{request.form['From']}.pkl", 'rb') as p:
-            act = pickle.load(p) 
+            act = pickle.load(p)
     else:
         act= actor(request.form['From'])
 
     act.save_msg(request.form['Body'])
     logger.debug(act.prev_msgs)
-    
+
 
     with open(f"users/{request.form['From']}.pkl", 'wb') as p:
         pickle.dump(act,p)
@@ -52,11 +49,12 @@ def handle_request():
 
     logger.debug(response)
 
-    message = g.sms_client.messages.create(
-                     body=response,
-                     from_=yml_configs['twillio']['phone_number'],
-                     to=request.form['From'])
-    return json_response( status = "ok" )
+    g.sms_client.messages.create(
+        body=response,
+        from_=yml_configs['twillio']['phone_number'],
+        to=request.form['From'])
+
+    return "OK", 200
 
 
 
