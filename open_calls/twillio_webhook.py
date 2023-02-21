@@ -20,14 +20,12 @@ def handle_request():
     # pickling from pickles.py
     pickling(request.form)
 
-    # corpus
-    # processing incoming message from processing_message.py
+    ### processing incoming message from processing_message.py w corpus
     sent_input = str(request.form['Body']).lower()
-    process_message(sent_input) # this should be = response aka `response = process_message(sent_input)`
+    test_response = process_message(sent_input) # this should be response aka `response = process_message(sent_input)`
+    logger.debug(test_response)
 
-
-    
-    # response back
+    ### response back
     response = "Insert Response Here"
     logger.debug(response)
     # sending back message from send_message_back.py
