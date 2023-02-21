@@ -22,11 +22,9 @@ def handle_request():
 
     ### processing incoming message from processing_message.py w corpus
     sent_input = str(request.form['Body']).lower()
-    test_response = process_message(sent_input) # this should be response aka `response = process_message(sent_input)`
-    logger.debug(test_response)
+    response = process_message(sent_input)
 
     ### response back
-    response = "Insert Response Here"
     logger.debug(response)
     # sending back message from send_message_back.py
     # send message 
