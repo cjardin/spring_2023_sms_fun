@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="attempting to push it on to my personal branch">
+    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="Main game push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameclass.py" afterDir="false" />
     </list>
