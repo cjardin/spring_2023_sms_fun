@@ -1,25 +1,35 @@
 {
     "input": {
         "hello": [
-            "piss off",
-            "party",
-            "slay"
+            "hey how are you",
+	    "heeeey 😘",
+	    "hello again how are you",
         ],
+	"how are you": [
+	    "im feelin good how are you"
+	],
+	"wyd": [
+	    "hmm nothing why",
+	    "nothing why you wanna do something?"
+	],
+	"whats up": [
+	    "nothing much wbu"
+	],	
         "party": [
-            "\u2764\ufe0f"
+            "hell yea 🥳"
         ],
         "h": [
             "DID NOT FIND"
         ],
         "aaaaaaaaaaaaaaaaaaa": [
-            "DID NOT FIND"
+            "chill"
         ],
         "\\": [
             "DID NOT FIND"
         ],
         "hi": [
             "heeeeeeey, how are you? :)",
-            "oh hey what're you up to"
+            "oh hey what're you doin 👀"
         ]
     }
 }
