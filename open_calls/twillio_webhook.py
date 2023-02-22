@@ -16,7 +16,7 @@ import random
 import json
 
 CORPUS = {}
-//TEST COMMENT PCOMTI
+
 with open('chatbot_corpus.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
