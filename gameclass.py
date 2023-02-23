@@ -46,6 +46,25 @@ class Cellmon:
               self.defense, "\nSpAttack: ", self.spAttack)
         print("SpDef: ", self.spDef, "\nSpeed: ", self.speed)
 
+    def doPhysAttack(self):
+        damage = self.attack
+        print(self.species, " attacked for ", damage , " damage!")
+        ID = 0
+        return damage
+
+
+    def doSpecialAttack(self):
+        damage = self.SpecialAttack()
+        ID = 1
+        return damage
+
+    def takePhysDamage(self, damage):
+        damageCalc = (int)(self.defense*.100 * damage)
+        self.currentHP = (self.currentHP - damageCalc)
+        print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
+
+    def printCurrentHP(self):
+        print(self.currentHP)
 
 class Aichu(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=3, baseSpAttack=3, baseDefense=3, baseSpDef=3, baseSpeed=3,
@@ -320,10 +339,12 @@ class Location:
         Area.mobs = mobs[:4]
 
 
-cellmon = Cellmon(1)
-cellmon.printMaxStats()
-cellmon.level_up()
 
 pikablu = Aichu(2)
 pikablu.printMaxStats()
-pikablu.level_up()
+
+
+enemy = Doomosaur(2)
+enemy.printMaxStats()
+enemy.takePhysDamage(pikablu.doPhysAttack())
+
