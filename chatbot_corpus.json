@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "input": {
         "hello": [
             "piss off",
@@ -49,3 +50,96 @@
         ]
     }
 }
+=======
+
+
+    "trigger words" : [
+	"trump" ,
+	"heels"
+    ],
+    "Part Starter" : {
+	    "SWEET" : [
+		    "HAAAY!!!!" ,
+		    "Party!",
+		    "Yes you just brought the party"
+	    ],
+	    "MEDIUM" : [
+		    "Well Hello!",
+		    "I am trying to be nice!" ,
+		    "Bye! Party!"
+		],
+	    "SALTY" : [
+		    "Oooh.. No!",
+		    "I am in a SALTY mood, watch out!",
+		    "I don't care!"
+    	    ]
+    },
+    "input":{
+	    "NN":{
+	    	"SWEET": [ "Don't be a drag. Just be a queen."],
+		"MEDIUM": ["If you wanna do like memorable drag next week I can give you some tips."],
+		"SALTY" : ["Impersonating Beyoncè is not your destiny, child."]
+	    },
+	    "JJ VBG": {
+                "SWEET": ["I feel like you’re being sabotaged by your inner saboteur."],
+                "MEDIUM": ["You went too fast. I thought you were running from the cops. You’ve probably run from the cops, haven’t you Vanjie?"],
+                "SALTY" : ["Your tone seems very pointed right now."]
+            }
+    },
+    "misc corpus" :[
+    "I feel like I am a drag queen.",
+    "I quite love sequins; I think it’s the drag queen in me.",
+    "Don’t be a drag. Just be a queen.",
+    "There are easier things in life than being a drag queen. But I ain't got no choice. Try as I may, I just can't walk in flats.",
+    "[Drag is] very political, it's very punk rock. It's very radical.",
+    "Drag queen is gender like no other, and with practice, I'd learned to rise to it.",
+    "There is no original or primary gender a drag imitates, but gender is a kind of imitation for which there is no original.",
+    "That is the key to navigating this life—don’t take it too seriously. That’s when the party begins",
+    "Negativity is basically laziness. It takes a lot of hard work to remain positive, but positivity always pays off.",
+    "When you become the image of your own imagination, it’s the most powerful thing you could ever do.",
+    "When the going gets tough, the tough reinvent.",
+    "The only thing wrong with me was that I thought there was something wrong with me.",
+    "I'm not going to panic because I don't do that anymore. It's going to be okay.",
+    "I want people to realize it's OK to make mistakes, it's OK to fall down. Get up, look sickening, and make them eat it!",
+    "Is Beyoncé scared of Britney? Then Bob ain't scared of Derrick.",
+    "If you wanna do like memorable drag next week I can give you some tips.",
+    "You may not get the role you auditioned for, but make a lasting impression and they'll remember you for something else later.",
+    "Drag is dangerous. Drag is not politically correct, I know people say, ‘Oh, you mainstreamed it,' drag will never be mainstream....the deeper level of drag is all about you're born naked, and the rest is a drag.",
+    "To win at life and to win in this competition, you have to be willing to die a thousand deaths and be reborn a thousand times.",
+    "Success is something between you and yourself. I think only you know where you’ve come from and how far you wanna go.",
+    "It’s true in everything, not just in drag: To be a success, you have to understand the landscape. You have to know thyself, and you have to know your history so that you can draw from people who have figured out the equation you are faced with. It’s not rocket science.",
+    "Sure, my childhood was unusual. All these eccentric, wild people frequented our home: rock stars, drag queens, models, bikers, freaks. But I was not this little rich girl. My mom and I lived in an apartment.",
+    "I wasn't playing a drag queen – I was playing an extraordinary performer.",
+    "Don’t get bitter, just get better.",
+    "I feel like you’re being sabotaged by your inner saboteur.",
+    "Impersonating Beyoncè is not your destiny, child.",
+    "It looks like she went into Claire’s Boutique, fell on a sale rack, and said, ‘I’ll take it!'",
+    "She was the one backstabbing me behind my back.",
+    "Go back to Party City, where you belong!",
+    "You’re perfect, you’re beautiful, you look like Eva Evangelista, you’re a model…",
+    "The shade, the shade of it all.",
+    "Miss Vanjie…Miss Vanjie...Miss Vanjie..",
+    "No T, no shade, no pink lemonade.",
+    "Water off a Duck's Back.",
+    "Look how orange you look, girl!",
+    "Because I am what? Sickening!",
+    "The sun turns vampires into dust and drags queens into this.",
+    "It's a good thing I was born a girl, otherwise, I'd be a drag queen.",
+    "It takes all kinds to make the world go 'round. If everyone was straight-laced and uptight, it would sure be a drag. We need a little tug of war in society.",
+    "Drag a $100 bill through a trailer camp and there's no telling what you will find.",
+    "When you become the image of your own imagination, it’s the most powerful thing you could ever do.",
+    "The overall commentary on what I’m doing is saying, ‘Hey look! I get to create whatever persona I want to, and it’s all up to me.’",
+    "The world is your catwalk, so just remember this when you're out there.",
+    "Walk into the room purse first.",
+    "I kind of have this mentality that says, ‘everything will work out in the end. And if it’s not working out, it’s not the end.’",
+    "Sell your character because before you sell it, you’re gonna have to buy it yourself.",
+    "...the truth is, we are all basically the universe—pretending to be humans for a brief moment of time.’",
+    "Now some people might think it doesn’t require a lot of work to look flawless on the runway. Well, think again.",
+    "You went too fast. I thought you were running from the cops. You’ve probably run from the cops, haven’t you Vanjie?",
+    "Your tone seems very pointed right now.",
+    "Because I am what? sickening.",
+    "I find it amazing you have eleven brothers and sisters and no one loved you enough to tell you not to wear those shoes on national TV.",
+    "What it says on your driver’s license isn’t really who you are—you are something much greater than that."
+    ]
+}
+>>>>>>> 84b577423a864d22221347706a754df06cc77018
