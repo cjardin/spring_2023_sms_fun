@@ -344,6 +344,28 @@ class Armordillo(Cellmon):
         self.baseSpeed = baseSpeed
 
 
+class Jarceus(Cellmon):
+    def __init__(self, level, baseHP=5, baseAttack=3, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
+                 starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
+                 species="Jarceus"):
+        self.maxHP = starterHP + (baseHP * level)
+        self.attack = starterAttack + (baseAttack * level)
+        self.spAttack = starterSpAttack + (baseSpAttack * level)
+        self.defense = starterDef + (baseDefense * level)
+        self.spDef = starterSpDef + (baseSpDef * level)
+        self.speed = starterSpeed + (baseSpeed * level)
+        self.species = species
+        self.level = level
+
+        self.baseHP = baseHP
+        self.currentHP = self.maxHP
+        self.baseAttack = baseAttack
+        self.baseSpAttack = baseSpAttack
+        self.baseDefense = baseDefense
+        self.baseSpDef = baseSpDef
+        self.baseSpeed = baseSpeed
+
+
 class Location:
     def __init__(self, Aname, mobs):
         self.Aname = Aname
