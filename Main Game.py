@@ -1,4 +1,4 @@
-import gameclass.py
+import gameclass
 
 def Cellsearch():
  searching=True

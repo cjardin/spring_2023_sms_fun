@@ -1,9 +1,9 @@
+import random
 class Player:
-    def __init__(user, name, number, party, partynum):
+    def __init__(user, name, number, party):
         user.name = name
         user.number = number
-        user.party = party[:3]
-        user.partynum = partynum
+        user.party = party[:2]
 
 
 class Cellmon:
@@ -29,6 +29,17 @@ class Cellmon:
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
+    def Cellcapture(self):
+        new = Cellmon(1)
+        new.species = self.species
+        new.level = self.level
+        new.attack = self.attack
+        new.spAttack = self.spAttack
+        new.maxHP = self.maxHP
+        new.defense = self.defense
+        new.spDef = self.spDef
+        new.speed = self.speed
+        return new
     def level_up(self):
         print("You've leveled up! ")
         self.maxHP = self.maxHP + self.baseHP
@@ -334,17 +345,36 @@ class Armordillo(Cellmon):
 
 
 class Location:
-    def __init__(Area, Aname, mobs):
-        Area.Aname = Aname
-        Area.mobs = mobs[:4]
+    def __init__(self, Aname, mobs):
+        self.Aname = Aname
+        self.mobs = mobs[:4]
+
+    def encounter(self):
+        for x in range(1):
+            randNum = random.randrange(1, 101)
+            if 1 <= randNum <= 30:
+                print(self.mobs[0].species)
+            elif 31 <= randNum <= 60:
+                print(self.mobs[1].species)
+            elif 61 <= randNum <= 90:
+                print(self.mobs[2].species)
+            else:
+                print(self.mobs[3].species)
 
 
 
-pikablu = Aichu(2)
-pikablu.printMaxStats()
 
 
-enemy = Doomosaur(2)
-enemy.printMaxStats()
-enemy.takePhysDamage(pikablu.doPhysAttack())
+A1=Armordillo(2)
+A2=Aichu(1)
+A3=Verizard(1)
+A4=Gekkip(1)
+
+L1=Location("fields",[A1,A2,A3,A4])
+
+NewUser=Player("Elijah","8585278481",[])
+L1.encounter()
+
+NewUser.party.insert(0,A1.Cellcapture())
+print(NewUser.party[0].level)
 
