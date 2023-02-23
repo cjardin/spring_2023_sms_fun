@@ -55,6 +55,8 @@ class ChatBot:
     def run(self, in_msg: str) -> str:
         """Executes the chatbot for one input message. Returns our reply."""
 
+        in_msg = in_msg.lower()
+
         # TEMPORARY: This is Prof. Jardin's drag queen bot logic,
         # tweaked to use this class's methods.
         #
