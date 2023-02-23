@@ -1,0 +1,7 @@
+Check out changes to chat_corpus.json
+misc corpus is the random responses, check chat.py in things directory, uses nltk and sentiment anaylsis
+Can't seem to get a specific response from input at the moment only random responses from misc corpus
+responses are very random, they don't actually respond to what you texted specfically ex.) how are you --> chatbot responds with Will marry you for green ca>
+As of now everything is synced up with our professors code, with the exeception of sentiment analysis, compare professors chat corpus with ours to see. 
+Testing sentiment analysis didn't seem to show anything on our professor directory. It still only provided responses from misc corpus
+
