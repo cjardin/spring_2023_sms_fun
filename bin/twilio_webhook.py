@@ -1,61 +1,21 @@
-import yaml
-from flask import request, g
-from os.path import exists
+from flask import request, g#ravity?
 
 from tools.logging import logger
-from classes.actors import actor
-
-import random
-import json
-import pickle
-
-yml_configs = {}
-BODY_MSGS = []
-with open('config.yml', 'r') as yml_file:
-    yml_configs = yaml.safe_load(yml_file)
-
-CORPUS = {}
-
-with open('chatbot_corpus.json', 'r') as myfile:
-    CORPUS = json.loads(myfile.read())
-
+from classes.user_state import ChatBot
+from tools.config import yml_configs
 
 def handle_request():
     logger.debug(request.form)
 
-    act = None
-    if exists( f"users/{request.form['From']}.pkl") :
-        with open(f"users/{request.form['From']}.pkl", 'rb') as p:
-            act = pickle.load(p)
-    else:
-        act= actor(request.form['From'])
+    phone_num = request.form['From']
 
-    act.save_msg(request.form['Body'])
-    logger.debug(act.prev_msgs)
-
-
-    with open(f"users/{request.form['From']}.pkl", 'wb') as p:
-        pickle.dump(act,p)
-
-    response = 'NOT FOUND'
-
-    sent_input = str(request.form['Body']).lower()
-    if sent_input in CORPUS['input']:
-        response = random.choice(CORPUS['input'][sent_input])
-    else:
-        CORPUS['input'][sent_input] = ['DID NOT FIND']
-        with open('chatbot_corpus.json', 'w') as myfile:
-            myfile.write(json.dumps(CORPUS, indent=4 ))
-
-    logger.debug(response)
+    bot = ChatBot(phone_num)
+    out_msg = bot.run(request.form['Body'])
+    logger.debug(out_msg)
 
     g.sms_client.messages.create(
-        body=response,
+        body=out_msg,
         from_=yml_configs['twillio']['phone_number'],
         to=request.form['From'])
 
     return "OK", 200
-
-
-
-

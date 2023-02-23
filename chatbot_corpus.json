@@ -32,8 +32,8 @@
         ],
         "heyo": [
             "Sup",
-            "Sorry, don't really have time atm",            
-		"Hey! How can I assit you?"
+            "Sorry, don't really have time atm",
+            "Hey! How can I assit you?"
         ],
         "yo": [
             "Sup",
@@ -60,38 +60,38 @@
         "you": [
             "Me?!?",
             "Stop, you're making me blush!",
-            "You couldn't pick something other than me?"  
+            "You couldn't pick something other than me?"
         ],
-	"feeling": [
-		"I'm having the best day of my life",
-		"I'm indifferent",
-		"Let's not talk about how I feel",
-		"I should be asking how you feel"
-	],
-	"?" : [
-		"Are you really asking me that?",
-		"How could I possibly know?",
-		"No way",
-		"Sure"
-	],
+        "feeling": [
+            "I'm having the best day of my life",
+            "I'm indifferent",
+            "Let's not talk about how I feel",
+            "I should be asking how you feel"
+        ],
+        "?": [
+            "Are you really asking me that?",
+            "How could I possibly know?",
+            "No way",
+            "Sure"
+        ],
         "what time is it": [
             "Idk, you tell me!",
             "Can you not read your phone?",
-      	    "Time for you to hurry up"
-      	],
-      	"where are you": [
+            "Time for you to hurry up"
+        ],
+        "where are you": [
             "In your heart",
             "I'm not comfortable telling you...",
             "In your house"
-      	],
-      	"Youre lame": [
+        ],
+        "Youre lame": [
             "So are you",
             "Then why are you texting me?",
             "And yet you're here texting me?"
-      	],
-      	"whats up": [
+        ],
+        "whats up": [
             "The sky",
             "Nothing much"
-      	]
+        ]
     }
 }
