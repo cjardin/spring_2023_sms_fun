@@ -5,6 +5,11 @@ from tools.logging import logger
 from pickles import pickling
 from send_message_back import send_message, send_picture
 from processing_message import process_message
+from AI import *
+
+
+chatbot = AI()
+
 
 yml_configs = {}
 BODY_MSGS = []
@@ -23,7 +28,8 @@ def handle_request():
     ### processing incoming message from processing_message.py w corpus
     sent_input = str(request.form['Body']).lower()
     response = process_message(sent_input)
-
+    chatbot.clientInput("tu mama")
+    
     ### response back
     logger.debug(response)
     # sending back message from send_message_back.py
