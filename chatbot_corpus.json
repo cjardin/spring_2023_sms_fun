@@ -1,5 +1,5 @@
 {
-    "input": {
+	"input": {
 		"hello": {
 			"Mad": [
 				"why have you been so mean recently",
@@ -85,5 +85,5 @@
 				"what kinda fight"
 			]
 		}
-    }
+	}
 }
