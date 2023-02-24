@@ -1,35 +1,76 @@
 {
     "input": {
         "hello": [
-            "hey how are you",
-	    "heeeey 😘",
-	    "hello again how are you",
+	    "Mad": [
+	 	"why have you been so mean recently",
+	 	"what do you want"
+	],
+            "Happy": [
+		"hey how are you",
+		"heeeey 😘",
+		"hello again how are you",]
         ],
 	"how are you": [
-	    "im feelin good how are you"
+	    "Mad" :[
+		"im a little upset tbh"
+	    ],
+	    "Happy":[ 
+	    	"im feelin good how are you"
+	    ]
 	],
 	"wyd": [
-	    "hmm nothing why",
-	    "nothing why you wanna do something?"
+	    "Mad": [
+		"nothing"
+	    ],
+	    "Happy": [
+	    	"hmm nothing why",
+	    	"nothing why you wanna do something?"
+	    ]
 	],
 	"whats up": [
-	    "nothing much wbu"
+	    "Mad": [
+	    ],
+	    "Happy": [
+		"nothing much wbu"
+	    ]
+	
 	],	
         "party": [
-            "hell yea 🥳"
+	    "Mad": [
+	    ],
+	    "Happy": [
+            	"hell yea 🥳"
+	    ]
         ],
         "h": [
-            "DID NOT FIND"
+	    "Mad": [
+	    ],
+	    "Happy:" [
+            	"DID NOT FIND"
+	    ]
         ],
         "aaaaaaaaaaaaaaaaaaa": [
-            "chill"
+	    "Mad": [
+		"chill"
+	    ],
+	    "Happy:" [
+            	"DID NOT FIND"
+	    ]
         ],
         "\\": [
-            "DID NOT FIND"
+	    "Mad": [
+	    ],
+	    "Happy:" [
+            	"DID NOT FIND"
+	    ]
         ],
         "hi": [
-            "heeeeeeey, how are you? :)",
-            "oh hey what're you doin 👀"
+	    "Mad": [
+	    ],
+	    "Happy": [
+            	"heeeeeeey, how are you? :)",
+            	"oh hey what're you doin 👀"
+	    ]
         ]
     }
 }
