@@ -2,6 +2,7 @@ from os import path
 import pickle
 import random
 import json
+import string
 
 class ChatBot:
     class UserData:
@@ -56,6 +57,7 @@ class ChatBot:
         """Executes the chatbot for one input message. Returns our reply."""
 
         in_msg = in_msg.lower()
+        in_msg = in_msg.translate(str.maketrans('','', string.punctuation)) #removes punctuation to match more in corpus
 
         # TEMPORARY: This is Prof. Jardin's drag queen bot logic,
         # tweaked to use this class's methods.
