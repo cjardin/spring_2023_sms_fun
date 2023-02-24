@@ -4,11 +4,12 @@
 	    "Mad": [
 	 	"why have you been so mean recently",
 	 	"what do you want"
-	],
+	    ],
             "Happy": [
 		"hey how are you",
 		"heeeey 😘",
-		"hello again how are you",]
+		"hello again how are you"
+	    ]
         ],
 	"how are you": [
 	    "Mad" :[
@@ -29,14 +30,16 @@
 	],
 	"whats up": [
 	    "Mad": [
+		"whats up with you"
 	    ],
 	    "Happy": [
-		"nothing much wbu"
+		"not much baby how are you"
 	    ]
 	
 	],	
         "party": [
 	    "Mad": [
+		"nah"
 	    ],
 	    "Happy": [
             	"hell yea 🥳"
@@ -44,9 +47,10 @@
         ],
         "h": [
 	    "Mad": [
+		"wtf"
 	    ],
 	    "Happy:" [
-            	"DID NOT FIND"
+		"hi?"
 	    ]
         ],
         "aaaaaaaaaaaaaaaaaaa": [
@@ -59,6 +63,7 @@
         ],
         "\\": [
 	    "Mad": [
+		"wtf"
 	    ],
 	    "Happy:" [
             	"DID NOT FIND"
@@ -66,10 +71,19 @@
         ],
         "hi": [
 	    "Mad": [
+		"what do you want"
 	    ],
 	    "Happy": [
             	"heeeeeeey, how are you? :)",
             	"oh hey what're you doin 👀"
+	    ]
+        ]
+        "fight": [
+	    "Mad": [
+		"leave me alone"
+	    ],
+	    "Happy": [
+		"what kinda fight"
 	    ]
         ]
     }
