@@ -1,7 +1,4 @@
 import nltk
-#nltk.download('vader_lexicon')
-#nltk.download('averaged_perceptron_tagger')
-#nltk.download('punkt')
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 def analyzeSentiment(string):
@@ -12,5 +9,3 @@ def analyzeSentiment(string):
     pos= nltk.pos_tag(nltk.word_tokenize(string))
 
     return string, polarity, pos
-
-print(analyzeSentiment('yummy yummy! I love python in my tummy'))
