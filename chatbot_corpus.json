@@ -1,16 +1,16 @@
 {
     "input": {
-			"hello": {
-				"Mad": [
-					"why have you been so mean recently",
-					"what do you want"
-				],
-				"Happy": [
-					"hey how are you",
-					"heeeey 😘",
-					"hello again how are you"
-				]
-			},
+		"hello": {
+			"Mad": [
+				"why have you been so mean recently",
+				"what do you want"
+			],
+			"Happy": [
+				"hey how are you",
+				"heeeey 😘",
+				"hello again how are you"
+			]
+		},
 		"how are you": {
 			"Mad" :[
 				"im a little upset tbh"
