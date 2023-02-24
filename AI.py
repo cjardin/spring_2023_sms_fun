@@ -4,10 +4,9 @@ from processing_message import *
 
 class AI:
     
-    
     def __init__(self):
         #self.mood = random.choice(['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL'])
-        self.STRESS_LEVEL = 0 #glibal incrementor
+        self.STRESS_LEVEL = 0 #global incrementor
         
     #return whatever mood (strgin the AI is feeling)
     def getMood(self):
