@@ -1,4 +1,10 @@
 import nltk
+
+# leave instructions incase server needs to download
+#nltk.download('vader_lexicon')
+#nltk.download('averaged_perceptron_tagger')
+#nltk.download('punkt')
+
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 def analyzeSentiment(string):
