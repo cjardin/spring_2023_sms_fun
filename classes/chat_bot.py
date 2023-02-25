@@ -1,7 +1,6 @@
-import random
-import json
+from classes.user_data      import UserData
 from classes.processed_text import ProcessedText
-from tools.logging import logger
+from classes.text_generator import init_generators
 
 class ChatBot:
     def __init__(self, phone_number):
@@ -12,13 +11,14 @@ class ChatBot:
 
         self.phone = phone_number
         self.save_path = f"users/{self.phone}.pkl"
-        self.user_data = self.UserData(phone_number)
 
+        self.user_data = UserData(phone_number)
         self.user_data.load(self.save_path)
 
+        self.generators = init_generators(self.user_data)
 
     def __del__(self):
-        """Writes data to disk when this object is freed."""
+        """Destructor; writes data to disk."""
         self.save()
 
     # Utilities
@@ -36,33 +36,17 @@ class ChatBot:
 
         proc_text = ProcessedText(in_msg)
 
-        # TODO: Abstract the corpus better (namely into its own class)
-        # once we know more about how we want it to work, but no point yet.
-        with open('chatbot_corpus.json', 'r') as corpus_in:
-            corpus = json.loads(corpus_in.read())
+        # Choose the text generator that reports the highest rating.
+        best_gen = self.generators[0]
+        best_rating = best_gen.rate(proc_text)
+        for gen in self.generators[1:]:
+            rating = gen.rate(proc_text)
+            if rating > best_rating:
+                best_rating = rating
+                best_gen = gen
 
-        # Try to find a word list in our corpus that matches the user input.
-        # TODO: Should make this a distance algorithm instead.
-        outputs = None
-        for resp in corpus['responses']:
-            if resp['input'] != proc_text.words: continue
-            outputs = resp['outputs']
-            break
-
-        logger.debug(proc_text.words)
-
-        if outputs:
-            return random.choice(outputs)
-        else:
-            # Add the input to the corpus.
-            corpus['responses'].append({
-                "input": proc_text.words,
-                "outputs": ["DID NOT FIND"]
-            })
-            corpus_out = open('chatbot_corpus.json', 'w')
-            corpus_out.write(json.dumps(corpus, indent=4))
-            return "NOT FOUND"
-
+        # Allow the best match to generate our response.
+        return best_gen.respond(proc_text)
 
     def save(self):
         self.user_data.save(self.save_path)

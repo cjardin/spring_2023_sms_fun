@@ -3,7 +3,7 @@ from typing import List
 from classes.processed_text import ProcessedText
 from classes.user_data import UserData
 
-class TextProcessor(Abstract):
+class TextGenerator(Abstract):
     """
     Base class for a text-processing algorithm.
 
@@ -28,9 +28,12 @@ class TextProcessor(Abstract):
         """
         pass
 
-class MatchCorpus(TextProcessor):
-    pass
+# Yes, these imports have to be down here, or else the program
+# will fail due to circular imports.
+from . import match_corpus
 
-def init_processors(user_data: UserData) -> List[TextProcessor]:
+def init_generators(user_data: UserData) -> List[TextGenerator]:
     """Initializes and returns the list of text processors."""
-    return []
+    return [
+        match_corpus.MatchCorpus(user_data)
+    ]
