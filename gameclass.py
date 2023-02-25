@@ -52,30 +52,39 @@ class Cellmon:
         self.printMaxStats()
 
     def printMaxStats(self):
-        print("Species: ", self.species, "\nLevel: ", self.level, "\nMaximum HP: ", self.maxHP, "\nAttack: ",
+        print("Species: ", self.species, "\nLevel: ", self.level, "\nMaximum HP: ", self.maxHP, "\nCurrent HP: ",self.currentHP, "\nAttack: ",
               self.attack, "\nDefense: ",
               self.defense, "\nSpAttack: ", self.spAttack)
         print("SpDef: ", self.spDef, "\nSpeed: ", self.speed)
 
     def doPhysAttack(self):
-        damage = self.attack
+        damage = self.attack +random.randint(-2,2)
         print(self.species, " attacked for ", damage , " damage!")
         ID = 0
         return damage
 
 
     def doSpecialAttack(self):
-        damage = self.SpecialAttack()
+        damage = self.SpecialAttack()+random.randint(-2,2)
         ID = 1
         return damage
 
     def takePhysDamage(self, damage):
-        damageCalc = (int)(self.defense*.100 * damage)
-        self.currentHP = (self.currentHP - damageCalc)
+        damageCalc = (int)(self.defense*.1 * damage)
+        self.currentHP = (self.currentHP - damageCalc )
         print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
+
+
+
+    def takeSpecDamage(self, damage):
+        damageCalc = (int)(self.spDef*.1 * damage)
+        self.currentHP = (self.currentHP - damageCalc )
+        print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
+
 
     def printCurrentHP(self):
         print(self.currentHP)
+
 
 class Aichu(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=3, baseSpAttack=3, baseDefense=3, baseSpDef=3, baseSpeed=3,
@@ -384,3 +393,13 @@ class Location:
                 print(self.mobs[3].species)
 
 
+
+pikablu = Aichu(2)
+pikablu.printMaxStats()
+pikablu.level_up()
+
+
+enemy = Doomosaur(2)
+enemy.printMaxStats()
+enemy.takePhysDamage(pikablu.doPhysAttack())
+enemy.printMaxStats()
