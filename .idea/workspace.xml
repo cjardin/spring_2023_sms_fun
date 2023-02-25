@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="Main game push">
+    <list default="true" id="babd02d1-b429-4537-ae38-3f01d612f639" name="Changes" comment="capture function and encounter randomizer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +29,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Python.gameclass">
+  <component name="RunManager" selected="Python.Main Game">
     <configuration name="Cellmon" type="PythonConfigurationType" factoryName="Python">
       <module name="Cellmon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.gameclass" />
         <item itemvalue="Python.Main Game" />
+        <item itemvalue="Python.gameclass" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676502454685</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="capture function and encounter randomizer">
+      <created>1677193384896</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677193384896</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,7 +170,8 @@
     <MESSAGE value="added first cellmon, can just spam the shit out of the rest now" />
     <MESSAGE value="Cleaned up stat order so its not just a haphazard mess" />
     <MESSAGE value="attempting to push it on to my personal branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempting to push it on to my personal branch" />
+    <MESSAGE value="capture function and encounter randomizer" />
+    <option name="LAST_COMMIT_MESSAGE" value="capture function and encounter randomizer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

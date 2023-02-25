@@ -384,19 +384,3 @@ class Location:
                 print(self.mobs[3].species)
 
 
-
-
-
-A1=Armordillo(2)
-A2=Aichu(1)
-A3=Verizard(1)
-A4=Gekkip(1)
-
-L1=Location("fields",[A1,A2,A3,A4])
-
-NewUser=Player("Elijah","8585278481",[])
-L1.encounter()
-
-NewUser.party.insert(0,A1.Cellcapture())
-print(NewUser.party[0].level)
-
