@@ -2,7 +2,7 @@ from os import path
 import pickle
 import random
 import json
-import string
+from classes.processed_text import ProcessedText
 
 class ChatBot:
     class UserData:
@@ -56,29 +56,33 @@ class ChatBot:
     def run(self, in_msg: str) -> str:
         """Executes the chatbot for one input message. Returns our reply."""
 
-        in_msg = in_msg.lower()
-        in_msg = in_msg.translate(str.maketrans('','', string.punctuation)) #removes punctuation to match more in corpus
-
-        # TEMPORARY: This is Prof. Jardin's drag queen bot logic,
-        # tweaked to use this class's methods.
-        #
-        # Feel free to blow this all away to implement actual logic.
-        # I suggest adding logic for testing for message features here,
-        # and then calling out to other files/functions once we choose
-        # an appropriate routine.
+        proc_text = ProcessedText(in_msg)
 
         # TODO: Abstract the corpus better (namely into its own class)
-        # once we know more about how we want it to work, but no point
-        # yet.
-        with open('chatbot_corpus.json', 'r') as myfile:
-            corpus = json.loads(myfile.read())
+        # once we know more about how we want it to work, but no point yet.
+        with open('chatbot_corpus.json', 'r') as corpus_in:
+            corpus = json.loads(corpus_in.read())
 
-        if in_msg in corpus['input']:
-            return random.choice(corpus['input'][in_msg])
+        # Try to find a word list in our corpus that matches the user input.
+        # TODO: Should make this a distance algorithm instead.
+        outputs = None
+        for resp in corpus['responses']:
+            if resp['input'] != proc_text.words: continue
+            outputs = resp['outputs']
+            break
+
+        print(proc_text.words)
+
+        if outputs:
+            return random.choice(outputs)
         else:
-            corpus['input'][in_msg] = ['DID NOT FIND']
-            with open('chatbot_corpus.json', 'w') as myfile:
-                myfile.write(json.dumps(corpus, indent=4))
+            # Add the input to the corpus.
+            corpus['responses'].append({
+                "input": proc_text.words,
+                "outputs": ["DID NOT FIND"]
+            })
+            corpus_out = open('chatbot_corpus.json', 'w')
+            corpus_out.write(json.dumps(corpus, indent=4))
             return "NOT FOUND"
 
 

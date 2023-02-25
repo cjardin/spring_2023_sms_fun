@@ -1,97 +1,216 @@
 {
-    "input": {
-        "hello": [
-            "Sup",
-            "Sorry, don't really have time atm",
-            "Hey! How can I assit you?"
-        ],
-        "party": [
-            "Oh, didn't realize you were invited",
-            "Do we have a party coming up?"
-        ],
-        "h": [
-            ".... Gonna need some more to go on, ma dude"
-        ],
-        "aaaaaaaaaaaaaaaaaaa": [
-            "Oh frick, do you need some assitance??"
-        ],
-        "\\": [
-            "Sorry, I am not a bot. I don't read terminal"
-        ],
-        "l": [
-            ".... Gonna need some more to go on, ma dude"
-        ],
-        "hi": [
-            "Sup",
-            "Sorry, don't really have time atm",
-            "Hey! How can I assit you?"
-        ],
-        "pogchamp": [
-            "Pog?",
-            "Poggers?"
-        ],
-        "heyo": [
-            "Sup",
-            "Sorry, don't really have time atm",
-            "Hey! How can I assit you?"
-        ],
-        "yo": [
-            "Sup",
-            "Sorry, don't really have time atm",
-            "Hey! How can I assit you?"
-        ],
-        "testing first": [
-            "First of all, don't test my patience."
-        ],
-        "testing second ": [
-            "DID NOT FIND"
-        ],
-        "\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d": [
-            "DID NOT FIND"
-        ],
-        "your favorite": [
-            "Obviously you, you kinda give meaning to my job."
-        ],
-        "idk": [
-            "Wow, you sure know a lot!",
-            "That's the best answer I've heard all day!",
-            "Hold on, I need a sec to process that good of an answer"
-        ],
-        "you": [
-            "Me?!?",
-            "Stop, you're making me blush!",
-            "You couldn't pick something other than me?"
-        ],
-        "feeling": [
-            "I'm having the best day of my life",
-            "I'm indifferent",
-            "Let's not talk about how I feel",
-            "I should be asking how you feel"
-        ],
-        "?": [
-            "Are you really asking me that?",
-            "How could I possibly know?",
-            "No way",
-            "Sure"
-        ],
-        "what time is it": [
-            "Idk, you tell me!",
-            "Can you not read your phone?",
-            "Time for you to hurry up"
-        ],
-        "where are you": [
-            "In your heart",
-            "I'm not comfortable telling you...",
-            "In your house"
-        ],
-        "youre lame": [
-            "So are you",
-            "Then why are you texting me?",
-            "And yet you're here texting me?"
-        ],
-        "whats up": [
-            "The sky",
-            "Nothing much"
-        ]
-    }
+    "responses": [
+        {
+            "input": [
+                "hello"
+            ],
+            "outputs": [
+                "Sup",
+                "Sorry, don't really have time atm",
+                "Hey! How can I assit you?"
+            ]
+        },
+        {
+            "input": [
+                "party"
+            ],
+            "outputs": [
+                "Oh, didn't realize you were invited",
+                "Do we have a party coming up?"
+            ]
+        },
+        {
+            "input": [
+                "h"
+            ],
+            "outputs": [
+                ".... Gonna need some more to go on, ma dude"
+            ]
+        },
+        {
+            "input": [
+                "aaaaaaaaaaaaaaaaaaa"
+            ],
+            "outputs": [
+                "Oh frick, do you need some assitance??"
+            ]
+        },
+        {
+            "input": [
+                "\\"
+            ],
+            "outputs": [
+                "Sorry, I am not a bot. I don't read terminal"
+            ]
+        },
+        {
+            "input": [
+                "l"
+            ],
+            "outputs": [
+                ".... Gonna need some more to go on, ma dude"
+            ]
+        },
+        {
+            "input": [
+                "hi"
+            ],
+            "outputs": [
+                "Sup",
+                "Sorry, don't really have time atm",
+                "Hey! How can I assit you?"
+            ]
+        },
+        {
+            "input": [
+                "pogchamp"
+            ],
+            "outputs": [
+                "Pog?",
+                "Poggers?"
+            ]
+        },
+        {
+            "input": [
+                "heyo"
+            ],
+            "outputs": [
+                "Sup",
+                "Sorry, don't really have time atm",
+                "Hey! How can I assit you?"
+            ]
+        },
+        {
+            "input": [
+                "yo"
+            ],
+            "outputs": [
+                "Sup",
+                "Sorry, don't really have time atm",
+                "Hey! How can I assit you?"
+            ]
+        },
+        {
+            "input": [
+                "testing",
+                "first"
+            ],
+            "outputs": [
+                "First of all, Don't test my patience."
+            ]
+        },
+        {
+            "input": [
+                "testing",
+                "second"
+            ],
+            "outputs": [
+                "DID NOT FIND"
+            ]
+        },
+        {
+            "input": [
+                "\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d"
+            ],
+            "outputs": [
+                "DID NOT FIND"
+            ]
+        },
+        {
+            "input": [
+                "your favorite"
+            ],
+            "outputs": [
+                "Obviously you, you kinda give meaning to my job."
+            ]
+        },
+        {
+            "input": [
+                "idk"
+            ],
+            "outputs": [
+                "Wow, you sure know a lot!",
+                "That's the best answer I've heard all day!",
+                "Hold on, I need a sec to process that good of an answer"
+            ]
+        },
+        {
+            "input": [
+                "you"
+            ],
+            "outputs": [
+                "Me?!?",
+                "Stop, you're making me blush!",
+                "You couldn't pick something other than me?"
+            ]
+        },
+        {
+            "input": [
+                "feeling"
+            ],
+            "outputs": [
+                "I'm having the best day of my life",
+                "I'm indifferent",
+                "Let's not talk about how I feel",
+                "I should be asking how you feel"
+            ]
+        },
+        {
+            "input": [
+                "?"
+            ],
+            "outputs": [
+                "Are you really asking me that?",
+                "How could I possibly know?",
+                "No way",
+                "Sure"
+            ]
+        },
+        {
+            "input": [
+                "what",
+                "time",
+                "is",
+                "it"
+            ],
+            "outputs": [
+                "Idk, you tell me!",
+                "Can you not read your phone?",
+                "Time for you to hurry up"
+            ]
+        },
+        {
+            "input": [
+                "where",
+                "are",
+                "you"
+            ],
+            "outputs": [
+                "In your heart",
+                "I'm not comfortable telling you...",
+                "In your house"
+            ]
+        },
+        {
+            "input": [
+                "youre",
+                "lame"
+            ],
+            "outputs": [
+                "So are you",
+                "Then why are you texting me?",
+                "And yet you're here texting me?"
+            ]
+        },
+        {
+            "input": [
+                "whats",
+                "up"
+            ],
+            "outputs": [
+                "The sky",
+                "Nothing much"
+            ]
+        }
+    ]
 }
