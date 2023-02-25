@@ -1,7 +1,7 @@
 from flask import request, g#ravity?
 
 from tools.logging import logger
-from classes.user_state import ChatBot
+from classes.chat_bot import ChatBot
 from tools.config import yml_configs
 
 def handle_request():

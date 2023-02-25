@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from classes.user_state import ChatBot
+from classes.chat_bot import ChatBot
 from sys import stdin,stdout
 
 def main():
