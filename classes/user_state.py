@@ -3,6 +3,7 @@ import pickle
 import random
 import json
 from classes.processed_text import ProcessedText
+from tools.logging import logger
 
 class ChatBot:
     class UserData:
@@ -71,7 +72,7 @@ class ChatBot:
             outputs = resp['outputs']
             break
 
-        print(proc_text.words)
+        logger.debug(proc_text.words)
 
         if outputs:
             return random.choice(outputs)
