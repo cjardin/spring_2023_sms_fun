@@ -129,3 +129,8 @@ dmypy.json
 .pyre/
 .idea/misc.xml
 .idea/workspace.xml
+
+# Ignore vim files:
+*~
+*.swp
+*.swo
