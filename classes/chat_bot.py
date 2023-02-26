@@ -1,6 +1,7 @@
 from classes.user_data      import UserData
 from classes.processed_text import ProcessedText
 from classes.text_generator import init_generators
+from classes.corpus         import corpus
 
 class ChatBot:
     def __init__(self, phone_number):
@@ -33,6 +34,9 @@ class ChatBot:
 
     def run(self, in_msg: str) -> str:
         """Executes the chatbot for one input message. Returns our reply."""
+
+        # Reload the corpus, so we can edit it at runtime!
+        corpus.reload()
 
         proc_text = ProcessedText(in_msg)
 
