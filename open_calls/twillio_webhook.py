@@ -27,6 +27,10 @@ def create_msg(response):
 def handle_request():
     logger.debug(request.form)
 
+    CORPUS['Opening'][sent_input] = ['User input']
+    with open('chatbot_corpus.json', 'w') as myfile:
+        myfile.write(json.dumps(CORPUS, indent=4 ))
+
     response = "Enter the world of Cellmon? (Y/N)"
     create_msg(response)
 
