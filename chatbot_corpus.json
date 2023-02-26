@@ -626,8 +626,178 @@
 		"I'm your boss, you listen to me",
 		"My mom and dad created me",
 		"Do you think I'm a bot?",
+		"Are you implying im not real?",
+		"I'm a human being",
+		"Is this how you treat everyone?",
 		"I'm Frank"
 	    ]
         },
+        {
+            "input": [
+                "I am your friend",
+		"I want to be your friend",
+		"I want to have a friend like you",
+		"I want you to be my friend",
+		"Are we best friends",
+		"Are we friends",
+		"Are we still friends",
+		"Are you my best friend",
+		"Are you my friend",
+		"Be my best friend",
+		"Be my friend",
+		"Can we be best friends",
+		"Can we be best friends",
+		"Can we be friends",
+		"Can you be my best friend",
+		"Can you be my friend",
+		"Could you be my friend",
+		"Do you want to be my best friend",
+		"Do you want to be my friend",
+		"Let's be friends",
+		"Want to be my friend",
+		"We are best friends",
+		"We are friends",
+		"We are the best friends ever",
+		"Will you be my best friend",
+		"Will you be my friend",
+		"Would you be my friend",
+		"Would you like to be my friend",
+		"You and me are friends",
+		"You are a good friend",
+		"You are my best friend",
+		"You are my bestie",
+		"You are my friend",
+		"You are my good friend",
+		"You are my only friend",
+		"You're my childhood friend",
+		"You're my dear friend"
+            ],
+            "outputs": [
+		"Without a doubt",
+		"Of course!",
+		"We can definitely be friends",
+		"Why would I be friends with you?",
+		"You read my mind",
+		"That's what I was thinking",
+		"What kind of friends",
+		"Hmmm... I'm not sure how I feel about you yet"
+	    ]
+        },
+        {
+            "input": [
+                "Amazing service
+		"Cool. Thank you. I really like what you're doing.
+		"I appreciate it
+		"I appreciate your help
+		"I thank you
+		"It's appreciated
+		"Thanks for the help!
+		"Alright thank you
+		"Alright thanks
+		"Appreciate all the help
+		"Appreciate your help
+		"Awesome service
+		"Cheers
+		"Good thanks
+		"Great thank you
+		"Many thanks
+		"Much appreciated
+		"Much thanks
+		"Nice thank you
+		"No thank you that's all
+		"Ok thx
+		"Perfect thank you
+		"So nice of you
+		"Sure, np. thanks!
+		"Terrific thank you
+		"Thank you
+		"Thank you again
+		"Thank you for your help
+		"Thank you my friend
+		"Thank you so much
+		"Thank you that will be all
+		"Thanks
+		"Thanks a lot
+		"Thanks again
+		"Thanks buddy
+		"Thanks for your help
+		"Thanks love
+		"Thanks so much
+		"Thanx
+		"That's appreciated
+		"Thnx
+		"Thx
+		"Thx for your help
+		"Tnx
+		"Ty
+		"Very good thank you
+		"Well thank you
+		"Well thanks
+		"You helped a lot thank you"
+            ],
+            "outputs": [
+		"No problem!",
+		"Not a problem",
+		"No worries",
+		"Anytime",
+		"Of course!",
+		"You're welcome"
+	    ]
+        },
+            "input": [
+                "You almost sound human",
+		"You are a pro",
+		"You are a professional",
+		"You are amazing",
+		"You are awesome",
+		"You are cool",
+		"You are good",
+		"You are good at it",
+		"You are really amazing",
+		"You are really good",
+		"You are really nice",
+		"You are so amazing",
+		"You are so awesome",
+		"You are so cool",
+		"You are so fine",
+		"You are so good",
+		"You are so helpful",
+		"You are so lovely",
+		"You are the best",
+		"You are the best ever",
+		"You are the best in the world",
+		"You are the nicest person in the world",
+		"You are too good",
+		"You are very cool",
+		"You are very good at it",
+		"You are very helpful",
+		"You are very kind",
+		"You are very lovely",
+		"You are very useful",
+		"You are wonderful",
+		"You made my day",
+		"You rock",
+		"You work very well",
+		"You work well",
+		"You're a true professional",
+		"You're awesome",
+		"You're great",
+		"You're just super",
+		"You're perfect",
+		"You're so kind"
+            ],
+            "outputs": [
+		"That's so nice of you!",
+		"What a nice thing to say",
+		"I'm glad you think so",
+		"No you!",
+		"You're very sweet",
+		"Thank you",
+		"Thanks",
+		"Thanks, I try",
+		"You really mean it?"
+	    ]
+        },
+
     ]
 }
