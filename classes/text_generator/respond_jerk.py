@@ -25,6 +25,9 @@ class JerkResponder(TextGenerator):
         for input_word, input_tag in zip(in_text.words, in_text.tags):
             if input_tag == 'VBD':
                 responses.append((0.8 + random(), "I " + input_word + " your mom last night"))
+                # responses.append((0.8 + random(), "I " + input_word + " your mom last night"))
+                # responses.append((0.8 + random(), "I " + input_word + " your mom last night"))
+                # responses.append((0.8 + random(), "I " + input_word + " your mom last night"))
 
             if input_tag == 'NNS':
                 responses.append((
