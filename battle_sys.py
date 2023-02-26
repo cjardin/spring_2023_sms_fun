@@ -1,5 +1,5 @@
 #Import required libraries
-from gameclass import * #Base game info
+import random
 
 #Main Function to initiate a mob battle, gives user multiple options for the battle
 def initiateBattle(player, mob):
@@ -13,7 +13,6 @@ def initiateBattle(player, mob):
     #Loop until user successfully wins, loses, or flees the battle
     while win_cnd is False and flee_cnd is False:
         choice = getChoice() #Recursively get user input
-        print("")
         
         speed_ = checkSpeed(player_mon, mob) #Check to see if user or mob is faster        
 
@@ -60,6 +59,7 @@ def initiateBattle(player, mob):
         #Check if all player mons are eaten, then break out of loop if player died
         if player_mon is None:
             print(f"{player.name} has no more usable cellmon. {player.name} has been eaten!")
+            print("Game Over. Thank you for playing Cellmon!")
             break
 
         #Print health of both parties while battle is still ongoing
