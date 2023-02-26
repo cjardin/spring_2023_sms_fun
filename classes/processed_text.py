@@ -1,9 +1,6 @@
 import string
 from nltk import pos_tag, word_tokenize
-from nltk.corpus import stopwords # A corpus of stop words to ignore.
 from nltk.sentiment import SentimentIntensityAnalyzer
-
-STOP_WORDS = set(stopwords.words('english')) # Build a list of stop words.
 
 class ProcessedText:
     """Stores useful information about the input text."""
@@ -20,7 +17,6 @@ class ProcessedText:
         self.words = []
         self.tags = []
         for (word, tag) in pos_tag(word_tokenize(raw_text)):
-            if word in STOP_WORDS: continue
             self.words.append(word)
             self.tags.append(tag)
 
