@@ -70,12 +70,14 @@ class Cellmon:
     def takePhysDamage(self, damage):
         damageCalc = (int)(self.defense * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        if self.currentHP > 0:
+            print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
 
     def takeSpecDamage(self, damage):
         damageCalc = (int)(self.spDef * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        if self.currentHP > 0:
+            print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
 
     def printCurrentHP(self):
         print(self.currentHP)
