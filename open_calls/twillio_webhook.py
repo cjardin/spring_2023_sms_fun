@@ -20,9 +20,10 @@ with open('chatbot_corpus.json', 'r') as myfile:
 def handle_request():
     logger.debug(request.form)
 
-    logger.debug("Enter the world of Cellmon? (Y/N)")
-
-    logger.debug(request.form)
+    message = g.sms_client.messages.create(
+                     body="Enter the world of Cellmon? (Y/N)",
+                     from_=yml_configs['twillio']['phone_number'],
+                     to=request.form['From'])
 
     sent_input = str(request.form['Body']).lower()
 
