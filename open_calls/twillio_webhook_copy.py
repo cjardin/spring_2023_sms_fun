@@ -1,3 +1,5 @@
+
+
 import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
@@ -17,14 +19,14 @@ CORPUS = {}
 with open('chatbot_corpus.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
-def handle_request():
-    logger.debug(request.form)
+#def handle_request():
+    #logger.debug(request.form)
 
-    response = 'NOT FOUND'
+    #response = 'NOT FOUND'
 
-    sent_input = str(request.form['Body']).lower()
-    if sent_input in CORPUS['input']:
-        response = CORPUS['input'][sent_input]
+    #sent_input = str(request.form['Body']).lower()
+    #if sent_input in CORPUS['input']:
+ #       response = CORPUS['input'][sent_input]
 #    else:
 #        CORPUS['input'][sent_input] = ['DID NOT FIND']
 #        with open('chatbot_corpus.json', 'w') as myfile:
