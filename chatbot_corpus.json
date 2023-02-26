@@ -104,17 +104,7 @@
                 "testing",
                 "second"
             ],
-            "outputs": [
-                "DID NOT FIND"
-            ]
-        },
-        {
-            "input": [
-                "\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d"
-            ],
-            "outputs": [
-                "DID NOT FIND"
-            ]
+            "outputs": []
         },
         {
             "input": [
@@ -187,8 +177,10 @@
             ],
             "outputs": [
                 "In your heart",
+                "As far away as possible",
                 "I'm not comfortable telling you...",
-                "In your house"
+                "In your house",
+                "In your walls"
             ]
         },
         {
@@ -208,9 +200,22 @@
                 "up"
             ],
             "outputs": [
-                "The sky",
-                "Nothing much"
+                "Your conversation skills, clearly.",
+                "I don't know, what's ever up?"
             ]
+        },
+        {
+            "input": [
+                "booga",
+                "booga"
+            ],
+            "outputs": []
+        },
+        {
+            "input": [
+                "fuck"
+            ],
+            "outputs": []
         }
     ]
 }

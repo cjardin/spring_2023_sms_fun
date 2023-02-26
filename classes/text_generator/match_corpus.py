@@ -2,12 +2,10 @@ import random
 import json
 from . import TextGenerator
 from classes.processed_text import ProcessedText
-from tools.logging import logger
 
 class MatchCorpus(TextGenerator):
     # TODO: Override `TextGenerator.rate`
-
-    def respond(self, in_text: ProcessedText) -> str:
+    def rate(self, in_text: ProcessedText) -> float:
         # TODO: Abstract the corpus better (namely into its own class)
         # once we know more about how we want it to work, but no point yet.
         with open('chatbot_corpus.json', 'r') as corpus_in:
@@ -21,19 +19,23 @@ class MatchCorpus(TextGenerator):
             outputs = resp['outputs']
             break
 
-        logger.debug(in_text.words)
-
-        if outputs:
-            return random.choice(outputs)
+        if outputs: # Doesn't exist, or no options
+            self.response = random.choice(outputs)
+            return 5.0 # TODO: Reduce weight if used recently?
         else:
-            # Add the input to the corpus.
-            corpus['responses'].append({
-                "input": in_text.words,
-                "outputs": ["DID NOT FIND"]
-            })
-            corpus_out = open('chatbot_corpus.json', 'w')
-            corpus_out.write(json.dumps(corpus, indent=4))
-            return "NOT FOUND"
+            if in_text.words and outputs is None:
+                # Add the input to the corpus.
+                corpus['responses'].append({
+                    "input": in_text.words,
+                    "outputs": []
+                })
+                corpus_out = open('chatbot_corpus.json', 'w')
+                corpus_out.write(json.dumps(corpus, indent=4))
 
+            self.response = "NOT FOUND"
+            return float("-inf") # Should *never* run, unless the only option
+
+    def respond(self, in_text: ProcessedText) -> str:
+        return self.response
 
 

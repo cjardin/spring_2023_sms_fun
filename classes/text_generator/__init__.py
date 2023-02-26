@@ -28,12 +28,19 @@ class TextGenerator(Abstract):
         """
         pass
 
-# Yes, these imports have to be down here, or else the program
-# will fail due to circular imports.
+# Import your text generators here.
+#
+# (Yes, these have to be here; `TextGenerator` has to be defined
+# before these derived classes are loaded.)
+from . import smile_and_nod
 from . import match_corpus
 
 def init_generators(user_data: UserData) -> List[TextGenerator]:
     """Initializes and returns the list of text processors."""
+
+    # These will be checked in order;
+    # *earlier* will win in the rare event of a tie.
     return [
-        match_corpus.MatchCorpus(user_data)
+        smile_and_nod.SmileAndNod(user_data),
+        match_corpus.MatchCorpus(user_data),
     ]
