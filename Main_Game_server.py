@@ -1,6 +1,6 @@
 #Import required libraries
-import gameclass_server #Importing main game classes and functions
-import battle_sys_server #Importing battle system
+from gameclass_server import * #Importing main game classes and functions
+from battle_sys_server import *#Importing battle system
 
 import sys
 sys.path.append('open_calls')
@@ -8,33 +8,33 @@ from twillio_webhook import *
 
 global Game #Create a global variable for game condition
 
-NewUser=gameclass.Player(" "," ",[]) #Create a new user object
+NewUser=Player(" "," ",[]) #Create a new user object
 
 #Creating the starter cellmon
-Starter1=gameclass.Terrasaur(2)
-Starter2=gameclass.Jellyfists(2)
-Starter3=gameclass.Fiamelon(2)
+Starter1=Terrasaur(2)
+Starter2=Jellyfists(2)
+Starter3=Fiamelon(2)
 
 #Creating the enemy mobs
-A1=gameclass.Aichu(1)
-A2=gameclass.Terrasaur(2)
-A3=gameclass.Verizard(3)
-A4=gameclass.Gekkip(4)
-A5=gameclass.Capybrawla(5)
-A6=gameclass.Beesiege(6)
-A7=gameclass.Jellyfists(7)
-A8=gameclass.Doomosaur(8)
-A9=gameclass.Parsnipe(9)
-A10=gameclass.Pandamonium(10)
-A11=gameclass.Fiamelon(11)
-A12=gameclass.Armordillo(12)
-A13=gameclass.Jarceus(13)
+A1=Aichu(1)
+A2=Terrasaur(2)
+A3=Verizard(3)
+A4=Gekkip(4)
+A5=Capybrawla(5)
+A6=Beesiege(6)
+A7=Jellyfists(7)
+A8=Doomosaur(8)
+A9=Parsnipe(9)
+A10=Pandamonium(10)
+A11=Fiamelon(11)
+A12=Armordillo(12)
+A13=Jarceus(13)
 
 #Creating the areas to explore
-L1=gameclass.Location("Fields",[A1,A2,A3,A13])
-L2=gameclass.Location("Mountains",[A4,A5,A6,A13])
-L3=gameclass.Location("Forest",[A7,A8,A9,A13])
-L4=gameclass.Location("Lake",[A10,A11,A12,A13])
+L1=Location("Fields",[A1,A2,A3,A13])
+L2=Location("Mountains",[A4,A5,A6,A13])
+L3=Location("Forest",[A7,A8,A9,A13])
+L4=Location("Lake",[A10,A11,A12,A13])
 
 #Function for user to search locations
 def Cellsearch():
