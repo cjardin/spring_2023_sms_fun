@@ -61,8 +61,7 @@ class Cellmon:
 
     #Function to print the stats of a cellmon
     def printMaxStats(self):
-        create_msg(f"Species: {self.species}\nLevel: {self.level}\nMaximum HP: {self.maxHP}\nCurrent HP: {self.currentHP}\nAttack: {self.attack}
-            \nDefense: {self.defense}\nSpAttack: {self.spAttack}\nSpDef: {self.spDef}\nSpeed: {self.speed}")
+        create_msg(f"Species: {self.species}\nLevel: {self.level}\nMaximum HP: {self.maxHP}\nCurrent HP: {self.currentHP}\nAttack: {self.attack}\nDefense: {self.defense}\nSpAttack: {self.spAttack}\nSpDef: {self.spDef}\nSpeed: {self.speed}")
 
     #Function to calculate physical damage
     def doPhysAttack(self):
