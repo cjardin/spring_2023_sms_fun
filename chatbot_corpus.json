@@ -216,6 +216,43 @@
                 "fuck"
             ],
             "outputs": []
+        },
+        {
+            "input": [
+                "howdy"
+            ],
+            "outputs": [
+                "Howdy ho, howdy do"
+            ]
+        },
+        {
+            "input": [
+                "bird"
+            ],
+            "outputs": []
+        },
+        {
+            "input": [
+                "yes"
+            ],
+            "outputs": [
+                "Why are you lying?",
+                "Yeah, sure genius",
+                "I agree"
+            ]
+        },
+        {
+            "input": [
+                "wait",
+                "really"
+            ],
+            "outputs": []
+        },
+        {
+            "input": [
+                "running"
+            ],
+            "outputs": []
         }
     ]
 }
