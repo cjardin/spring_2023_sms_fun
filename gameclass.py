@@ -58,29 +58,23 @@ class Cellmon:
         print("SpDef: ", self.spDef, "\nSpeed: ", self.speed)
 
     def doPhysAttack(self):
-        damage = self.attack +random.randint(-2,2)
+        damage = self.attack + random.randint(-2,2)
         print(self.species, " attacked for ", damage , " damage!")
-        ID = 0
         return damage
 
-
     def doSpecialAttack(self):
-        damage = self.SpecialAttack()+random.randint(-2,2)
-        ID = 1
+        damage = self.spAttack + random.randint(-2,2)
         return damage
 
     def takePhysDamage(self, damage):
-        damageCalc = (int)(self.defense*.1 * damage)
-        self.currentHP = (self.currentHP - damageCalc )
+        damageCalc = (int)(self.defense * .1 * damage)
+        self.currentHP = (self.currentHP - damageCalc)
         print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
-
-
 
     def takeSpecDamage(self, damage):
-        damageCalc = (int)(self.spDef*.1 * damage)
-        self.currentHP = (self.currentHP - damageCalc )
+        damageCalc = (int)(self.spDef * .1 * damage)
+        self.currentHP = (self.currentHP - damageCalc)
         print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
-
 
     def printCurrentHP(self):
         print(self.currentHP)
