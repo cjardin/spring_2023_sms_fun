@@ -59,26 +59,26 @@ class Cellmon:
 
     def doPhysAttack(self):
         damage = self.attack + random.randint(-2,2)
-        print(self.species, " attacked for ", damage , " damage!")
+        print(f"{self.species} attacked for {damage} damage!")
         return damage
 
     def doSpecialAttack(self):
         damage = self.spAttack + random.randint(-2,2)
+        print(f"{self.species} attacked for {damage} damage!")
         return damage
 
     def takePhysDamage(self, damage):
         damageCalc = (int)(self.defense * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
+        print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
 
     def takeSpecDamage(self, damage):
         damageCalc = (int)(self.spDef * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        print(self.species, "took ", damageCalc, "damage!", self.species, "'s current HP is " , self.currentHP)
+        print(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
 
     def printCurrentHP(self):
         print(self.currentHP)
-
 
 class Aichu(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=3, baseSpAttack=3, baseDefense=3, baseSpDef=3, baseSpeed=3,
