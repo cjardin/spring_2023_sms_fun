@@ -9,6 +9,7 @@ class ProcessedText:
         # There are some transformations here, like removing punctuation and stop words.
         # Consider handling them later. They're noisy, but they might still be useful information.
         # It would be better to ignore them in analysis rather than discard them outright.
+        self.og_text = raw text
         raw_text = raw_text.lower()
         raw_text = raw_text.translate(str.maketrans('','', string.punctuation)) # removes punctuation to match more in corpus
 
