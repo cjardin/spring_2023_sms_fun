@@ -39,8 +39,8 @@ class JerkResponder(TextGenerator):
 
         # Responses that don't look at the input at all
 
-        responses.append(0.0 + random(), "[EXTREMELY LOUD INCORRECT BUZZER]")
-        responses.append(0.0 + random(), "tl;dr")
+        responses.append((0.0 + random(), "[EXTREMELY LOUD INCORRECT BUZZER]"))
+        responses.append((0.0 + random(), "tl;dr"))
 
         self.response = max(responses)[1]
         self.weight = max(responses)[0]
