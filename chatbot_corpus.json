@@ -216,7 +216,8 @@
                 "fuck"
             ],
             "outputs": [
-			    "That's not a good word."
+			    "That's a good word.",
+                "Fuck who? Me? You? Everything?"
 		    ]
         },
         {
@@ -240,7 +241,7 @@
 			    "Do you have any feelings?",
 			    "How do you feel?",
 			    "Hi, how is it going?",
-			    "How do you do?",
+			    "How do you do?"
             ],
             "outputs": [
 			    "I feel dead as a doorknob with all this work going on.",
@@ -281,7 +282,7 @@
 			    "How are you?",
 			    "How do you do?",
 			    "Hi, how are you?",
-			    "Top of the morning to you!",	 
+			    "Top of the morning to you!",
 		    ]
         },
         {
@@ -534,17 +535,17 @@
 			    "haha haha haha",
 			    "haha that's",
 			    "hahaha",
-			    "hahaha", 
+			    "hahaha",
 			    "hahaha very",
 			    "he",
 			    "hehe",
 			    "hehehe",
 			    "huh",
-			    "laughing out", 
+			    "laughing out",
 			    "lmao",
 			    "lol",
 			    "loud",
-			    "that's", 
+			    "that's",
 			    "xd"
             ],
             "outputs": [

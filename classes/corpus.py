@@ -14,9 +14,9 @@ class Corpus:
         return iter(self.body['responses'])
 
     def reload(self):
+        self.dirty = False
         file_in = open('chatbot_corpus.json', 'r')
         self.body = json.loads(file_in.read())
-        self.dirty = False
 
     def get(self, in_words: List[str]) -> Optional[List[str]]:
         """
