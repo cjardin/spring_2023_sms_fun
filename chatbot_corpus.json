@@ -1,5 +1,13 @@
 {
     "input": {
-		"hello": [ "Enter the world of Cellmon? (Y/N)" ]
+        "hello": [
+            "Enter the world of Cellmon? (Y/N)"
+        ],
+        "y": [
+            "DID NOT FIND"
+        ],
+        "n": [
+            "DID NOT FIND"
+        ]
     }
 }
