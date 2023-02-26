@@ -27,9 +27,9 @@ def handle_request():
     sent_input = str(request.form['Body']).lower()
 
     if sent_input == 'y':
-        #Start game
+        logger.debug("This would start the game.")
     elif sent_input == 'n':
-        #Quit server
+        logger.debug("This would quit the server.")
     else:
         logger.debug("Invalid Input.")
 
