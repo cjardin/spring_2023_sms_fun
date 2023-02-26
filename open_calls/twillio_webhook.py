@@ -1,4 +1,3 @@
-import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 
@@ -6,6 +5,10 @@ from tools.logging import logger
 
 import random
 import json
+
+import sys
+sys.path.append('~/Cellmon')
+import Main_Game
 
 yml_configs = {}
 BODY_MSGS = []
@@ -27,6 +30,8 @@ def create_msg(response):
 def handle_request():
     logger.debug(request.form)
 
+    sent_input = str(request.form['Body'])
+
     CORPUS['Opening'][sent_input] = ['User input']
     with open('chatbot_corpus.json', 'w') as myfile:
         myfile.write(json.dumps(CORPUS, indent=4 ))
@@ -37,13 +42,12 @@ def handle_request():
     sent_input = str(request.form['Body']).lower()
 
     if sent_input == 'y':
-        with open("~/Cellmon/Main_Game.py") as game:
-            exec(game)
+        Main_Game.start_game()
     elif sent_input == 'n':
         response = "Goodbye."
     else:
         response = "Invalid Input."
-    
+
     create_msg(response)
 
-    return json_response( status = "ok" )
+    return json_response( status = "ok" ) 
