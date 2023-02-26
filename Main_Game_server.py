@@ -49,24 +49,24 @@ def Cellsearch():
 
         find = search
 
-    if find=="1" or find=="Fields" or find=="fields": #Searching fields
-        found=L1.encounter()
-        Game = battle_sys.initiateBattle(NewUser, found)
-        searching=False
-    elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
-        found=L2.encounter()
-        Game = battle_sys.initiateBattle(NewUser, found)
-        searching=False
-    elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
-        found=L3.encounter()
-        Game = battle_sys.initiateBattle(NewUser, found)
-        searching=False
-   elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
-        found=L4.encounter()
-        Game = battle_sys.initiateBattle(NewUser, found)
-        searching=False
-    else:
-        create_msg("you traveled around in a circle from invalid server choice\nPlease Choose a location to explore\n1.Fields\n2.Mountains\n3.Forest\n4.Lake\n")
+        if find=="1" or find=="Fields" or find=="fields": #Searching fields
+            found=L1.encounter()
+            Game = battle_sys.initiateBattle(NewUser, found)
+            searching=False
+        elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
+            found=L2.encounter()
+            Game = battle_sys.initiateBattle(NewUser, found)
+            searching=False
+        elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
+            found=L3.encounter()
+            Game = battle_sys.initiateBattle(NewUser, found)
+            searching=False
+        elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
+            found=L4.encounter()
+            Game = battle_sys.initiateBattle(NewUser, found)
+            searching=False
+        else:
+            create_msg("you traveled around in a circle from invalid server choice\nPlease Choose a location to explore\n1.Fields\n2.Mountains\n3.Forest\n4.Lake\n")
 
 #Function to print user's cellmon party
 def playerparty():
