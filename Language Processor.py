@@ -4,7 +4,6 @@ from nltk.corpus import stopwords #This is to give us a corpus of stopwords
 from nltk.stem import PorterStemmer #This will remove any sort of suffixes to the word
 from nltk.corpus import wordnet #This will give us snynoms and antnyoms of words
 
-
 #stopWords = set(stopwords.words('english')) #Building a list of stop words
 #words = word_tokenize(test)
 #wordsFiltered = []
@@ -63,4 +62,12 @@ def give_context (raw_text):
     return context 
 
 
+
+print ("Please type a sentence to find out what the context is [DEBUGGING PURPOSES ONLY]")
+while (1):
+    text = input("> ")
+    print(give_context(text))
+    
+    
+    
 
