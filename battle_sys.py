@@ -1,6 +1,5 @@
 #Import required libraries
 from gameclass import * #Base game info
-import random
 
 #Main Function to initiate a mob battle, gives user multiple options for the battle
 def initiateBattle(player, mob):
@@ -21,10 +20,7 @@ def initiateBattle(player, mob):
         #Checking user input and executing required actions
         if choice == "1" or choice == "2": #Attack Choices
             attackMob(player_mon, mob, speed_, choice) #User or mob may attack
-            win_cnd, remove_mon = checkHP(player, player_mon, mob) #Check for winning condition or lost cellmon
-            if remove_mon is True: #Checking if player's mon was eaten
-                player.party.remove(player_mon) #Remove the cellmon from the party
-                player_mon = checkCnd(player) #Get next cellmon from party
+            win_cnd, player_mon, dead = checkHP(player, player_mon, mob) #Check for winning condition or lost cellmon
         elif choice == "3": #Print stats of player and enemy mob
             print(f"Printing stats:\n{player.name}'s Current Cellmon")
             player_mon.printMaxStats()
@@ -32,13 +28,17 @@ def initiateBattle(player, mob):
             mob.printMaxStats()
             print("")
         elif choice == "4": #Capture choice, if caught then exit battle
-            if mob.maxHP <= mob.baseHP * 0.5:
-                win_cnd = captureMob(player, mob, True) #mob caught, set condition
+            if mob.currentHP <= mob.maxHP * 0.5:
+                win_cnd, mob = captureMob(player, mob, True) #mob caught, set condition
             else:
-                win_cnd = captureMob(player, mob, False) #mob not caught
+                caught = random.randint(0, 10)
+                if caught >= 5:
+                    win_cnd, mob = captureMob(player, mob, True) #mob not caught
+                else:
+                    win_cnd, mob = captureMob(player, mob, False) #mob not caught
         elif choice == "5": #Flee battle choice, calculates based on a random chance
             chance = random.randint(0, 100)
-            if chance >= 50:
+            if chance >= 75:
                 flee_cnd = fleeBattle(player, True) #Player fled, set condition
             else:
                 flee_cnd = fleeBattle(player, False) #Player failed to flee
@@ -47,20 +47,15 @@ def initiateBattle(player, mob):
         if choice in ("4", "5") and (win_cnd is False and flee_cnd is False): #Checking if mob needs to attack after failed catch or flee
             choice = random.randint(1, 2)
             attackMob(player_mon, mob, 0, str(choice)) #Mob attacks randomly
-            win_cnd, remove_mon = checkHP(player, player_mon, mob) #Check for winning condtion or lost cellmon
-            if remove_mon is True: #Checking if player's mon was eaten
-                player.party.remove(player_mon) #Remove the cellmon from the party
-                player_mon = checkCnd(player) #Get next cellmon from party
+            win_cnd, player_mon, dead = checkHP(player, player_mon, mob) #Check for winning condtion or lost cellmon
         elif choice in ("1", "2") and win_cnd is False: #Checking if player or mob still need to attack
             if speed_ == 1:
                 choice = random.randint(1, 2)
                 attackMob(player_mon, mob, 0, str(choice)) #Mob attacks randomly
-            else:
+                win_cnd, player_mon, dead = checkHP(player, player_mon, mob) #Check for winning condition or lost cellmon
+            elif dead is False:
                 attackMob(player_mon, mob, 1, choice) #Player attacks
-            win_cnd, remove_mon = checkHP(player, player_mon, mob) #Check for winning condition or lost cellmon
-            if remove_mon is True: #Checking if player's mon was eaten
-                player.party.remove(player_mon) #Remove the cellmon from the party
-                player_mon = checkCnd(player) #Get next cellmon from party       
+                win_cnd, player_mon, dead = checkHP(player, player_mon, mob) #Check for winning condition or lost cellmon
 
         #Check if all player mons are eaten, then break out of loop if player died
         if player_mon is None:
@@ -69,8 +64,8 @@ def initiateBattle(player, mob):
 
         #Print health of both parties while battle is still ongoing
         if win_cnd is False and flee_cnd is False:
-            print(f"{player_mon.species} has {player_mon.maxHP}hp left.")
-            print(f"{mob.species} has {mob.maxHP}hp left.")
+            print(f"{player_mon.species} has {player_mon.currentHP}hp left.")
+            print(f"{mob.species} has {mob.currentHP}hp left.")
 
     #Check if user won or fled the battle
     if win_cnd is True: #Player won or caught the cellmon
@@ -84,14 +79,16 @@ def initiateBattle(player, mob):
 #This function will check if player's cellmon was eaten or enemy mob was defeated
 #It returns a condition for continuing the battle
 def checkHP(player, player_mon, mob):
-    if player_mon.maxHP < 0: #Player's cellmon was eaten
+    if player_mon.currentHP <= 0: #Player's cellmon was eaten
         print(f"{player_mon.species} has been eaten!")
-        return False, True #Battle must continue
-    elif mob.maxHP < 0: #Enemy mob defeated
+        player.party.remove(player_mon) #Remove the cellmon from the party
+        player_mon = checkCnd(player) #Get next cellmon from party
+        return False, player_mon, True #Battle must continue
+    elif mob.currentHP <= 0: #Enemy mob defeated
         print(f"{mob.species} has been eaten.")
-        return True, False #Battle is won
+        return True, player_mon, False #Battle is won
     else: #Battle must continue
-        return False, False
+        return False, player_mon, False
 
 #This function will check user input until a valid option is entered
 def getChoice():
@@ -105,9 +102,8 @@ def getChoice():
 #This function will check the conditions of the player's party cellmon
 def checkCnd(player):
     for mon in player.party: #Check each cellmon in party
-        if mon.maxHP > 0: #Current cellmon is fit for battle, return it
-            print(f"{player.name} sent out {mon.species}!")
-            return mon
+        print(f"{player.name} sent out {mon.species}!")
+        return mon
     return None #All cellmon in party have been eaten, player is eaten
 
 #This function will check the speed of both player and mob, then result is sent back
@@ -123,27 +119,31 @@ def checkSpeed(player_mon, mob):
 def attackMob(player_mon, mob, speed_, choice):
     if choice == "1": #Regular Attack
         if speed_ == 1: #Player attacks first
-            mob.maxHP = mob.maxHP - (player_mon.attack / mob.defense)
-            print(f"{player_mon.species} attacked {mob.species}!")
+            damage = player_mon.doPhysAttack()
+            mob.takePhysDamage(damage)
         else: #Enemy attacks first
-            player_mon.maxHP = player_mon.maxHP - (mob.attack / player_mon.defense)
-            print(f"{mob.species} attacked {player_mon.species}!")
+            damage = mob.doPhysAttack()
+            player_mon.takePhysDamage(damage)
     elif choice == "2": #Special Attack
         if speed_ == 1: #Player attacks first
-            mob.maxHP = mob.maxHP - (player_mon.spAttack / mob.spDef)
-            print(f"{player_mon.species} special attacked {mob.species}!")
+            damage = player_mon.doSpecialAttack()
+            mob.takeSpecDamage(damage)
         else: #Enemy attacks first
-            player_mon.maxHP = player_mon.maxHP - (mob.spAttack / player_mon.spDef)
-            print(f"{mob.species} special attacked {player_mon.species}!")
+            damage = mob.doSpecialAttack()
+            player_mon.takeSpecDamage(damage)
 
 #This function will display a message whether or not the mob is successfully caught
 def captureMob(player, mob, result):
     if result is True: #Caught
-        print(f"{mob.species} was successfully caught!")
-        player.party.append(mob)
+        if len(player.party) < 3: #Check if player's party is full
+            print(f"{mob.species} was successfully caught!")
+            mob = mob.Cellcapture() #Create a new copy of the mob
+            player.party.append(mob) #Add the mob to the party
+        else:
+            print(f"{mob.species} was successfully caught, but {player.name}'s party is full!")
     else: #Failed to catch
         print(f"Failed to capture {mob.species}!")
-    return result #Returns a condition for ending the battle or not
+    return result, mob #Returns a condition for ending the battle or not
 
 #This function will display a win msg and level up the remaining cellmon
 def winBattle(player, mob):
@@ -161,10 +161,14 @@ def fleeBattle(player, result):
     return result #Returns a condition for ending the battle or not
 
 #Testing system
-party = [Aichu(1), Terrasaur(1), Verizard(1)] #Create a new party
-player = Player("Tucker", 1, party) #Create a new player object
-mob = Gekkip(1) #Create a new enemy mob
-result = initiateBattle(player, mob) #Start the battle
-if result is False: #If player was eaten print message
-    print("Game Over")
-
+#party = [Aichu(1), Terrasaur(1)] #Create a new party
+#player = Player("Tucker", 1, party) #Create a new player object
+#mob = Gekkip(1) #Create a new enemy mob
+#result = initiateBattle(player, mob) #Start the battle
+#if result is False: #If player was eaten print message
+#    print("Game Over")
+#else:
+#    mob = Verizard(2)
+#    for mon in player.party:
+#        mon.currentHP = mon.maxHP
+#    result = initiateBattle(player, mob)
