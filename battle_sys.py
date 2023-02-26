@@ -37,7 +37,7 @@ def initiateBattle(player, mob):
                     win_cnd, mob = captureMob(player, mob, False) #mob not caught
         elif choice == "5": #Flee battle choice, calculates based on a random chance
             chance = random.randint(0, 100)
-            if chance >= 75:
+            if chance <= 75:
                 flee_cnd = fleeBattle(player, True) #Player fled, set condition
             else:
                 flee_cnd = fleeBattle(player, False) #Player failed to flee
@@ -137,6 +137,7 @@ def captureMob(player, mob, result):
     if result is True: #Caught
         if len(player.party) < 3: #Check if player's party is full
             print(f"{mob.species} was successfully caught!")
+            mob.currentHP = mob.maxHP
             mob = mob.Cellcapture() #Create a new copy of the mob
             player.party.append(mob) #Add the mob to the party
         else:
@@ -151,6 +152,7 @@ def winBattle(player, mob):
     for mon in player.party: #Loop through player's party and level up each cellmon
         if mon != mob: #Recently caught enemy mob will not be leveled up
             mon.level_up()
+            mon.currentHP = mon.maxHP
 
 #This function will display a message whether or not the battle is fled
 def fleeBattle(player, result):

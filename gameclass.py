@@ -65,13 +65,13 @@ class Cellmon:
 
     #Function to calculate physical damage
     def doPhysAttack(self):
-        damage = self.attack + random.randint(-2,2)
+        damage = self.attack + random.randint(-1,1)
         print(f"{self.species} attacked for {damage} damage!")
         return damage
 
     #Function to calculate special damage
     def doSpecialAttack(self):
-        damage = self.spAttack + random.randint(-2,2)
+        damage = self.spAttack + random.randint(-1,1)
         print(f"{self.species} attacked for {damage} damage!")
         return damage
 
@@ -136,7 +136,7 @@ class Terrasaur(Cellmon):
 
 class Verizard(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=2, baseSpeed=4,
-                 starterHP=1, starterAttack=4, starterSpAttack=3, starterDef=2, starterSpDef=3, starterSpeed=4,
+                 starterHP=1, starterAttack=3, starterSpAttack=3, starterDef=2, starterSpDef=3, starterSpeed=4,
                  species="Verizard"):
         self.maxHP = starterHP + (baseHP * level)
         self.attack = starterAttack + (baseAttack * level)
@@ -375,11 +375,11 @@ class Location:
     def encounter(self):
         for x in range(1):
             randNum = random.randrange(1, 101)
-            if 1 <= randNum <= 30:
+            if 1 <= randNum <= 31:
                 return self.mobs[0]
-            elif 31 <= randNum <= 60:
+            elif 32 <= randNum <= 62:
                 return self.mobs[1]
-            elif 61 <= randNum <= 90:
+            elif 63 <= randNum <= 93:
                 return self.mobs[2]
             else:
                 return self.mobs[3]
