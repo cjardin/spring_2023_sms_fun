@@ -17,15 +17,21 @@ CORPUS = {}
 with open('cellmon_server.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
+def create_msg(response):
+    message = g.sms_client.messages.create(
+                     body=response,
+                     from_=yml_configs['twillio']['phone_number'],
+                     to=request.form['From'])
+    return message
+
 def handle_request():
     logger.debug(request.form)
 
     sent_input = str(request.form['Body'])
 
-    message = g.sms_client.messages.create(
-                     body="Enter the world of Cellmon? (Y/N)",
-                     from_=yml_configs['twillio']['phone_number'],
-                     to=request.form['From'])
+    response = "Enter the world of Cellmon? (Y/N)"
+
+    create_msg(response)
 
     sent_input = str(request.form['Body']).lower()
 
@@ -35,9 +41,7 @@ def handle_request():
         response = "This would quit the server."
     else:
         response = "Invalid Input."
+    
+    create_msg(response)
 
-    message = g.sms_client.messages.create(
-                     body=response,
-                     from_=yml_configs['twillio']['phone_number'],
-                     to=request.form['From'])
     return json_response( status = "ok" )
