@@ -27,18 +27,16 @@ def create_msg(response):
 def handle_request():
     logger.debug(request.form)
 
-    sent_input = str(request.form['Body'])
-
     response = "Enter the world of Cellmon? (Y/N)"
-
     create_msg(response)
 
     sent_input = str(request.form['Body']).lower()
 
     if sent_input == 'y':
-        response = "This would start the game."
+        with open("~/Cellmon/Main_Game.py") as game:
+            exec(game)
     elif sent_input == 'n':
-        response = "This would quit the server."
+        response = "Goodbye."
     else:
         response = "Invalid Input."
     
