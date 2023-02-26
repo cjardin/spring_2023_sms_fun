@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 <<<<<<< HEAD
 #Import required libraries
 import gameclass #Importing main game classes and functions
@@ -147,7 +145,6 @@ while Game== True:
  else:
   print("Invalid command please select an action")
 =======
->>>>>>> Stashed changes
 #Import required libraries
 import gameclass #Importing main game classes and functions
 import battle_sys #Importing battle system
@@ -294,7 +291,4 @@ def start_game():
             Game= False
         else:
             print("Invalid command please select an action")
-<<<<<<< Updated upstream
-=======
->>>>>>> 68c1dba396876427146f1f2ddfea6ea823dc901c
->>>>>>> Stashed changes
+>>>>>>> origin/main
