@@ -93,53 +93,54 @@ def playerparty():
     party= False
 
 #Start of game:
-test_text = input ("New User detected please enter name:")
-NewUser.name = str(test_text)
+def start_game():
+    test_text = input ("New User detected please enter name:")
+    NewUser.name = str(test_text)
 
-#Print welcome info
-print("Welcome", NewUser.name,"\nThis information isn't known to the public only users chosen can know the truth of these creatures.Cellmon...\n")
-print("These creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across.\n")
-print("Your mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned...If a Cellmon is defeated by another.\n")
-print("Their data becomes corrupt and disperses being absorbed by the victor.There is one that we warn all users to avoid at all cost. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\n")
-print("Now lets get your journey as a Cellmon trainer started.")
+    #Print welcome info
+    print("Welcome", NewUser.name,"\nThis information isn't known to the public only users chosen can know the truth of these creatures.Cellmon...\n")
+    print("These creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across.\n")
+    print("Your mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned...If a Cellmon is defeated by another.\n")
+    print("Their data becomes corrupt and disperses being absorbed by the victor.There is one that we warn all users to avoid at all cost. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\n")
+    print("Now lets get your journey as a Cellmon trainer started.")
 
-starter=True
+    starter=True
 
-#Get user input for choosing the starter cellmon
-while starter==True:
- test_text = input ("Please Choose your Starter:\n1.Terrasaur\n2.Jellyfists\n3.Fiamelon\n")
- Starterpick = str(test_text)
+    #Get user input for choosing the starter cellmon
+    while starter==True:
+        test_text = input ("Please Choose your Starter:\n1.Terrasaur\n2.Jellyfists\n3.Fiamelon\n")
+        Starterpick = str(test_text)
 
- #User chooses a starter
- if Starterpick=="1" or Starterpick=="Terrasaur" or Starterpick=="terrasaur":
-    NewUser.party.append(Starter1)
-    starter=False
- elif Starterpick=="2" or Starterpick=="Jellyfists" or Starterpick=="jellyfists":
-    NewUser.party.append(Starter2)
-    starter=False
- elif Starterpick=="3" or Starterpick=="Fiamelon" or Starterpick=="fiamelon":
-   NewUser.party.append(Starter3)
-   starter=False
- else:
-  print("Invalid Cellmon Choice")
+    #User chooses a starter
+    if Starterpick=="1" or Starterpick=="Terrasaur" or Starterpick=="terrasaur":
+        NewUser.party.append(Starter1)
+        starter=False
+    elif Starterpick=="2" or Starterpick=="Jellyfists" or Starterpick=="jellyfists":
+        NewUser.party.append(Starter2)
+        starter=False
+    elif Starterpick=="3" or Starterpick=="Fiamelon" or Starterpick=="fiamelon":
+        NewUser.party.append(Starter3)
+        starter=False
+    else:
+        print("Invalid Cellmon Choice")
 
-print("Be careful... may you and your Cellmon stand above all")
+    print("Be careful... may you and your Cellmon stand above all")
 
-#User enters the danger zone
-Game = True
+    #User enters the danger zone
+    Game = True
 
-#Loop while the user does not want to quit the game
-while Game== True:
- print ("\n1.Search\n2.Party\n3.Quit")
- test_text = input ("Choose an Action type out the action or number: ")
- test_input = str(test_text)
+    #Loop while the user does not want to quit the game
+    while Game== True:
+        print ("\n1.Search\n2.Party\n3.Quit")
+        test_text = input ("Choose an Action type out the action or number: ")
+        test_input = str(test_text)
 
- if test_input=="1" or test_input=="Search" or test_input=="search": #User chooses to search
-    Cellsearch()
- elif test_input=="2" or test_input=="Party" or test_input=="party": #User chooses to see party
-    playerparty()
- elif test_input=="3" or test_input=="Quit" or test_input=="quit": #User chooses to quit the game
-    print("Thank you for playing")
-    Game= False
- else:
-  print("Invalid command please select an action")
+        if test_input=="1" or test_input=="Search" or test_input=="search": #User chooses to search
+            Cellsearch()
+        elif test_input=="2" or test_input=="Party" or test_input=="party": #User chooses to see party
+            playerparty()
+        elif test_input=="3" or test_input=="Quit" or test_input=="quit": #User chooses to quit the game
+            print("Thank you for playing")
+            Game= False
+        else:
+            print("Invalid command please select an action")
