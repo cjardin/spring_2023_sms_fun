@@ -14,11 +14,13 @@ with open('config.yml', 'r') as yml_file:
 
 CORPUS = {}
 
-with open('chatbot_corpus.json', 'r') as myfile:
+with open('cellmon_server.json', 'r') as myfile:
     CORPUS = json.loads(myfile.read())
 
 def handle_request():
     logger.debug(request.form)
+
+    sent_input = str(request.form['Body'])
 
     message = g.sms_client.messages.create(
                      body="Enter the world of Cellmon? (Y/N)",
