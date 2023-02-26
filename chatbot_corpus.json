@@ -216,8 +216,9 @@
                 "fuck"
             ],
             "outputs": [
-		"That's not a good word."
-		    ]
+		"That's not a good word.",
+		"Fuck who? Me? You? Everything?"
+	    ]
         },
         {
             "input": [
@@ -283,7 +284,7 @@
 		"How are you?",
 		"How do you do?",
 		"Hi, how are you?",
-		"Top of the morning to you!",	 
+		"Top of the morning to you!",
 	    ]
         },
         {
@@ -536,17 +537,17 @@
 		"haha haha haha",
 		"haha that's",
 		"hahaha",
-		"hahaha", 
+		"hahaha",
 		"hahaha very",
 		"he",
 		"hehe",
 		"hehehe",
 		"huh",
-		"laughing out", 
+		"laughing out",
 		"lmao",
 		"lol",
 		"loud",
-		"that's", 
+		"that's",
 		"xd"
             ],
             "outputs": [
