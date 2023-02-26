@@ -47,6 +47,12 @@ def give_context (raw_text):
 
     #context.append(wordsFiltered)
 
+    raw_tags_stored = "" #Will store all tags
+    tagged = word_tokenize(raw_text)#Tokenize the filtered list
+    tagged = pos_tag(tagged)#Tag the list
+    for tags in tagged:
+        raw_tags_stored = raw_tags_stored + " " + tags[1] #Stores tags into a string that directly matches the stemmed words
+        
     tags_stored = "" #Will store all tags
     tagged = word_tokenize(wordsFiltered)#Tokenize the filtered list
     tagged = pos_tag(tagged)#Tag the list
@@ -56,6 +62,7 @@ def give_context (raw_text):
 
     context = [] #This wil store all the meaningful context
     context.append(raw_text)#The first element in the list is the orginal string.
+    context.append(raw_tags_stored)
     context.append(sia) #The second element in the list is the VADER response of the string
     context.append(wordsFiltered)#The third element in the list is a string with all stop words removed.
     context.append(tags_stored) #The fourth element in the list is a string of all the types of speech/tags of the non-stop words [PATTERNS]
@@ -64,8 +71,12 @@ def give_context (raw_text):
 
 
 print ("Please type a sentence to find out what the context is [DEBUGGING PURPOSES ONLY]")
+print ("Type: exit() when finished")
+text = ""
 while (1):
     text = input("> ")
+    if (text == "exit()"):
+        break
     print(give_context(text))
     
     
