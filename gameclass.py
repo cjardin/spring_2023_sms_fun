@@ -376,13 +376,13 @@ class Location:
         for x in range(1):
             randNum = random.randrange(1, 101)
             if 1 <= randNum <= 30:
-                print(self.mobs[0].species)
+                return self.mobs[0]
             elif 31 <= randNum <= 60:
-                print(self.mobs[1].species)
+                return self.mobs[1]
             elif 61 <= randNum <= 90:
-                print(self.mobs[2].species)
+                return self.mobs[2]
             else:
-                print(self.mobs[3].species)
+                return self.mobs[3]
 
 #Testing system
 #pikablu = Aichu(2)

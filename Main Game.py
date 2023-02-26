@@ -1,5 +1,8 @@
-#Importing main game classes and functions
-import gameclass
+#Import required libraries
+import gameclass #Importing main game classes and functions
+import battle_sys #Importing battle system
+
+global Game #Create a global variable for game condition
 
 NewUser=gameclass.Player(" "," ",[]) #Create a new user object
 
@@ -31,10 +34,12 @@ L4=gameclass.Location("Lake",[A10,A11,A12,A13])
 
 #Function for user to search locations
 def Cellsearch():
+ global Game
+
  searching=True
 
  print("Please Choose a server to explore")
- print("1.Fields Threat Level Max:3\n2.Mountains Threat Level Max:6\n3.Forest Threat Level Max:9\n4.Lake Threat level Max:12\n")
+ print("1.Fields Threat Level Max:3\n2.Mountains Threat Level Max:6\n3.Forest Threat Level Max:9\n4.Lake Threat level Max:12")
  
  while searching==True:
   search = input ()
@@ -43,31 +48,19 @@ def Cellsearch():
 
   if find=="1" or find=="Fields" or find=="fields": #Searching fields
     found=L1.encounter()
-    if len(NewUser.party)<3:
-        NewUser.party.append(found)
-    else:
-        print("party is full")
+    Game = battle_sys.initiateBattle(NewUser, found)
     searching=False
   elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
     found=L2.encounter()
-    if len(NewUser.party)<3:
-        NewUser.party.append(found)
-    else:
-        print("party is full")
+    Game = battle_sys.initiateBattle(NewUser, found)
     searching=False
   elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
     found=L3.encounter()
-    if len(NewUser.party)<3:
-        NewUser.party.append(found)
-    else:
-        print("party is full")
+    Game = battle_sys.initiateBattle(NewUser, found)
     searching=False
   elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
     found=L4.encounter()
-    if len(NewUser.party)<3:
-        NewUser.party.append(found)
-    else:
-        print("party is full")
+    Game = battle_sys.initiateBattle(NewUser, found)
     searching=False
   else:
     print("you traveled around in a circle from invalid server choice\n")
@@ -76,13 +69,14 @@ def Cellsearch():
 
 #Function to print user's cellmon party
 def playerparty():
-   party=True;
-   i=1
+   party = True;
+   num, i = 1, 0
 
    #Print the cellmon
-   for x in NewUser.party:
-    print(i,".",x.species)
-    i=i+1
+   while i < len(NewUser.party):
+    print(f"{num}. {NewUser.party[i].species} <level {NewUser.party[i].level}>")
+    num = num + 1
+    i = i + 1
 
    #Get user input for info
    while party== True:
@@ -136,7 +130,7 @@ Game = True
 
 #Loop while the user does not want to quit the game
 while Game== True:
- print ("1.Search\n2.Party\n3.Quit")
+ print ("\n1.Search\n2.Party\n3.Quit")
  test_text = input ("Choose an Action type out the action or number: ")
  test_input = str(test_text)
 
