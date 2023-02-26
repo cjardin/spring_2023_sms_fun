@@ -1,6 +1,6 @@
 #Import required libraries
-import gameclass #Importing main game classes and functions
-import battle_sys #Importing battle system
+import gameclass_server #Importing main game classes and functions
+import battle_sys_server #Importing battle system
 
 import sys
 sys.path.append('open_calls')
@@ -38,62 +38,61 @@ L4=gameclass.Location("Lake",[A10,A11,A12,A13])
 
 #Function for user to search locations
 def Cellsearch():
- global Game
+    global Game
+    
+    searching=True
 
- searching=True
+    create_msg("Please Choose a server to explore\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12")
 
- create_msg("Please Choose a server to explore\n
-            1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12")
+    while searching==True:
+        search = str(request.form['Body'])
 
- while searching==True:
-  search = str(request.form['Body'])
+        find = search
 
-  find = search
-
-  if find=="1" or find=="Fields" or find=="fields": #Searching fields
-    found=L1.encounter()
-    Game = battle_sys.initiateBattle(NewUser, found)
-    searching=False
-  elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
-    found=L2.encounter()
-    Game = battle_sys.initiateBattle(NewUser, found)
-    searching=False
-  elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
-    found=L3.encounter()
-    Game = battle_sys.initiateBattle(NewUser, found)
-    searching=False
-  elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
-    found=L4.encounter()
-    Game = battle_sys.initiateBattle(NewUser, found)
-    searching=False
-  else:
-    create_msg("you traveled around in a circle from invalid server choice\nPlease Choose a location to explore\n1.Fields\n2.Mountains\n3.Forest\n4.Lake\n")
+    if find=="1" or find=="Fields" or find=="fields": #Searching fields
+        found=L1.encounter()
+        Game = battle_sys.initiateBattle(NewUser, found)
+        searching=False
+    elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
+        found=L2.encounter()
+        Game = battle_sys.initiateBattle(NewUser, found)
+        searching=False
+    elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
+        found=L3.encounter()
+        Game = battle_sys.initiateBattle(NewUser, found)
+        searching=False
+   elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
+        found=L4.encounter()
+        Game = battle_sys.initiateBattle(NewUser, found)
+        searching=False
+    else:
+        create_msg("you traveled around in a circle from invalid server choice\nPlease Choose a location to explore\n1.Fields\n2.Mountains\n3.Forest\n4.Lake\n")
 
 #Function to print user's cellmon party
 def playerparty():
-   party = True;
-   num, i = 1, 0
+    party = True;
+    num, i = 1, 0
 
-   #Print the cellmon
-   while i < len(NewUser.party):
-    create_msg(f"{num}. {NewUser.party[i].species} <level {NewUser.party[i].level}>")
-    num = num + 1
-    i = i + 1
+    #Print the cellmon
+    while i < len(NewUser.party):
+        create_msg(f"{num}. {NewUser.party[i].species} <level {NewUser.party[i].level}>")
+        num = num + 1
+        i = i + 1
 
-   #Get user input for info
-   while party== True:
-    create_msg("Enter the # or name of the Cellmon in the party you want info on: ")
-    test_text = str(request.form['Body'])
-    test_input = test_text
-    if test_input=="1" or test_input==NewUser.party[0].species:
-       NewUser.party[0].printMaxStats()
-    elif test_input=="2" or test_input==NewUser.party[1].species:
-       NewUser.party[1].printMaxStats()
-    elif test_input=="3" or test_input==NewUser.party[2].species:
-       NewUser.party[2].printMaxStats()
-    else:
-      create_msg("Invalid Cellmon ID")
-    party= False
+    #Get user input for info
+    while party== True:
+        create_msg("Enter the # or name of the Cellmon in the party you want info on: ")
+        test_text = str(request.form['Body'])
+        test_input = test_text
+        if test_input=="1" or test_input==NewUser.party[0].species:
+            NewUser.party[0].printMaxStats()
+        elif test_input=="2" or test_input==NewUser.party[1].species:
+            NewUser.party[1].printMaxStats()
+        elif test_input=="3" or test_input==NewUser.party[2].species:
+            NewUser.party[2].printMaxStats()
+        else:
+            create_msg("Invalid Cellmon ID")
+        party= False
 
 #Start of game:
 def start_game():
@@ -102,12 +101,7 @@ def start_game():
     NewUser.name = test_text
 
     #Print welcome info
-    create_msg(f"Welcome {NewUser.name}\nThis information isn't known to the public only users chosen can know the truth of these creatures.Cellmon...\n
-        These creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across.\n
-        Your mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned...If a Cellmon is defeated by another.\n
-        Their data becomes corrupt and disperses being absorbed by the victor.There is one that we warn all users to avoid at all cost. Jarceus...\n
-        A Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\n
-        Now lets get your journey as a Cellmon trainer started.")
+    create_msg(f"Welcome {NewUser.name}\nThis information isn't known to the public only users chosen can know the truth of these creatures.Cellmon...\nThese creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across.\nYour mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned...If a Cellmon is defeated by another.\nTheir data becomes corrupt and disperses being absorbed by the victor.There is one that we warn all users to avoid at all cost. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\nNow lets get your journey as a Cellmon trainer started.")
 
     starter=True
 
@@ -117,18 +111,18 @@ def start_game():
         test_txt = str(request.form['Body'])
         Starterpick = test_text
 
-    #User chooses a starter
-    if Starterpick=="1" or Starterpick=="Terrasaur" or Starterpick=="terrasaur":
-        NewUser.party.append(Starter1)
-        starter=False
-    elif Starterpick=="2" or Starterpick=="Jellyfists" or Starterpick=="jellyfists":
-        NewUser.party.append(Starter2)
-        starter=False
-    elif Starterpick=="3" or Starterpick=="Fiamelon" or Starterpick=="fiamelon":
-        NewUser.party.append(Starter3)
-        starter=False
-    else:
-        create_msg("Invalid Cellmon Choice")
+        #User chooses a starter
+        if Starterpick=="1" or Starterpick=="Terrasaur" or Starterpick=="terrasaur":
+            NewUser.party.append(Starter1)
+            starter=False
+        elif Starterpick=="2" or Starterpick=="Jellyfists" or Starterpick=="jellyfists":
+            NewUser.party.append(Starter2)
+            starter=False
+        elif Starterpick=="3" or Starterpick=="Fiamelon" or Starterpick=="fiamelon":
+            NewUser.party.append(Starter3)
+            starter=False
+        else:
+            create_msg("Invalid Cellmon Choice")
 
     create_msg("Be careful... may you and your Cellmon stand above all")
 

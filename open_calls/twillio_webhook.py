@@ -1,3 +1,4 @@
+import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 
@@ -8,7 +9,7 @@ import json
 
 import sys
 sys.path.append('~/Cellmon')
-import Main_Game
+import Main_Game_server
 
 yml_configs = {}
 BODY_MSGS = []
@@ -42,7 +43,7 @@ def handle_request():
     sent_input = str(request.form['Body']).lower()
 
     if sent_input == 'y':
-        Main_Game.start_game()
+        Main_Game_server.start_game()
     elif sent_input == 'n':
         response = "Goodbye."
     else:
