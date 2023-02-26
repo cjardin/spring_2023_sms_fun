@@ -34,13 +34,15 @@ class TextGenerator(Abstract):
 # before these derived classes are loaded.)
 from . import smile_and_nod
 from . import match_corpus
+from . import respond_jerk
 
 def init_generators(user_data: UserData) -> List[TextGenerator]:
     """Initializes and returns the list of text processors."""
 
     # These will be checked in order;
-    # *earlier* will win in the rare event of a tie.
+    # earlier will win in the rare event of a tie.
     return [
         smile_and_nod.SmileAndNod(user_data),
         match_corpus.MatchCorpus(user_data),
+        respond_jerk.JerkResponder(user_data),
     ]

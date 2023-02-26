@@ -22,31 +22,29 @@ class JerkResponder(TextGenerator):
         responses = []
         # Generate simple responses based on keywords
 
-        for input_tags in in_text.tags:
-            if input_tags == 'VBD':
-                responses.append((0.8 + random(), "I " + in_text.words[curPos] + " your mom last night"))
+        for input_word, input_tag in zip(in_text.words, in_text.tags):
+            if input_tag == 'VBD':
+                responses.append((0.8 + random(), "I " + input_word + " your mom last night"))
 
-            if input_tags == 'NNS':
-                responses.append((0.5 + random(), "Man I *love* talking about " + in_text.words[curPos]))
-                responses.append(
-                    (0.5 + random(), "Do you really care about " + in_text.words[curPos] + "?  That's kinda weird man"))
+            if input_tag == 'NNS':
+                responses.append((
+                    0.5 + random(),
+                    "Man I *love* talking about " + input_word
+                ))
+                responses.append((
+                    0.5 + random(),
+                    "Do you really care about " + input_word + "?  That's kinda weird man"
+                ))
 
-            if input_tags == 'NN':
-                responses.append((0.25 + random(),
-                                  in_text.words[curPos] + "!? A " + in_text.words[curPos] + " killed my entire family"))
+            if input_tag == 'NN':
+                responses.append((
+                    0.25 + random(),
+                    input_word + "!? A " + input_word + " killed my entire family"))
 
             curPos += 1
 
-        # Responses that don't look at the input at all
-
-        responses.append((0.0 + random(), "[EXTREMELY LOUD INCORRECT BUZZER]"))
-        responses.append((0.0 + random(), "tl;dr"))
-
-        self.response = max(responses)[1]
-        self.weight = max(responses)[0]
-
-        return self.weight
-
-
-
-
+        if responses:
+            (weight, self.response) = max(responses)
+            return weight
+        else:
+            return float('-inf')
