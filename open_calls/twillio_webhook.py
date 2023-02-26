@@ -20,17 +20,18 @@ with open('chatbot_corpus.json', 'r') as myfile:
 def handle_request():
     logger.debug(request.form)
 
-    response = 'NOT FOUND'
+    logger.debug("Enter the world of Cellmon? (Y/N)")
+
+    logger.debug(request.form)
 
     sent_input = str(request.form['Body']).lower()
-    if sent_input in CORPUS['input']:
-        response = random.choice(CORPUS['input'][sent_input])
-#    else:
-#        CORPUS['input'][sent_input] = ['DID NOT FIND']
-#        with open('chatbot_corpus.json', 'w') as myfile:
-#            myfile.write(json.dumps(CORPUS, indent=4 ))
 
-    logger.debug(response)
+    if sent_input == 'y':
+        #Start game
+    elif sent_input == 'n':
+        #Quit server
+    else:
+        logger.debug("Invalid Input.")
 
     message = g.sms_client.messages.create(
                      body=response,
