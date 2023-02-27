@@ -933,10 +933,51 @@
 		"Perfect"
 	    ],
 	    "outputs": [
-		 "Anything else?",
-		 "Is that all?",
-		 "Okay",
-		 "Perfect"
+		"Anything else?",
+		"Is that all?",
+		"Okay",
+		"Perfect"
+	    ]
+	},
+	{
+	     "input": [
+		"You're not helping me",
+		"You are bad",
+		"You're very bad",
+		"You're really bad",
+		"You are useless",
+		"You are horrible",
+		"You are a waste of time",
+		"You are disgusting",
+		"You are lame",
+		"You are no good",
+		"You're bad",
+		"You're awful",
+		"You are not cool",
+		"You are not good",
+		"You are so bad",
+		"You are so useless",
+		"You are terrible",
+		"You are totally useless",
+		"You are very bad",
+		"You are a waste",
+		"You're bad",
+		"You're not good",
+		"You're not very good",
+		"You're terrible",
+		"You're the worst",
+		"You're the worst ever",
+		"You're worthless"
+	    ],
+	    "outputs": [
+		"Look at yourself",
+		"I don't care what you think?",
+		"Do you really mean that?",
+		"Those are fighting words",
+		"I'm sorry you think that",
+		"Not all the time",
+		"Look in a mirror",
+		"Your mom"
 	    ]
 	},
     ]
