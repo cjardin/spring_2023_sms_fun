@@ -16,7 +16,9 @@ class reponse_question(TextGenerator):
     def rate(self, in_text: ProcessedText) -> float:
         # Arbitrarily low, but not -∞.
         if (in_text.og_text[in_text.og_text.length()-1] == '?'):
-            return 9.9
+            return 9.0
+        else:
+            return 0
     ## FIX THIS WITH SMARTER THINKING
     
     def respond(self, in_text: ProcessedText) -> str:
