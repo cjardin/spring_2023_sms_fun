@@ -26,27 +26,31 @@ class JerkResponder(TextGenerator):
                 responses.append((0.30 + random(), "I " + input_word + " your mom last night"))
                 responses.append((0.30 + random(), "When was the last time you " + input_word + "?"))
 
+            if input_tag == 'VB':  # Present Tense Verbs
+                responses.append((0.30 + random(), "When do you think you'll " + input_word + "next?"))
+
+
             if input_tag == 'NN':  # Singular Nouns
                 responses.append((0.20 + random(), input_word + "!? A " + input_word + " killed my entire family"))
                 responses.append((0.10 + random(), "Do you really love the " + input_word + " or are you just naming things in the room?"))
-                responses.append((0.50 + random(), "Please tell me more about this" + input_word + ".  I am sooo interested -_-"))
-                responses.append((0.60 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
-                responses.append((0.60 + random(), "So, about this " + input_word + ".  Tell me more about that"))
-                responses.append((0.20 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word))
+                responses.append((0.50 + random(), "Please tell me more about this " + input_word + ".  I am sooo interested -_-"))
+                responses.append((0.50 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
+                responses.append((0.50 + random(), "So, about this " + input_word + ".  Tell me more about that!"))
+                responses.append((0.20 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word + "!"))
 
             if input_tag == 'NNS':  # Plural Nouns
                 responses.append((0.50 + random(), "Man I *love* talking about " + input_word))
                 responses.append((0.50 + random(), "Do you really care about " + input_word + "?  That's kinda weird man"))
-                responses.append((0.60 + random(), "So, about these " + input_word + ".  Tell me more about them"))
+                responses.append((0.50 + random(), "So, about these " + input_word + ".  Tell me more about them"))
                 responses.append((0.45 + random(), "Are " + input_word + " really all you ever talk about?"))
-                responses.append((0.20 + random(), "Sorry, random question, but this is in my head and I gotta ask, "
+                responses.append((0.30 + random(), "Sorry, random question, but this is in my head and I gotta ask, "
                                                    "you know how a group of dolphins is called a pod, what are a "
                                                    "group of " + input_word + " called?"))
 
             if input_tag == 'NP':  # Proper Nouns
-                responses.append((0.50 + random(), "Wait, *the* " + input_word + "?  Holy shit!"))
-                responses.append((0.10 + random(), "Yo, didn't " + input_word + "get cancelled?"))
-                responses.append((0.25 + random(), input_word + "? From OnlyFans?"))
+                responses.append((2.80 + random(), "Wait, *the* " + input_word + "?  Holy shit!"))
+                responses.append((2.80 + random(), "Yo, didn't " + input_word + "get cancelled?"))
+                responses.append((2.70 + random(), input_word + "? From OnlyFans?"))
 
             if input_tag == 'NNS':  # Present Participle (-ing)
                 responses.append((0.30 + random(), input_word + "? Man you're optimistic!"))
