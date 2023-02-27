@@ -9,10 +9,10 @@ with open('chatbot_corpus.json', 'r') as myfile:
 def process_message(user, sent_input):
 
     if sent_input in CORPUS['input']:
-        response = CORPUS['input']['sent_input'][user.ai.mood]
+        response = random.choice(CORPUS['input'][sent_input][user.ai.mood])
     else:
         response = random.choice(CORPUS['default']['response'])
-        
+
     return (user, response)
 
 
