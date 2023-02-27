@@ -1,89 +1,135 @@
 {
 	"input": {
 		"hello": {
-			"Mad": [
+			"mad": [
 				"why have you been so mean recently",
 				"what do you want"
 			],
-			"Happy": [
+			"happy": [
 				"hey how are you",
 				"heeeey 😘",
 				"hello again how are you"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"how are you": {
-			"Mad" :[
+			"mad" :[
 				"im a little upset tbh"
 			],
-			"Happy":[ 
+			"happy":[ 
 				"im feelin good how are you"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"wyd": {
-			"Mad": [
+			"mad": [
 			"nothing"
 			],
-			"Happy": [
+			"happy": [
 				"hmm nothing why",
 				"nothing why you wanna do something?"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"whats up": {
-			"Mad": [
+			"mad": [
 				"whats up with you"
 			],
-			"Happy": [
+			"happy": [
 				"not much baby how are you"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},	
 		"party": {
-			"Mad": [
+			"mad": [
 				"nah"
 			],
-			"Happy": [
+			"happy": [
 				"hell yea 🥳"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"h": {
-			"Mad": [
+			"mad": [
 				"wtf"
 			],
-			"Happy": [
+			"happy": [
 				"hi?"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"aaaaaaaaaaaaaaaaaaa": {
-			"Mad": [
+			"mad": [
 				"chill"
 			],
-			"Happy": [
+			"happy": [
 				"DID NOT FIND"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"\\": {
-			"Mad": [
+			"mad": [
 				"wtf"
 			],
-			"Happy": [
+			"happy": [
 				"DID NOT FIND"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"hi": {
-			"Mad": [
+			"mad": [
 				"what do you want"
 			],
-			"Happy": [
+			"happy": [
 				"heeeeeeey, how are you? :)",
 				"oh hey what're you doin 👀"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		},
 		"fight": {
-			"Mad": [
+			"mad": [
 				"leave me alone"
 			],
-			"Happy": [
+			"happy": [
 				"what kinda fight"
+			],
+			"neutral":[
+				"neutral",
+				"response"
 			]
 		}
+	},
+	"default": {
+		"response": [
+			"not in corpus",
+			"response not in corpus"
+		]
 	}
 }

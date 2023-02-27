@@ -22,7 +22,6 @@ def pickling(form):
     # save into message history
     act.save_msg(form['Body'])
 
-
     logger.debug(act.prev_msgs)
 
     return act
