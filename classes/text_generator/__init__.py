@@ -35,6 +35,7 @@ class TextGenerator(Abstract):
 from . import smile_and_nod
 from . import match_corpus
 from . import respond_jerk
+from . import question_responses
 #from . import basic_b
 
 def init_generators(user_data: UserData) -> List[TextGenerator]:
@@ -44,6 +45,7 @@ def init_generators(user_data: UserData) -> List[TextGenerator]:
     # earlier will win in the rare event of a tie.
     return [
         #basic_b.BasicBResponder(user_data),
+        question_responses.responseQuestions(user_data),
         smile_and_nod.SmileAndNod(user_data),
         match_corpus.MatchCorpus(user_data),
         respond_jerk.JerkResponder(user_data),

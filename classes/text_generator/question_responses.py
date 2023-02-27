@@ -2,7 +2,11 @@ from . import TextGenerator
 from classes.processed_text import ProcessedText
 import random
 
-class reponseQuestion(TextGenerator):
+
+#class reponseQuestion(TextGenerator):
+
+class responseQuestions (TextGenerator):
+
     """
     Fallback text generator, in case we're really at a loss.
     Doesn't care about user input; just dismisses whatever
@@ -15,17 +19,29 @@ class reponseQuestion(TextGenerator):
 
     def rate(self, in_text: ProcessedText) -> float:
         # Arbitrarily low, but not -∞.
-        if (in_text.og_text[in_text.og_text.length()-1] == '?'):
+
+        if (in_text.og_text[len(in_text.og_text)-1] == '?'):
             return 9.0
         else:
             return 0
+
+        if (in_text.og_text[len(in_text.og_text)-1] == '?'):
+            return 9.0
+        else:
+            return 0
+    ## FIX THIS WITH SMARTER THINKING
+#>>>>>>> Stashed changes
     
     def respond(self, in_text: ProcessedText) -> str:
         response = []
         dont_use = ["who","what", "where", "when", "how", "why"]
         #i = random.randint(1,in_text.words.length()-1)
         for word, input_tag in zip (in_text.words, in_text.tags):
+#<<<<<<< Updated upstream
             if (word not in dont_use):
+#=======
+            #if (word in dont_use):
+#>>>>>>> Stashed changes
                 if "who" in in_text.words:
                     if input_tag == 'VBD':
                         response.append("Who is doing " + word + ", why are you doing BLANK?")
@@ -61,10 +77,14 @@ class reponseQuestion(TextGenerator):
                         response.append("Please tell me everything you know about " + word + ". Then I will consider telling you more")
                         response.append("I think its best you consider what you just asked about what " + word + " is... Then come talk to me again")
                         break
+#<<<<<<< Updated upstream
                     else:
                         response.append("What in the freaking world are you talking about? I've actually never heard someone intelligent talk about "+word+".")
                         break
                 elif "where" in in_text.words:
+#=======
+   #             elif "where" in in_text.words and (input_tag == 'VBD' or input_tag == 'NNS' or input_tag == 'NN'):
+#>>>>>>> Stashed changes
                     if input_tag == 'VBD':
                         response.append("Where do you usually " + word + " at?")
                         response.append("Have you really thought where people really " + word + " at?")
@@ -80,10 +100,14 @@ class reponseQuestion(TextGenerator):
                         response.append("How the heck do you not know where to find a " + word + "?")
                         response.append("Oh it's literally just down the road from where you live.")
                         break
+#<<<<<<< Updated upstream
                     else:
                         response.append("Where did "+word+" is truly an insightful question")
                         break
                 elif "when" in in_text.words:
+#=======
+ #               elif "when" in in_text.words and (input_tag == 'VBD' or input_tag == 'NNS' or input_tag == 'NN'):
+#>>>>>>> Stashed changes
                     if input_tag == 'VBD':
                         response.append("When do you " + word + "? Just asking to get through this conversation.")
                         response.append("Most commonly, people tend to " + word + " when you aren't around.... Cause otherwise, you'd know when")
@@ -99,11 +123,16 @@ class reponseQuestion(TextGenerator):
                         response.append("I dunno, tbh, probably during a time that makes sense. Ya know?")
                         response.append("I didn't think about when that might happen with " + word + ".")
                         break
+#<<<<<<< Updated upstream
                     else:
                         response.append("When did " + word + " happen?")
                         break
                 elif "why" in in_text.words:
+                    #:if input_tag == 'VBD':
+#=======
+ #               elif "why" in in_text.words and (input_tag == 'VBD' or input_tag == 'NNS' or input_tag == 'NN'):
                     if input_tag == 'VBD':
+#>>>>>>> Stashed changes
                         response.append("Why would you realistically wanna " + word + "?")
                         response.append("Why do you BLANK? Cause I know why I " + word + "..")
                         response.append("I never really thought about why  someone would want to to " + word + ". What do you think?")
@@ -118,10 +147,14 @@ class reponseQuestion(TextGenerator):
                         response.append("Oh please, tell me why you wanna keep talking about " + word + "? It's truly fascinating, isn't it?")
                         response.append("Mhm.. Mhm... Mhmmmm... I really don't know why you would think that tbh.")
                         break
+#<<<<<<< Updated upstream
                     else:
                         response.append("A great man once told me.. Why... The book of why should of the answer you are looking for.")
                         break
                 elif "how" in in_text.words:
+#=======
+  #              elif "how" in in_text.words and (input_tag == 'VBD' or input_tag == 'NNS' or input_tag == 'NN'):
+#>>>>>>> Stashed changes
                     if input_tag == 'VBD':
                         response.append("How do you " + word + "? Pft, and here I thought YOU were the expert on " + word + ".")
                         response.append("While I am the local expert on how to BLANK, I did find using youtube to learn more a lot easier... Plus, I don't need to explain further.")
@@ -137,6 +170,7 @@ class reponseQuestion(TextGenerator):
                         response.append("Honestly, I really don't have the time to explain all the complexities of " + word + ", so I'd just Wikipedia it.. That's some wisdom of the ages.")
                         response.append("Please don't ask me how " + word + " works.. It's too much to explain.")
                         break
+#<<<<<<< Updated upstream
                     else:
                         response.append("Wellp.. The question on how to " + word +" is always the question")
 
@@ -145,7 +179,17 @@ class reponseQuestion(TextGenerator):
         response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
 
         
-        return response[random.randint(0,len(reponse)-1)]
+ #       return response[random.randint(0,len(reponse)-1)]
+#=======
+                
+        #response.append("Who...? Who asked?")
+        #response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
+        #response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
+                    
+        
+        return response[random.randint(0,len(response)-1)]
+
+#>>>>>>> Stashed changes
 
                     
                     
