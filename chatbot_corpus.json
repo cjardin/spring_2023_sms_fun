@@ -1,25 +1,89 @@
 {
-    "input": {
-        "hello": [
-            "piss off",
-            "party",
-            "slay"
-        ],
-        "party": [
-            "\u2764\ufe0f"
-        ],
-        "h": [
-            "DID NOT FIND"
-        ],
-        "aaaaaaaaaaaaaaaaaaa": [
-            "DID NOT FIND"
-        ],
-        "\\": [
-            "DID NOT FIND"
-        ],
-        "hi": [
-            "heeeeeeey, how are you? :)",
-            "oh hey what're you up to"
-        ]
-    }
+	"input": {
+		"hello": {
+			"Mad": [
+				"why have you been so mean recently",
+				"what do you want"
+			],
+			"Happy": [
+				"hey how are you",
+				"heeeey 😘",
+				"hello again how are you"
+			]
+		},
+		"how are you": {
+			"Mad" :[
+				"im a little upset tbh"
+			],
+			"Happy":[ 
+				"im feelin good how are you"
+			]
+		},
+		"wyd": {
+			"Mad": [
+			"nothing"
+			],
+			"Happy": [
+				"hmm nothing why",
+				"nothing why you wanna do something?"
+			]
+		},
+		"whats up": {
+			"Mad": [
+				"whats up with you"
+			],
+			"Happy": [
+				"not much baby how are you"
+			]
+		},	
+		"party": {
+			"Mad": [
+				"nah"
+			],
+			"Happy": [
+				"hell yea 🥳"
+			]
+		},
+		"h": {
+			"Mad": [
+				"wtf"
+			],
+			"Happy": [
+				"hi?"
+			]
+		},
+		"aaaaaaaaaaaaaaaaaaa": {
+			"Mad": [
+				"chill"
+			],
+			"Happy": [
+				"DID NOT FIND"
+			]
+		},
+		"\\": {
+			"Mad": [
+				"wtf"
+			],
+			"Happy": [
+				"DID NOT FIND"
+			]
+		},
+		"hi": {
+			"Mad": [
+				"what do you want"
+			],
+			"Happy": [
+				"heeeeeeey, how are you? :)",
+				"oh hey what're you doin 👀"
+			]
+		},
+		"fight": {
+			"Mad": [
+				"leave me alone"
+			],
+			"Happy": [
+				"what kinda fight"
+			]
+		}
+	}
 }

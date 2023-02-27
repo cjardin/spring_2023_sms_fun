@@ -5,6 +5,11 @@ from tools.logging import logger
 from pickles import pickling, save_pickle
 from send_message_back import send_message, send_picture
 from processing_message import process_message
+from AI import *
+
+
+chatbot = AI()
+
 
 ### Main
 def handle_request():
@@ -17,9 +22,10 @@ def handle_request():
 
     ### processing incoming message from processing_message.py
     sent_input = str(request.form['Body']).lower()
+    
     logger.debug(f"Text: {request.form['Body']}")
     user, response = process_message(user, sent_input)
-
+    
     ### response back
     # sending back message from send_message_back.py
     # send message 
