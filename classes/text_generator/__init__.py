@@ -36,7 +36,7 @@ from . import smile_and_nod
 from . import match_corpus
 from . import respond_jerk
 from . import question_responses
-#from . import basic_b
+from . import basic_b
 
 def init_generators(user_data: UserData) -> List[TextGenerator]:
     """Initializes and returns the list of text processors."""
@@ -44,7 +44,7 @@ def init_generators(user_data: UserData) -> List[TextGenerator]:
     # These will be checked in order;
     # earlier will win in the rare event of a tie.
     return [
-        #basic_b.BasicBResponder(user_data),
+        basic_b.BasicBResponder(user_data),
         question_responses.responseQuestions(user_data),
         smile_and_nod.SmileAndNod(user_data),
         match_corpus.MatchCorpus(user_data),
