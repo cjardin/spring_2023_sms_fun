@@ -23,12 +23,8 @@ class responseQuestions (TextGenerator):
         if (in_text.og_text[len(in_text.og_text)-1] == '?'):
             return 9.0
         else:
-            return 0
+            return -1
 
-        if (in_text.og_text[len(in_text.og_text)-1] == '?'):
-            return 9.0
-        else:
-            return 0
     ## FIX THIS WITH SMARTER THINKING
 #>>>>>>> Stashed changes
     
@@ -173,10 +169,10 @@ class responseQuestions (TextGenerator):
 #<<<<<<< Updated upstream
                     else:
                         response.append("Wellp.. The question on how to " + word +" is always the question")
-
-        response.append("Who...? Who asked?")
-        response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
-        response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
+                else:
+                    response.append("Who...? Who asked?")
+                    response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
+                    response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
 
         
  #       return response[random.randint(0,len(reponse)-1)]

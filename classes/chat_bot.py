@@ -49,6 +49,11 @@ class ChatBot:
                 best_rating = rating
                 best_gen = gen
 
+
+        # Parsed Text Canary for Debugging
+        # for input_word, input_tag in zip(proc_text.words, proc_text.tags):
+        #     print(input_tag + " " + input_word)
+
         # Allow the best match to generate our response.
         return best_gen.respond(proc_text)
 
