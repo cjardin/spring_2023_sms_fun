@@ -137,3 +137,4 @@ dmypy.json
 
 # PyCharm stuff
 .idea/
+classes/__init__.py
