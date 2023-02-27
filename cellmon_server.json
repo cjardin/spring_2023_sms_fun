@@ -26,90 +26,156 @@
                         "next_state" : "start_game"
                 },
         "start_game" : {
-                        "content" : "\nThis information isn't known to the public only users chosen can know the truth of these creatures. Cellmon...\nThese creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across the net.\nYour mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned... If a Cellmon is defeated by another...\nTheir data becomes corrupt and they will be absorbed by the victor. There is one that we warn all users to avoid at all costs. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\nNow lets get your journey as a Cellmon trainer started.",
+                        "content" : "This information isn't known to the public only users chosen can know the truth of these creatures. Cellmon...\nThese creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across the net.\nYour mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned... If a Cellmon is defeated by another...\nTheir data becomes corrupt and they will be absorbed by the victor. There is one that we warn all users to avoid at all costs. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\nNow lets get your journey as a Cellmon trainer started.",
                         "next_state" : "chooseStarter"
                 },
         "chooseStarter" : {
-                "content" : "Please Choose your Starter:\n1. Terrasaur\n2. Jellyfists\n3. Fiamelon\n",
-                "next_state" : [
-                        {
-                                "input" : "Terrasaur",
-                                "next_state" : "menu"
-                        },
+                	"content" : "Please Choose your Starter:\n1. Terrasaur\n2. Jellyfists\n3. Fiamelon\n",
+                	"next_state" : [
+                        		{
+                                		"input" : "Terrasaur",
+                                		"next_state" : "menu"
+                        		},
 
-                        {
-                                "input" : "Jellyfists",
-                                "next_state" : "menu"
-                        },
+                        		{
+                                		"input" : "Jellyfists",
+                                		"next_state" : "menu"
+                        		},
 
-                        {
-                                "input" : "Fiamelon",
-                                "next_state" : "menu"
-                        }
-                ]
+                        		{
+                                		"input" : "Fiamelon",
+                                		"next_state" : "menu"
+                        		}
+                		]
         },
+	"warning" : {
+			"content" : "Be careful... may you and your Cellmon stand above all.",
+			"next_state" : "menu"
+	},
         "menu" : {
-                "content" : "\n1. Search\n2. Party\n3. Quit",
-                "next_state" : [
-                        {
-                                "input" : "Search",
-                                "next_state" : "explore"
-                        },
+                	"content" : "1. Search\n2. Party\n3. Quit",
+                	"next_state" : [
+                        		{
+                                		"input" : "Search",
+                                		"next_state" : "explore"
+                        		},
 
-                        {
-                                "input" : "Party",
-                                "next_state" : "partyTime"
-                        },
+                        		{
+                                		"input" : "Party",
+                                		"next_state" : "partyTime"
+                        		},
 
-                        {
-                                "input" : "Quit",
-                                "next_state" : "end"
-                        }
-                ]
+                        		{
+                                		"input" : "Quit",
+                                		"next_state" : "end"
+                        		}
+                		]
         },
         "partyTime" : {
-                "content" : "Enter the # of the Cellmon in the party you want info on: ",
-                "next_state" : [
-                        {
-                                "input" : "1",
-                                "next_state" : "end"
-                        },
+                	"content" : "Enter the # of the Cellmon in the party you want info on or type quit to go back to the menu: ",
+                	"next_state" : [
+                        		{
+                                		"input" : "1",
+                                		"next_state" : "display"
+                        		},
 
-                        {
-                                "input" : "2",
-                                "next_state" : "end"
-                        },
+                        		{
+                                		"input" : "2",
+                                		"next_state" : "display"
+                        		},
 
-                        {
-                                "input" : "3",
-                                "next_state" : "end"
-                        }
-                ]
+                        		{
+                                		"input" : "3",
+                                		"next_state" : "display"
+                        		},
+					{
+						"input" : "quit",
+						"next_state" : "menu"
+					}
+                		]
         },
+	"display" : {
+			"content" : "",
+			"next_state" : "partyTime"
+	},
         "explore" : {
-                "content" : "Please choose a server to explore:\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12",
-                "next_state" : [
-                        {
-                                "input" : "Fields",
-                                "next_state" : "end"
-                        },
+                	"content" : "Please choose a server to explore:\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12i\nOr type quit to go back to the menu.",
+                	"next_state" : [
+                        		{
+                                		"input" : "Fields",
+                                		"next_state" : "battle"
+                        		},
 
-                        {
-                                "input" : "Mountains",
-                                "next_state" : "end"
-                        },
+                        		{
+                                		"input" : "Mountains",
+                                		"next_state" : "battle"
+                        		},
 
-                        {
-                                "input" : "Forest",
-                                "next_state" : "end"
-                        },
+                        		{
+                                		"input" : "Forest",
+                                		"next_state" : "battle"
+                        		},
 
-                        {
-                                "input" : "Lake",
-                                "next_state" : "end"
-                        }
-                ]
+                        		{
+                                		"input" : "Lake",
+                                		"next_state" : "battle"
+                        		},
+					{
+						"input" : "quit",
+						"next_state" : "menu"
+					}
+                		]
         },
+	"battle" : {
+			"content" : "",
+			"next_state" : "battle_menu"
+	},
+	"battle_menu" : {
+			"content" : "What would you like to do?\nAttack\nSpecial Attack\nCheck Stats\nCapture\nFlee",
+			"next_state" : [
+					{
+						"input" : "Attack",
+						"next_state" : "attack"
+					},
+					{
+						"input" : "Special Attack",
+						"next_state" : "spAttack"
+					},
+					{
+						"input" : "Check Stats",
+						"next_state" : "stats"
+					},
+					{
+						"input" : "Capture",
+						"next_state" : "capture"
+					},
+					{
+						"input" : "Flee",
+						"next_state" : "flee"
+					} 
+				]
+	},
+	"attack" : {
+			"content" : "",
+			"next_state" : "battle_menu"
+	},
+	"spAttack" : {
+			"content" : "",
+			"next_state" : "battle_menu"
+
+	},
+	"stats" : {
+			"content" : "",
+			"next_state" : "battle_menu"
+	},
+	"capture" : {
+			"content" : "",
+			"next_state" : "menu"
+	},
+	"flee" : {
+			"content" : "",
+			"next_state" : "menu"
+	},
         "end"  : {
                         "content" : "Thank you for playing!"
                 }
