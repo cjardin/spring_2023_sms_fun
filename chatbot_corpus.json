@@ -85,5 +85,11 @@
 				"what kinda fight"
 			]
 		}
+	},
+	"default": {
+		"response": [
+			"say something else",
+			"???"
+		]
 	}
 }

@@ -7,6 +7,7 @@ class AI:
     def __init__(self):
         #self.mood = random.choice(['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL'])
         self.STRESS_LEVEL = 0 #global incrementor
+        self.mood = 'NEUTRAL'
         
     #return whatever mood (strgin the AI is feeling)
     def getMood(self):
