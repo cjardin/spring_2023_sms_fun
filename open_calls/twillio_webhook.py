@@ -5,12 +5,6 @@ from tools.logging import logger
 from pickles import pickling, save_pickle
 from send_message_back import send_message, send_picture
 from processing_message import process_message
-from AI import *
-
-
-chatbot = AI()
-
-
 ### Main
 def handle_request():
     # user info
