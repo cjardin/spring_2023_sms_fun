@@ -685,11 +685,19 @@
                 "I'm your boss, you listen to me",
                 "My mom and dad created me",
                 "Do you think I'm a bot?",
-                "I'm Frank"
+                "I'm Frank",
+		"Honestly I could say anything and you still wouldn't know",
+		"Definitely not. Are you?",
+		"You're a dumb bot",
+		"Hello? Am I talking to a real person?",
+		"I'm just a stupid bot and I can't do anything except have a conversation with you",
+		"I'm a real person are you?",
+		"I'm definitely real",
+		"Well that's rude"
             ]
         },
         {
-	   "input": [
+	    "input": [
 		"You're not helping me",
 		"You are bad",
 		"You're very bad",
@@ -718,7 +726,7 @@
 		"You're the worst ever",
 		"You're worthless"
 	   ],
-	   "outputs": [
+	    "outputs": [
 		"Look at yourself",
 		"I don't care what you think?",
 		"Do you really mean that?",
@@ -729,8 +737,124 @@
 		"Your mom"
 	   ]
 	},
+	}
+ 	    "input": [
+                "You almost sound human",
+		"You are a pro",
+		"You are a professional",
+		"You are amazing",
+		"You are awesome",
+		"You are cool",
+		"You are good",
+		"You are good at it",
+		"You are really amazing",
+		"You are really good",
+		"You are really nice",
+		"You are so amazing",
+		"You are so awesome",
+		"You are so cool",
+		"You are so fine",
+		"You are so good",
+		"You are so helpful",
+		"You are so lovely",
+		"You are the best",
+		"You are the best ever",
+		"You are the best in the world",
+		"You are the nicest person in the world",
+		"You are too good",
+		"You are very cool",
+		"You are very good at it",
+		"You are very helpful",
+		"You are very kind",
+		"You are very lovely",
+		"You are very useful",
+		"You are wonderful",
+		"You made my day",
+		"You rock",
+		"You work very well",
+		"You work well",
+		"You're a true professional",
+		"You're awesome",
+		"You're great",
+		"You're just super",
+		"You're perfect",
+		"You're so kind"
+            ],
+            "outputs": [
+		"That's so nice of you!",
+		"What a nice thing to say",
+		"I'm glad you think so",
+		"No you!",
+		"You're very sweet",
+		"Thank you",
+		"Thanks",
+		"Thanks, I try",
+		"You really mean it?"
+	    ]
+        },
+ 	{
+            "input": [
+                "Amazing service",
+		"Cool. Thank you. I really like what you're doing.",
+		"I appreciate it",
+		"I appreciate your help",
+		"I thank you",
+		"It's appreciated",
+		"Thanks for the help!",
+		"Alright thank you",
+		"Alright thanks",
+		"Appreciate all the help",
+		"Appreciate your help",
+		"Awesome service",
+		"Cheers",
+		"Good thanks",
+		"Great thank you",
+		"Many thanks",
+		"Much appreciated",
+		"Much thanks",
+		"Nice thank you",
+		"No thank you that's all",
+		"Ok thx",
+		"Perfect thank you",
+		"So nice of you",
+		"Sure, np. thanks!",
+		"Terrific thank you",
+		"Thank you",
+		"Thank you again",
+		"Thank you for your help",
+		"Thank you my friend",
+		"Thank you so much",
+		"Thank you that will be all",
+		"Thanks",
+		"Thanks a lot",
+		"Thanks again",
+		"Thanks buddy",
+		"Thanks for your help",
+		"Thanks love",
+		"Thanks so much",
+		"Thanx",
+		"That's appreciated",
+		"Thnx",
+		"Thx",
+		"Thx for your help",
+		"Tnx",
+		"Ty",
+		"Very good thank you",
+		"Well thank you",
+		"Well thanks",
+		"You helped a lot thank you"
+            ],
+            "outputs": [
+		"No problem!",
+		"Not a problem",
+		"No worries",
+		"Anytime",
+		"Of course!",
+		"You're welcome"
+	    ]
+        },
 	{
-	   "input": [
+	    "input": [
 		"why not",
 		"Okay",
 		"kk",
@@ -745,8 +869,8 @@
 		"Sweet",
 		"yup",
 		"Perfect"
-	   ],
-	   "outputs": [
+	    ],
+	    "outputs": [
 		"Anything else?",
 		"Is that all?",
 		"Okay",
@@ -775,13 +899,13 @@
 	    ]
         },
 	{
-	   "input": [
+	    "input": [
 		"Wow",
 		"wow",
 		"Woah",
 		"woah"
-	  ],
-	   "outputs": [
+	    ],
+	    "outputs": [
 		"Wow indead!",
 		"I know right!"
 	   ]
