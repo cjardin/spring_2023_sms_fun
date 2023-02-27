@@ -22,8 +22,8 @@ class reponse_question(TextGenerator):
     def respond(self, in_text: ProcessedText) -> str:
         response = []
         dont_use = ["who","what", "where", "when", "how", "why"]
-        i = random.randint(1,in_text.words.length()-1)
-        for word, tag in zip (in_text.words, in_text.tags):
+        #i = random.randint(1,in_text.words.length()-1)
+        for word, input_tag in zip (in_text.words, in_text.tags):
             if (word not in dont_use):
                 if "who" in in_text.words:
                     if input_tag == 'VBD':
