@@ -940,5 +940,38 @@
 		"It's a little creepy you're asking that"
 	   ]
 	},
+	{
+            "inputs": [
+                "How boring you are",
+		"You are boring",
+		"You are boring me",
+		"You are very boring",
+		"You're incredibly boring",
+		"You're really boring",
+		"You're so boring"
+            ],
+            "outputs": [
+                "Conversations are two-sided",
+		"Just like you",
+		"I don't care",
+		"Sorry"
+            ]
+        },
+	{
+            "inputs": [
+                "Are you sure",
+		"Are you sure right now",
+		"Are you sure today",
+		"Are you sure now",
+		"Are you sure tonight"
+            ],
+            "outputs": [
+                "Yes of course",
+		"I'm certain",
+		"I'm sure",
+		"Positive",
+		"Honestly having second thoughts"
+            ]
+        },
     ]
 }
