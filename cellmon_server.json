@@ -27,6 +27,10 @@
                 },
         "start_game" : {
                         "content" : "\nThis information isn't known to the public only users chosen can know the truth of these creatures. Cellmon...\nThese creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across the net.\nYour mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned... If a Cellmon is defeated by another...\nTheir data becomes corrupt and they will be absorbed by the victor. There is one that we warn all users to avoid at all costs. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\nNow lets get your journey as a Cellmon trainer started.",
+                        "next_state" : "explore"
+                },
+        "explore" : {
+                        "content" : "Please choose a server to explore:\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12",
                         "next_state" : "end"
                 },
         "end"  : {
