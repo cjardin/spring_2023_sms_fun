@@ -909,6 +909,36 @@
 		"Wow indead!",
 		"I know right!"
 	   ]
-	},   
+	},
+	{
+	    "input": [
+		"In which city do you live",
+		"Is it your hometown",
+		"Tell me about your city",
+		"What is your city",
+		"What is your residence",
+		"What is your town",
+		"What's your city",
+		"What's your home",
+		"Where do you live",
+		"Where is your home",
+		"Where is your hometown",
+		"Where is your residence",
+		"Where you live",
+		"Where's your home",
+		"Where's your hometown",
+		"Where's your house",
+		"Your city",
+		"Your home",
+		"Your hometown",
+		"Your house",
+		"Your residence",
+		"Your town"
+	    ],
+	    "outputs": [
+		"I don't want to tell you my location",
+		"It's a little creepy you're asking that"
+	   ]
+	},
     ]
 }
