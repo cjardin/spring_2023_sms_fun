@@ -10,8 +10,10 @@ class ProcessedText:
         # Consider handling them later. They're noisy, but they might still be useful information.
         # It would be better to ignore them in analysis rather than discard them outright.
         self.og_text = raw_text
-        raw_text = raw_text.lower()
 
+        '''
+        raw_text = raw_text.lower()
+        
         # Remove Contractions
 
         raw_text = raw_text.replace("aren't", "are not")
@@ -60,6 +62,8 @@ class ProcessedText:
         raw_text = raw_text.replace("you've", "you have")
 
         raw_text = raw_text.translate(str.maketrans('','', string.punctuation)) # removes punctuation to match more in corpus
+        
+        '''
 
         # Store lists of words and Penn Treebank tags.
         # For more info on the latter, see https://www.sketchengine.eu/penn-treebank-tagset/

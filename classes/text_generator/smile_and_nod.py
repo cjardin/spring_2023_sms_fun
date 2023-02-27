@@ -15,7 +15,7 @@ class SmileAndNod(TextGenerator):
 
     def rate(self, in_text: ProcessedText) -> float:
         # Arbitrarily low, but not -∞.
-        return 0
+        return 0.5
 
     def respond(self, in_text: ProcessedText) -> str:
         phrases = open("data/fallback_phrases.txt", 'r')
