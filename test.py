@@ -1,6 +1,16 @@
-from AI import *
+from send_message_back import send_message, send_picture
+from processing_message import process_message
+from actors import actor
 
-chatbot = AI()
+print('Hello, I am Catfish Chatbot, Whats your name?')
+name = input()
 
-chatbot.clientInput("I hate your kind")
-print(chatbot.isTheCurrentMessage())
+print(f"Nice to meet you, {name}!")
+print("how are you today?")
+user = actor(name)
+
+while True:
+    sent_input = input().lower()
+
+    user, response = process_message(user, sent_input)
+    print(f'Chatbot: {response}')
