@@ -1,5 +1,6 @@
 import json
 from typing import List, Optional
+from classes.processed_text import ProcessedText
 
 # Don't construct new instances of this; import the single `corpus` at
 # the bottom of this module instead.
@@ -31,9 +32,10 @@ class Corpus:
         (Don't spend too long thinking about if this use of big-O notation
         is correct; it's probably not, but I think you get the point.)
         """
-        for resp in self:
-            if resp['input'] != in_words: continue
-            return resp['outputs']
+        for responses in self:
+            for an_input in responses['inputs']:
+                if an_input.split(" ") == in_words:
+                    return responses['outputs']
 
     def save(self):
         if not self.dirty: return
@@ -41,17 +43,12 @@ class Corpus:
         corpus_out = open('chatbot_corpus.json', 'w')
         corpus_out.write(json.dumps(self.body, indent=4))
 
-    def append(self, in_words: List[str], outputs: List[str]):
-        """
-        NOTE: `in_text` and `outputs` have the same type hint, but they are
-        *not* the same structure. `in_words` is a tokenzied word list, while
-        `outputs` is a list of responses.
-        """
+    def append(self, in_text: ProcessedText, outputs: List[str]):
         self.dirty = True
         self.body['responses'].append({
-            "input": in_words,
+            "input": ' '.join(in_text.words),
             "outputs": outputs,
-            "auto_generated": True,
+            "auto_generated": True, # Not checked; just a note to human readers
         })
 
 # Import me!

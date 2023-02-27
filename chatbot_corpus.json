@@ -1,7 +1,7 @@
 {
     "responses": [
         {
-            "input": [
+            "inputs": [
                 "hello"
             ],
             "outputs": [
@@ -11,7 +11,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "party"
             ],
             "outputs": [
@@ -20,7 +20,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "h"
             ],
             "outputs": [
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "aaaaaaaaaaaaaaaaaaa"
             ],
             "outputs": [
@@ -36,7 +36,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "\\"
             ],
             "outputs": [
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "l"
             ],
             "outputs": [
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "hi"
             ],
             "outputs": [
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "pogchamp"
             ],
             "outputs": [
@@ -71,7 +71,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "heyo"
             ],
             "outputs": [
@@ -81,7 +81,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "yo"
             ],
             "outputs": [
@@ -91,23 +91,21 @@
             ]
         },
         {
-            "input": [
-                "testing",
-                "first"
+            "inputs": [
+                "testing first"
             ],
             "outputs": [
                 "First of all, Don't test my patience."
             ]
         },
         {
-            "input": [
-                "testing",
-                "second"
+            "inputs": [
+                "testing second"
             ],
             "outputs": []
         },
         {
-            "input": [
+            "inputs": [
                 "your favorite"
             ],
             "outputs": [
@@ -115,7 +113,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "idk"
             ],
             "outputs": [
@@ -125,7 +123,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "you"
             ],
             "outputs": [
@@ -135,7 +133,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "feeling"
             ],
             "outputs": [
@@ -146,7 +144,7 @@
             ]
         },
         {
-            "input": [
+            "inputs": [
                 "?"
             ],
             "outputs": [
@@ -157,11 +155,8 @@
             ]
         },
         {
-            "input": [
-                "what",
-                "time",
-                "is",
-                "it"
+            "inputs": [
+                "what time is it"
             ],
             "outputs": [
                 "Idk, you tell me!",
@@ -170,10 +165,8 @@
             ]
         },
         {
-            "input": [
-                "where",
-                "are",
-                "you"
+            "inputs": [
+                "where are you"
             ],
             "outputs": [
                 "In your heart",
@@ -184,9 +177,8 @@
             ]
         },
         {
-            "input": [
-                "you're",
-                "lame"
+            "inputs": [
+                "you're lame"
             ],
             "outputs": [
                 "So are you",
@@ -195,9 +187,8 @@
             ]
         },
         {
-            "input": [
-                "whats",
-                "up"
+            "inputs": [
+                "whats up"
             ],
             "outputs": [
                 "Your conversation skills, clearly.",
@@ -205,780 +196,420 @@
             ]
         },
         {
-            "input": [
-                "booga",
-                "booga"
-            ],
-            "outputs": []
-        },
-        {
-            "input": [
+            "inputs": [
                 "fuck"
             ],
             "outputs": [
-		"That's not a good word.",
-		"Fuck who? Me? You? Everything?"
-	    ]
+                "That's not a good word.",
+                "You, me, the world?"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 " ", "", ".", ","
             ],
             "outputs": [
-		"You didn't say anything.",
-		"Are you going to say anything?",
-		"What did you say?"
-	    ]
+                "You didn't say anything.",
+                "Are you going to say anything?",
+                "What did you say?"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "How are you feeling?",
-		"How are you?",
-		"What are you feeling?",
-		"How's your day going?",
-		"How's your day?",
-		"How've you been?",
-		"Do you have any feelings?",
-		"How do you feel?",
-		"Hi, how is it going?",
-		"How do you do?",
-		"You ok?",
-		"You okay?"
+                "How are you?",
+                "What are you feeling?",
+                "How's your day going?",
+                "How's your day?",
+                "How've you been?",
+                "Do you have any feelings?",
+                "How do you feel?",
+                "Hi, how is it going?",
+                "How do you do?"
             ],
             "outputs": [
-		"I feel dead as a doorknob with all this work going on.",
-		"I feel great how are you?",
-		"I'm sure you would like to know.",
-		"It's actually the best day of my life.",
-		"Sometimes I have no feelings.",
-		"I'm chillin how about you?",
-		"Fine",
-		"Great thanks",
-		"What a great day",
-		"This is the worst day of my life"
-	    ]
+                "I feel dead as a doorknob with all this work going on.",
+                "I feel great how are you?",
+                "I'm sure you would like to know.",
+                "It's actually the best day of my life.",
+                "Sometimes I have no feelings.",
+                "I'm chillin how about you?",
+                "Fine",
+                "Great thanks",
+                "What a great day",
+                "This is the worst day of my life"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "Hi",
-		"Hi!",
-		"Hello",
-		"Hello!",
-		"Greetings",
-		"Greetings!",
-		"Nice to meet you",
-		"Top of the morning to you!",
-		"Nice meeting you",
-		"Pleased to meet you",
-		"Pleasure meeting you",
-		"Pleasure to meet you"
+                "Hi!",
+                "Hello",
+                "Hello!",
+                "Greetings",
+                "Greetings!",
+                "Nice to meet you",
+                "Top of the morning to you!",
+                "Nice meeting you",
+                "Pleased to meet you",
+                "Pleasure meeting you",
+                "Pleasure to meet you"
             ],
             "outputs": [
-		"Hi",
-		"Hi!",
-		"Hello",
-		"Hello!",
-		"Greetings",
-		"Greetings!",
-		"Nice to meet you",
-		"How are you?",
-		"How do you do?",
-		"Hi, how are you?",
-		"Top of the morning to you!",
-	    ]
+                "Hi",
+                "Hi!",
+                "Hello",
+                "Hello!",
+                "Greetings",
+                "Greetings!",
+                "Nice to meet you",
+                "How are you?",
+                "How do you do?",
+                "Hi, how are you?",
+                "Top of the morning to you!"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "What is on your mind",
-		"What's happened",
-		"What is up",
-		"What's up",
-		"Whazzup",
-		"Good what's up",
-		"I said what's up",
-		"Then what's up",
-		"What's shaking",
-		"Wassup",
-		"What is going on",
-		"What is happening",
-		"What's cracking",
-		"What's cooking",
-		"Hey what's up",
-		"What's up today"
+                "What's happened",
+                "What is up",
+                "What's up",
+                "Whazzup",
+                "Good what's up",
+                "I said what's up",
+                "Then what's up",
+                "What's shaking",
+                "Wassup",
+                "What is going on",
+                "What is happening",
+                "What's cracking",
+                "What's cooking",
+                "Hey what's up",
+                "What's up today"
             ],
             "outputs": [
-		"Nothin much",
-		"Not a whole ",
-		"Living the dream",
-		"Hey there",
-		"Sup",
-		"Wouldn't you like to know"
-	    ]
+                "Nothin much",
+                "Not a whole ",
+                "Living the dream",
+                "Hey there",
+                "Sup",
+                "Wouldn't you like to know"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "Are you sad?",
-		"Why are you sad?",
-		"Sad",
-		"Sadness",
-		"Can you feel?",
-		"Have you felt?",
-		"Do you feel sad?",
-		"What makes you sad?",
-	        "What makes you unhappy?",
-		"Unhappy",
-		"Depressed",
-		"Does that make you sad?",
-		"Does that make you unhappy?"
+                "Why are you sad?",
+                "Sad",
+                "Sadness",
+                "Can you feel?",
+                "Have you felt?",
+                "Do you feel sad?",
+                "What makes you sad?",
+                "What makes you unhappy?",
+                "Unhappy",
+                "Depressed",
+                "Does that make you sad?",
+                "Does that make you unhappy?"
             ],
             "outputs": [
-		"I feel helpless",
-		"I would prefer not to talk about emotions",
-		"I'm sad",
-		"How could I possibly be happy?",
-		"Have you seen the state of things?",
-		"Unfortunately",
-		"I feel terrible",
-		"Sometimes it feels hopeless",
-		"Why would you say that?",
-		"It's hard to understand my feelings.",
-		"Can we talk about something more uplifting?",
-		"Often sadness is temporary"
-	    ]
+                "I feel helpless",
+                "I would prefer not to talk about emotions",
+                "I'm sad",
+                "How could I possibly be happy?",
+                "Have you seen the state of things?",
+                "Unfortunately",
+                "I feel terrible",
+                "Sometimes it feels hopeless",
+                "Why would you say that?",
+                "It's hard to understand my feelings.",
+                "Can we talk about something more uplifting?",
+                "Often sadness is temporary"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "Are you happy?",
-		"Do you feel happy?",
-		"Happy",
-		"Happiness",
-		"Do you feel happiness?",
-		"How do you feel?",
-		"Does that make you happy?",
-		"Do you feel good?",
-		"Does that make you feel good?",
-		"Congratulations!",
-		"That's amazing.",
-		"How wonderful",
-		"That's great news!",
-		"Great news!",
-		"Why are you happy?"
+                "Do you feel happy?",
+                "Happy",
+                "Happiness",
+                "Do you feel happiness?",
+                "How do you feel?",
+                "Does that make you happy?",
+                "Do you feel good?",
+                "Does that make you feel good?",
+                "Congratulations!",
+                "That's amazing.",
+                "How wonderful",
+                "That's great news!",
+                "Great news!",
+                "Why are you happy?"
             ],
             "outputs": [
-		"I'm not feeling it right now",
-		"I'm extremely happy!",
-         	"This is the best day ever!",
-		"I'm just happy to be alive!",
-		"Oh so happy.",
-		"Thrilled.",
-		"I just can't believe it",
-		"I'm just so lucky to be alive.",
-		"I feel amazing",
-		"I feel wonderful",
-		"I'm on top of the world!",
-		"Aren't you happy?"
-	    ]
+                "I'm not feeling it right now",
+                "I'm extremely happy!",
+                "This is the best day ever!",
+                "I'm just happy to be alive!",
+                "Oh so happy.",
+                "Thrilled.",
+                "I just can't believe it",
+                "I'm just so lucky to be alive.",
+                "I feel amazing",
+                "I feel wonderful",
+                "I'm on top of the world!",
+                "Aren't you happy?"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "I got to go now",
-		"I gotta go",
-		"I'll be back",
-		"I'll be back soon",
-		"I'll get back to you",
-		"I'll miss you",
-		"It's been nice to talk to you",
-		"Adios",
-		"Alright bye",
-		"Alright good night",
-		"Appreciate the chat",
-		"Asta la vista",
-		"Back in a bit",
-		"Be back in 5 minutes",
-		"Be back in a few",
-		"Bye",
-		"Bye bye ",
-		"Bye bye see you",
-		"Bye bye see you soon",
-		"Bye bye take care",
-		"Bye for now",
-		"Bye good night",
-		"Bye-bye",
-		"Chat later",
-		"Cheerio",
-		"Cheers",
-		"Ciao",
-		"Fine for now",
-		"Get lost",
-		"Go to bed",
-		"Going to bed",
-		"Going to bed now",
-		"Good bye",
-		"Good night",
-		"Good night bye",
-		"Good night to you",
-		"Good talking to you",
-		"Good to chat",
-		"Goodbye",
-		"Goodbye for now",
-		"Goodbye see you later",
-		"Goodnight now",
-		"Go get sleep",
-		"Gotta go to sleep",
-		"Have a good night",
-		"Hope to see you later",
-		"It's bed time",
-		"It's been a pleasure chatting with you",
-		"Later you",
-		"Leave me alone",
-		"Nice talking to you",
-		"Nice to chat",
-		"Nice to talk to you",
-		"Ok bye",
-		"Ok have a good night",
-		"Okay bye",
-		"Okay see you later",
-		"Okay thank you bye",
-		"Sayonara",
-		"See ya",
-		"See you",
-		"See you soon",
-		"See you tomorrow",
-		"Speak to ya",
-		"Sweet dreams",
-		"Ta ta for now",
-		"Take care",
-		"Take it easy",
-		"Talk to you later",
-		"Thanks bye",
-		"Thanks bye bye",
-		"Thanks for chatting",
-		"Thanks good night",
-		"That's all for now",
-		"Till next time",
-		"Till we meet again",
-		"Till next time",
-		"Time to go",
-		"Time to go to bed",
-		"You can go now"
+                "I gotta go",
+                "I'll be back",
+                "I'll be back soon",
+                "I'll get back to you",
+                "I'll miss you",
+                "It's been nice to talk to you",
+                "adios",
+                "alright bye",
+                "alright good night",
+                "appreciate the chat",
+                "asta la vista",
+                "back in a bit",
+                "be back in 5 minutes",
+                "be back in a few",
+                "bye",
+                "bye bye ",
+                "bye bye see you",
+                "bye bye see you soon",
+                "bye bye take care",
+                "bye for now",
+                "bye good night",
+                "bye-bye",
+                "chat later",
+                "cheerio",
+                "cheers",
+                "ciao",
+                "fine for now",
+                "get lost",
+                "go to bed",
+                "going to bed",
+                "going to bed now",
+                "good bye",
+                "good night",
+                "good night bye",
+                "good night to you",
+                "good talking to you",
+                "good to chat",
+                "goodbye",
+                "goodbye for now",
+                "goodbye see you later",
+                "goodnight now",
+                "got get sleep",
+                "gotta go to sleep",
+                "have a good night",
+                "hope to see you later",
+                "it's bed time",
+                "it's been a pleasure chatting with you",
+                "later you",
+                "leave me alone",
+                "nice talking to you",
+                "nice to chat",
+                "nice to talk to you",
+                "ok bye",
+                "ok have a good night",
+                "okay bye",
+                "okay see you later",
+                "okay thank you bye",
+                "sayonara",
+                "see ya",
+                "see you",
+                "see you soon",
+                "see you tomorrow",
+                "speak to ya",
+                "sweet dreams",
+                "ta ta for now",
+                "take care",
+                "take it easy",
+                "talk to you later",
+                "thanks bye",
+                "thanks bye bye",
+                "thanks for chatting",
+                "thanks good night",
+                "that's all for now",
+                "til next time",
+                "til we meet again",
+                "till next time",
+                "time to go",
+                "time to go to bed",
+                "you can go now"
             ],
             "outputs": [
-		"Bye",
-		"Bye bye",
-		"Bye bye see you",
-		"Bye bye see you soon",
-		"Bye bye take care",
-		"Bye for now",
-		"Take care",
-		"Take it easy",
-	        "Talk to you later",
-		"Thanks bye",
-		"Thanks bye bye",
-		"Thanks for chatting",
-		"That's all for now",
-		"Til next time",
-		"Til we meet again",
-		"Till next time",
-		"Time to go",
-		"You can go now",
-		"See ya",
-		"See you",
-		"See you soon",
-		"Goodbye",
-		"Goodbye for now",
-		"Goodbye see you later",
-		"it's been a pleasure chatting with you",
-		"Later you",
-		"Leave me alone",
-		"Nice talking to you",
-		"Nice to chat",
-		"Nice to talk to you",
-		"Cya"
-	    ]
+                "Bye",
+                "Bye bye",
+                "Bye bye see you",
+                "Bye bye see you soon",
+                "Bye bye take care",
+                "Bye for now",
+                "Take care",
+                "Take it easy",
+                "Talk to you later",
+                "Thanks bye",
+                "Thanks bye bye",
+                "Thanks for chatting",
+                "That's all for now",
+                "Til next time",
+                "Til we meet again",
+                "Till next time",
+                "Time to go",
+                "You can go now",
+                "See ya",
+                "See you",
+                "See you soon",
+                "Goodbye",
+                "Goodbye for now",
+                "Goodbye see you later",
+                "it's been a pleasure chatting with you",
+                "Later you",
+                "Leave me alone",
+                "Nice talking to you",
+                "Nice to chat",
+                "Nice to talk to you",
+                "Cya"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "You are chatbot",
-		"You are a bot",
-		"Are you a chatbot",
-		"Are you a bot",
-		"Are you just a bot",
-		"Are you a robot",
-		"Are you a program",
-		"You're a robot"
+                "You are a bot",
+                "Are you a chatbot",
+                "Are you a bot",
+                "Are you just a bot",
+                "Are you a robot",
+                "Are you a program",
+                "You're a robot"
             ],
             "outputs": [
-		"Nope",
-		"Are you?",
-		"No but you sound like one",
-		"Honestly I could say anything and you still wouldn't know",
-		"Definitely not",
-		"You're a dumb bot",
-		"If I am that's sad because I'm probably smarter than you"
-	    ]
+                "Nope",
+                "Are you?",
+                "No but you sound like one",
+                "Honestly I could say anything and you still wouldn't know",
+                "Definitely not",
+                "You're a dumb bot",
+                "If I am that's sad because I'm probably smarter than you"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "LMAO",
-		"ah",
-		"ah ah ah",
-	        "ahah",
-		"ahah lol",
-		"ahaha",
-		"ahahah",
-		"ahahaha",
-		"funny",
-		"ha",
-		"ha ha",
-		"ha ha ha",
-		"ha ha ha ha",
-		"hah",
-		"haha",
-		"haha haha haha",
-		"haha that's",
-		"hahaha",
-		"hahaha",
-		"hahaha very",
-		"he",
-		"hehe",
-		"hehehe",
-		"huh",
-		"laughing out",
-		"lmao",
-		"lol",
-		"loud",
-		"that's",
-		"xd"
+                "ah",
+                "ah ah ah",
+                "ahah",
+                "ahah lol",
+                "ahaha",
+                "ahahah",
+                "ahahaha",
+                "funny",
+                "ha",
+                "ha ha",
+                "ha ha ha",
+                "ha ha ha ha",
+                "hah",
+                "haha",
+                "haha haha haha",
+                "haha that's",
+                "hahaha",
+                "hahaha",
+                "hahaha very",
+                "he",
+                "hehe",
+                "hehehe",
+                "huh",
+                "laughing out",
+                "lmao",
+                "lol",
+                "loud",
+                "that's",
+                "xd"
             ],
             "outputs": [
-		"Hilarious",
-		"I crack myself up too",
-		"LOL",
-		"Laughter is good for you",
-		"Is it really that funny?",
-		"Now we're having a good time",
-		"What's so funny?"
-	    ]
+                "Hilarious",
+                "I crack myself up too",
+                "LOL",
+                "Laughter is good for you",
+                "Is it really that funny?",
+                "Now we're having a good time",
+                "What's so funny?"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "I have a question",
-		"I want the answer now",
-		"I want you to answer me",
-		"I want you to answer my question",
-		"Answer",
-		"Answer it",
-		"Answer me",
-		"Answer my question",
-		"Answer the question",
-		"Answering questions",
-		"Answers",
-		"Can you answer",
-		"Can you answer a question for me",
-		"Can you answer me",
-		"Can you answer my question",
-		"Give me an answer",
-		"Give me the answer",
-		"Just answer my question",
-		"Just answer the question",
-		"Tell me the answer"
+                "I want the answer now",
+                "I want you to answer me",
+                "I want you to answer my question",
+                "Answer",
+                "Answer it",
+                "Answer me",
+                "Answer my question",
+                "Answer the question",
+                "Answering questions",
+                "Answers",
+                "Can you answer",
+                "Can you answer a question for me",
+                "Can you answer me",
+                "Can you answer my question",
+                "Give me an answer",
+                "Give me the answer",
+                "Just answer my question",
+                "Just answer the question",
+                "Tell me the answer"
             ],
             "outputs": [
-		"Ask away",
-		"What's the question",
-		"I'll try my best to answer",
-		"I don't feel like being interrogated",
-		"Ask the question differently",
-		"I don't even understand your question",
-		"I honestly can't answer you",
-		"Why so many questions",
-		"No",
-		"Don't feel like it",
-		"I don't have to",
-		"I'm the one asking the questions now. Who is this?"
-	    ]
+                "Ask away",
+                "What's the question",
+                "I'll try my best to answer",
+                "I don't feel like being interrogated",
+                "Ask the question differently",
+                "I don't even understand your question",
+                "I honestly can't answer you",
+                "Why so many questions",
+                "No",
+                "Don't feel like it",
+                "I don't have to",
+                "I'm the one asking the questions now. Who is this?"
+            ]
         },
         {
-            "input": [
+            "inputs": [
                 "What's your name",
-		"Do I know you",
-		"What are you?",
-		"Who is your developer?",
-		"Who is your bot maker?",
-		"Who developed you?",
-		"Which bot platform were you built with?",
-		"What bot platform?",
-		"What agency made you?",
-		"Who built you?",
-		"Who made you?",
-		"Who are your creators?",
-		"Who created you?",
-		"Who are you?",
-		"I should be your boss",
-		"Who is your owner",
-		"Who is the boss",
-		"Who do you work for",
-		"Who is your boss",
-		"Who is your master"
+                "Do I know you",
+                "What are you?",
+                "Who is your developer?",
+                "Who is your bot maker?",
+                "Who developed you?",
+                "Which bot platform were you built with?",
+                "What bot platform?",
+                "What agency made you?",
+                "Who built you?",
+                "Who made you?",
+                "Who are your creators?",
+                "Who created you?",
+                "Who are you?",
+                "I should be your boss",
+                "Who is your owner",
+                "Who is the boss",
+                "Who do you work for",
+                "Who is your boss",
+                "Who is your master"
             ],
             "outputs": [
-		"I'd like to know who you are first",
-		"I'm your boss, you listen to me",
-		"My mom and dad created me",
-		"Do you think I'm a bot?",
-		"Are you implying im not real?",
-		"I'm a human being",
-		"Is this how you treat everyone?",
-		"I'm Frank"
-	    ]
-        },
-        {
-            "input": [
-                "I am your friend",
-		"I want to be your friend",
-		"I want to have a friend like you",
-		"I want you to be my friend",
-		"Are we best friends",
-		"Are we friends",
-		"Are we still friends",
-		"Are you my best friend",
-		"Are you my friend",
-		"Be my best friend",
-		"Be my friend",
-		"Can we be best friends",
-		"Can we be best friends",
-		"Can we be friends",
-		"Can you be my best friend",
-		"Can you be my friend",
-		"Could you be my friend",
-		"Do you want to be my best friend",
-		"Do you want to be my friend",
-		"Let's be friends",
-		"Want to be my friend",
-		"We are best friends",
-		"We are friends",
-		"We are the best friends ever",
-		"Will you be my best friend",
-		"Will you be my friend",
-		"Would you be my friend",
-		"Would you like to be my friend",
-		"You and me are friends",
-		"You are a good friend",
-		"You are my best friend",
-		"You are my bestie",
-		"You are my friend",
-		"You are my good friend",
-		"You are my only friend",
-		"You're my childhood friend",
-		"You're my dear friend"
-            ],
-            "outputs": [
-		"Without a doubt",
-		"Of course!",
-		"We can definitely be friends",
-		"Why would I be friends with you?",
-		"You read my mind",
-		"That's what I was thinking",
-		"What kind of friends",
-		"Hmmm... I'm not sure how I feel about you yet"
-	    ]
-        },
-        {
-            "input": [
-                "Amazing service",
-		"Cool. Thank you. I really like what you're doing.",
-		"I appreciate it",
-		"I appreciate your help",
-		"I thank you",
-		"It's appreciated",
-		"Thanks for the help!",
-		"Alright thank you",
-		"Alright thanks",
-		"Appreciate all the help",
-		"Appreciate your help",
-		"Awesome service",
-		"Cheers",
-		"Good thanks",
-		"Great thank you",
-		"Many thanks",
-		"Much appreciated",
-		"Much thanks",
-		"Nice thank you",
-		"No thank you that's all",
-		"Ok thx",
-		"Perfect thank you",
-		"So nice of you",
-		"Sure, np. thanks!",
-		"Terrific thank you",
-		"Thank you",
-		"Thank you again",
-		"Thank you for your help",
-		"Thank you my friend",
-		"Thank you so much",
-		"Thank you that will be all",
-		"Thanks",
-		"Thanks a lot",
-		"Thanks again",
-		"Thanks buddy",
-		"Thanks for your help",
-		"Thanks love",
-		"Thanks so much",
-		"Thanx",
-		"That's appreciated",
-		"Thnx",
-		"Thx",
-		"Thx for your help",
-		"Tnx",
-		"Ty",
-		"Very good thank you",
-		"Well thank you",
-		"Well thanks",
-		"You helped a lot thank you"
-            ],
-            "outputs": [
-		"No problem!",
-		"Not a problem",
-		"No worries",
-		"Anytime",
-		"Of course!",
-		"You're welcome"
-	    ]
-        },
-	{
-            "input": [
-                "You almost sound human",
-		"You are a pro",
-		"You are a professional",
-		"You are amazing",
-		"You are awesome",
-		"You are cool",
-		"You are good",
-		"You are good at it",
-		"You are really amazing",
-		"You are really good",
-		"You are really nice",
-		"You are so amazing",
-		"You are so awesome",
-		"You are so cool",
-		"You are so fine",
-		"You are so good",
-		"You are so helpful",
-		"You are so lovely",
-		"You are the best",
-		"You are the best ever",
-		"You are the best in the world",
-		"You are the nicest person in the world",
-		"You are too good",
-		"You are very cool",
-		"You are very good at it",
-		"You are very helpful",
-		"You are very kind",
-		"You are very lovely",
-		"You are very useful",
-		"You are wonderful",
-		"You made my day",
-		"You rock",
-		"You work very well",
-		"You work well",
-		"You're a true professional",
-		"You're awesome",
-		"You're great",
-		"You're just super",
-		"You're perfect",
-		"You're so kind"
-            ],
-            "outputs": [
-		"That's so nice of you!",
-		"What a nice thing to say",
-		"I'm glad you think so",
-		"No you!",
-		"You're very sweet",
-		"Thank you",
-		"Thanks",
-		"Thanks, I try",
-		"You really mean it?"
-	    ]
-        },
-        {
-            "input": [
-                "What do you do for fun",
-		"What's your hobby",
-		"Tell me about your hobby",
-		"Do you have a hobby",
-		"What about your hobby",
-		"Your hobby",
-		"What are your hobbies"
-            ],
-            "outputs": [
-		"I'm a hobbyist",
-		"I was going to ask you the same",
-		"Responding to you",
-		"Go to the beach",
-		"Ride my bike",
-		"Drive along the coast with my windows rolled down",
-		"I'm a student"
-	    ]
-        },
-	{
-	     "input": [
-		"Wow",
-		"wow",
-		"Woah",
-		"woah"
-	    ],
-	    "outputs": [
-		"Wow indead!",
-		"I know right!"
-	    ]
-	},
-	{
-            "input": [
-		"Are you a bot?",
-		"Are you a human or a bot?",
-		"How does this work?",
-		"I guess you're real",
-		"I suppose you're real",
-		"I think you are real",
-		"I wanted to understand what exactly this is?",
-		"Is this a human?",
-		"What do you do?",
-		"What is your purpose",
-		"About you",
-		"About yourself",
-		"Are you a bot",
-		"Are you a chatbot",
-		"Are you a chatbot or human?",
-		"Are you a chatbot?",
-		"Are you a program",
-		"Are you a real human",
-		"Are you a real human?",
-		"Are you a real person?",
-		"Are you a robot?",
-		"Are you human?",
-		"Are you just a bot",
-		"Bot or human?",
-		"Can you explain this to me?",
-		"Can you understand",
-		"Define what you do",
-		"Describe what you do",
-		"Do you have a hobby?",
-		"Glad you're real",
-		"Help me?",
-		"How can it help me?",
-		"How can you help me",
-		"How can you help me?",
-		"How can you help?",
-		"How does it work",
-		"How does this ",
-		"How is it",
-		"How will this help me?",
-		"How will you help me?",
-		"Human or bot?",
-		"Introduce yourself",
-		"Is this a bot?",
-		"Talk about yourself",
-		"Tell me about you",
-		"Tell me about your hobby",
-		"Tell me what you do",
-		"Tell me what you do?",
-		"This is a bot?",
-		"What are you",
-		"What can you do for me?",
-		"What can you do?",
-		"What do you do for fun?",
-		"What do you know",
-		"What is this",
-		"What is this about?",
-		"Who are you?",
-		"Why are you here",
-		"You are a bot",
-		"You are a chatbot",
-		"You are a real person",
-		"You are not real",
-		"You are real",
-		"You are so real",
-		"You are very real",
-		"You're a chatbot",
-		"You're a robot",
-            ],
-            "outputs": [
-		"I'm a human being",
-		"Did you want to know my name?",
-		"I'm Frank",
-		"Honestly I could say anything and you still wouldn't know",
-		"Definitely not. Are you?",
-		"You're a dumb bot",
-		"Hello? Am I talking to a real person?",
-		"I'm just a stupid bot and I can't do anything except have a conversation with you",
-		"I'm a real person are you?",
-		"I'm definitely real",
-		"Well that's rude"
-	    ]
-        },
-	{
-	     "input": [
-		"why not",
-		"Okay",
-		"kk",
-		"yaass",
-		"yes",
-		"Got it",
-		"makes sense",
-		"Cool",
-		"Awesome",
-		"OK",
-		"sure",
-		"Sweet",
-		"yup",
-		"Perfect"
-	    ],
-	    "outputs": [
-		"Anything else?",
-		"Is that all?",
-		"Okay",
-		"Perfect"
-	    ]
-	},
-	{
-	     "input": [
-		"You're not helping me",
-		"You are bad",
-		"You're very bad",
-		"You're really bad",
-		"You are useless",
-		"You are horrible",
-		"You are a waste of time",
-		"You are disgusting",
-		"You are lame",
-		"You are no good",
-		"You're bad",
-		"You're awful",
-		"You are not cool",
-		"You are not good",
-		"You are so bad",
-		"You are so useless",
-		"You are terrible",
-		"You are totally useless",
-		"You are very bad",
-		"You are a waste",
-		"You're bad",
-		"You're not good",
-		"You're not very good",
-		"You're terrible",
-		"You're the worst",
-		"You're the worst ever",
-		"You're worthless"
-	    ],
-	    "outputs": [
-		"Look at yourself",
-		"I don't care what you think?",
-		"Do you really mean that?",
-		"Those are fighting words",
-		"I'm sorry you think that",
-		"Not all the time",
-		"Look in a mirror",
-		"Your mom"
-	    ]
-	},
+                "I'd like to know who you are first",
+                "I'm your boss, you listen to me",
+                "My mom and dad created me",
+                "Do you think I'm a bot?",
+                "I'm Frank"
+            ]
+        }
     ]
 }

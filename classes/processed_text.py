@@ -56,7 +56,7 @@ class ProcessedText:
         raw_text.replace("who're", "who are")
         raw_text.replace("who's", "who is")
         raw_text.replace("won't", "will not")
-        raw_text.replace("you'd," "you would")
+        raw_text.replace("you'd", "you would")
         raw_text.replace("you're", "you are")
         raw_text.replace("you've", "you have")
 
