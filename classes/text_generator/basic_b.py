@@ -9,16 +9,28 @@ class BasicBResponder(TextGenerator):
     responses = []
     words = in_text.words
     tags = in_text.tags
-    if tags == ['NN'] or tags == ['NNP']:
-      responses.append((0.5 + random(), "Is " + words[0] + " all you want to chat about?"))
-      responses.append((0.5 + random(), "Wow, a " + words[0] + " sounds really good rn"))
-    elif tags == ['NNS']:
+    if tags == ['NN'] or tags == ['NNP']: #user input is a singular noun
+      responses.append((0.2 + random(), "Is a" + words[0] + " all you want to chat about?"))
+      responses.append((0.15 + random(), "Wow, I was not expecting a " + words[0]))
+      responses.append((0.15 + random(), "Man, I've always wanted a " + words[0]))
+    elif tags == ['NNS']: #user input is a plural noun
       responses.append((0.25 + random(), "Are " + words[0] + " all that interest you?"))
-    elif tags == ['UH']:
+      responses.append((0.1 + random(), words[0] + ", " + words[0] + ", " + words[0] + "!!"))
+      responses.append((0.3 + random(), "I guess " + words[0] + " are important..."))
+    elif tags == ['UH']: #user input is an interjection
       responses.append((0.25 + random(), words[0] + " back at ya!"))
     elif tags == ['PRP', 'VBZ', 'VBG'] and words[0] != 'I':
       responses.append((0.25 + random(), "Why do you think I care?"))
       responses.append((0.25 + random(), "Why " + words[1] + " " + words[0] + " " + words[2]))
+    elif tags == ['PRP', 'VBP', 'VBG']: #user input uses progressive verbs
+      if words[0] == 'you': #user is talking about chatbot
+        responses.appened((0.5 + random(), "mmmm no, you are " + words[2]))
+      else: #chatbot is not the subject
+        responses.append((0.3, + random(), "Why " + words[1] + " " + words[0] + " " + words[2] + "?"))
+    elif tags == ['DT', 'NN', 'VBZ', 'JJ']: #Describing a singular noun
+        responses.append((0.3 + random(), "I don't think it's that " + words[3]))
+        responses.append((0.3 + random(), words[3] + "?! I disagree!"))
+ 
     if responses:
       (weight, self.response) = max(responses)
       return weight
