@@ -134,7 +134,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# PyCharm stuff
-.idea/
-classes/__init__.py
