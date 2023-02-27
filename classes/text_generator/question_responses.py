@@ -2,7 +2,7 @@ from . import TextGenerator
 from classes.processed_text import ProcessedText
 import random
 
-class reponse_question(TextGenerator):
+class reponseQuestion(TextGenerator):
     """
     Fallback text generator, in case we're really at a loss.
     Doesn't care about user input; just dismisses whatever
@@ -19,7 +19,6 @@ class reponse_question(TextGenerator):
             return 9.0
         else:
             return 0
-    ## FIX THIS WITH SMARTER THINKING
     
     def respond(self, in_text: ProcessedText) -> str:
         response = []
@@ -44,6 +43,7 @@ class reponse_question(TextGenerator):
                         response.append("I didn't know they were related to that, please tell me more actually. I really do care about knowing this.")
                         break
                     else:
+                        response.append("Who would reastically wanna talk about " +word+ ".")
                         break
                 elif "what" in in_text.words:
                     if input_tag == 'VBD':
@@ -62,6 +62,7 @@ class reponse_question(TextGenerator):
                         response.append("I think its best you consider what you just asked about what " + word + " is... Then come talk to me again")
                         break
                     else:
+                        response.append("What in the freaking world are you talking about? I've actually never heard someone intelligent talk about "+word+".")
                         break
                 elif "where" in in_text.words:
                     if input_tag == 'VBD':
@@ -80,6 +81,7 @@ class reponse_question(TextGenerator):
                         response.append("Oh it's literally just down the road from where you live.")
                         break
                     else:
+                        response.append("Where did "+word+" is truly an insightful question")
                         break
                 elif "when" in in_text.words:
                     if input_tag == 'VBD':
@@ -98,6 +100,7 @@ class reponse_question(TextGenerator):
                         response.append("I didn't think about when that might happen with " + word + ".")
                         break
                     else:
+                        response.append("When did " + word + " happen?")
                         break
                 elif "why" in in_text.words:
                     if input_tag == 'VBD':
@@ -116,6 +119,7 @@ class reponse_question(TextGenerator):
                         response.append("Mhm.. Mhm... Mhmmmm... I really don't know why you would think that tbh.")
                         break
                     else:
+                        response.append("A great man once told me.. Why... The book of why should of the answer you are looking for.")
                         break
                 elif "how" in in_text.words:
                     if input_tag == 'VBD':
@@ -134,7 +138,7 @@ class reponse_question(TextGenerator):
                         response.append("Please don't ask me how " + word + " works.. It's too much to explain.")
                         break
                     else:
-                        break
+                        response.append("Wellp.. The question on how to " + word +" is always the question")
 
         responses.append("Who...? Who asked?")
         response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
