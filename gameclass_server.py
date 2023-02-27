@@ -5,6 +5,14 @@ import sys
 sys.path.append('open_calls')
 from twillio_webhook import *
 
+from Main_Game_server import *
+from battle_sys_server import *
+
+mob = None
+response = []
+win = False
+lose = False
+
 GAME_LOGIC = {}
 with open('cellmon_server.json', 'r') as file:
     GAME_LOGIC = json.loads(file.read())
@@ -17,6 +25,7 @@ class Player:
         user.party = party[:2]
         user.prev_msgs = []
         user.state = "init"
+        user.currentEnemy = None
 
     def save_msg(user, msg):
         user.prev_msgs.append(msg)
@@ -25,13 +34,11 @@ class Player:
         found_match = False
         output = []
 
-        print(f"in get_output user state is {user.state}")
-
-        if 'next_state' not in GAME_LOGIC[ user.state ]:
+        if 'next_state' not in GAME_LOGIC[ user.state ]:    #Game has ended
             output.append(GAME_LOGIC[ user.state ]['content'])
             return output
 
-        if type(GAME_LOGIC[ user.state ]['next_state']) != str: # we have choices
+        if type(GAME_LOGIC[ user.state ]['next_state']) != str:     #User input (states: enter_choose, choose_Starter, menu, partyTime, explore, battle_menu)
             for next_state in GAME_LOGIC[ user.state ]['next_state']:
                 if msg_input.lower() ==  next_state['input'].lower():
                     user.state = next_state['next_state']
@@ -44,10 +51,50 @@ class Player:
         if user.state == "wait_name":
             output.append(f"Welcome {msg_input}!")
             user.name = msg_input
+        elif user.state == "getStarter":
+            starter = msg_input.lower().Cellcapture()
+            user.party.append(starter)
+        elif user.state == "partyTime":
+            output.append(GAME_LOGIC[ user.state ]['content'])
+            output.append(playerParty())
+        elif user.state == "display":
+            num = int(msg_input)
+            output.append(user.party[num].printMaxStats())
+        elif user.state == "battle_init":
+            response, user.currentEnemy = Cellsearch(msg_input.lower())
+            output.append(response)
+        elif user.state == "battle_start":
+           output.append(f"{player.name} sent out {player.party[0].species}!")
+        elif user.state == "attack" or user.state == "spAttack":
+            speed = checkSpeed(user, user.currentEnemy)
+            response, win, lose = attackMob(user, user.currentEnemy, speed, user.state))
+            output.append(response)
+        elif user.state == "stats":
+            output.append(f"Printing stats:\n{player.name}'s Current Cellmon\n")
+            output.append(user.party[0].printMaxStats())
+            output.append("\nEnemy\n")
+            output.append(user.currentEnemy.printMaxStats())
+        elif user.state == "capture":
+            response, win = captureMob(user, user.currentEnemy)
+            output.append(response)
+        elif user.state == "flee":
+            response, win = fleeBattle(user)
+            output.append(response)
         else:
             output.append(GAME_LOGIC[ user.state ]['content'])
 
-        user.state = GAME_LOGIC[ user.state ]['next_state']
+        if win is True:
+            output.append(f"{player.name} has won the battle!\nLooks like your cellmon have gained some levels!")
+            for mon in player.party: #Loop through player's party and level up each cellmon
+                if mon != user.currentEnemy: #Recently caught enemy mob will not be leveled up
+                    mon.level_up()
+                    mon.currentHP = mon.maxHP
+                    output.append(mon.printMaxStats())
+            user.state = "menu"
+        elif lose is True:
+            user.state = "end"
+        else:
+            user.state = GAME_LOGIC[ user.state ]['next_state']
 
         return output
 
@@ -89,7 +136,6 @@ class Cellmon:
 
     #Function to add level up stats to a cellmon
     def level_up(self):
-        print("You've leveled up! ")
         self.maxHP = self.maxHP + self.baseHP
         self.attack = self.attack + self.baseAttack
         self.spAttack = self.spAttack + self.baseSpAttack
@@ -97,40 +143,67 @@ class Cellmon:
         self.spDef = self.spDef + self.baseSpDef
         self.speed = self.speed + self.baseSpeed
         self.level += 1
-        self.printMaxStats()
 
     #Function to print the stats of a cellmon
     def printMaxStats(self):
-        #create_msg(f"Species: {self.species}\nLevel: {self.level}\nMaximum HP: {self.maxHP}\nCurrent HP: {self.currentHP}\nAttack: {self.attack}\nDefense: {self.defense}\nSpAttack: {self.spAttack}\nSpDef: {self.spDef}\nSpeed: {self.speed}")
+        response = []
+        response.append(f"Species: {self.species}\nLevel: {self.level}\nMaximum HP: {self.maxHP}\nCurrent HP: {self.currentHP}\nAttack: {self.attack}\nDefense: {self.defense}\nSpAttack: {self.spAttack}\nSpDef: {self.spDef}\nSpeed: {self.speed}")
+        return response
 
     #Function to calculate physical damage
     def doPhysAttack(self):
+        response = []
         damage = self.attack + random.randint(-2,2)
-        #create_msg(f"{self.species} attacked for {damage} damage!")
-        return damage
+        response.append(f"{self.species} attacked for {damage} damage!")
+        return damage, response
 
     #Function to calculate special damage
     def doSpecialAttack(self):
+        response = []
         damage = self.spAttack + random.randint(-2,2)
-        #create_msg(f"{self.species} attacked for {damage} damage!")
-        return damage
+        response.append(f"{self.species} attacked for {damage} damage!")
+        return damage, response
 
     #Function to apply physical damage
-    def takePhysDamage(self, damage):
+    def takePhysDamage(self, user, damage):
+        response = []
         damageCalc = (int)(self.defense * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
         if self.currentHP > 0:
-            #create_msg(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+            response.append(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        else:
+            response.append(f"{self.species} has been eaten!")
+            user.party.remove(self.party[0])
+            if user.party is not None:
+                response.append(f"{user.name} sent out {self.party[0].species}!")
+                win, lose = False, False
+            else:
+                response.append(f"\n{user.name} has been eaten!")
+                win, lose = False, True
+
+        return response, win, lose
 
     #Function to apply special damage
     def takeSpecDamage(self, damage):
+        response = []
         damageCalc = (int)(self.spDef * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
         if self.currentHP > 0:
-            #create_msg(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+            response.append(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        else:
+            response.append(f"{self.species} has been eaten!")
+            user.party.remove(self.party[0])
+            if user.party is not None:
+                response.append(f"{user.name} sent out {self.party[0].species}!")
+                win, lose = False, False
+            else:
+                response.append(f"\n{user.name} has been eaten!")
+                win, lose = False, True
+
+        return response, win, lose
 
 ############################################ Unique cellmon classes ##############################################
-class Aichu(Cellmon):
+class aichu(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=3, baseSpAttack=3, baseDefense=3, baseSpDef=3, baseSpeed=3,
                  starterHP=2, starterAttack=2, starterSpAttack=2, starterDef=2, starterSpDef=2, starterSpeed=2,
                  species="Aichu"):
@@ -151,7 +224,7 @@ class Aichu(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Terrasaur(Cellmon):
+class terrasaur(Cellmon):
     def __init__(self, level, baseHP=4, baseAttack=2, baseSpAttack=3, baseDefense=5, baseSpDef=6, baseSpeed=2,
                  starterHP=4, starterAttack=2, starterSpAttack=2, starterDef=2, starterSpDef=6, starterSpeed=4,
                  species="Terrasaur"):
@@ -174,7 +247,7 @@ class Terrasaur(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Verizard(Cellmon):
+class verizard(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=2, baseSpeed=4,
                  starterHP=1, starterAttack=4, starterSpAttack=3, starterDef=2, starterSpDef=3, starterSpeed=4,
                  species="Verizard"):
@@ -195,7 +268,7 @@ class Verizard(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Gekkip(Cellmon):
+class gekkip(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=5, baseDefense=2, baseSpDef=3, baseSpeed=2,
                  starterHP=1, starterAttack=3, starterSpAttack=2, starterDef=4, starterSpDef=2, starterSpeed=1,
                  species="Gekkip"):
@@ -216,7 +289,7 @@ class Gekkip(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Capybrawla(Cellmon):
+class capybrawla(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=1, baseSpAttack=2, baseDefense=5, baseSpDef=3, baseSpeed=1,
                  starterHP=3, starterAttack=4, starterSpAttack=3, starterDef=1, starterSpDef=2, starterSpeed=4,
                  species="Capybrawla"):
@@ -237,7 +310,7 @@ class Capybrawla(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Beesiege(Cellmon):
+class beesiege(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=1, baseSpAttack=2, baseDefense=5, baseSpDef=3, baseSpeed=1,
                  starterHP=3, starterAttack=4, starterSpAttack=3, starterDef=1, starterSpDef=2, starterSpeed=4,
                  species="Beesiege"):
@@ -258,7 +331,7 @@ class Beesiege(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Jellyfists(Cellmon):
+class jellyfists(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Jellyfists"):
@@ -279,7 +352,7 @@ class Jellyfists(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Doomosaur(Cellmon):
+class doomosaur(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Doomsaur"):
@@ -300,7 +373,7 @@ class Doomosaur(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Parsnipe(Cellmon):
+class parsnipe(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Parsnipe"):
@@ -321,7 +394,7 @@ class Parsnipe(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Pandamonium(Cellmon):
+class pandamonium(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Pandamonium"):
@@ -342,7 +415,7 @@ class Pandamonium(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Fiamelon(Cellmon):
+class fiamelon(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Fiamelon"):
@@ -363,7 +436,7 @@ class Fiamelon(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Armordillo(Cellmon):
+class armordillo(Cellmon):
     def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Armordillo"):
@@ -384,7 +457,7 @@ class Armordillo(Cellmon):
         self.baseSpDef = baseSpDef
         self.baseSpeed = baseSpeed
 
-class Jarceus(Cellmon):
+class jarceus(Cellmon):
     def __init__(self, level, baseHP=5, baseAttack=3, baseSpAttack=4, baseDefense=3, baseSpDef=4, baseSpeed=3,
                  starterHP=2, starterAttack=6, starterSpAttack=3, starterDef=3, starterSpDef=2, starterSpeed=6,
                  species="Jarceus"):

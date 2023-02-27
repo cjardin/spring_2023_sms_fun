@@ -37,62 +37,37 @@ L3=Location("Forest",[A7,A8,A9,A13])
 L4=Location("Lake",[A10,A11,A12,A13])
 
 #Function for user to search locations
-def Cellsearch():
+def Cellsearch(user, msg_input):
     global Game
-    
-    searching=True
 
-    #create_msg("Please Choose a server to explore\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12")
+    output = []
 
-    while searching==True:
-        search = str(request.form['Body'])
+    if msg_input == "fields": #Searching fields
+        found = L1.encounter()
+    elif msg_input == "mountains": #Searching mountains
+        found = L2.encounter()
+    elif msg_input == "forest": #Searching Forest
+        found = L3.encounter()
+    elif msg_input == "lake": #Searching Lake
+        found = L4.encounter()
+   
+    output.append(f"{user.name} has encountered a {found.species}!")
 
-        find = search
-
-        if find=="1" or find=="Fields" or find=="fields": #Searching fields
-            found=L1.encounter()
-            Game = battle_sys.initiateBattle(NewUser, found)
-            searching=False
-        elif find=="2" or find=="Mountains" or find=="mountains": #Searching mountains
-            found=L2.encounter()
-            Game = battle_sys.initiateBattle(NewUser, found)
-            searching=False
-        elif find=="3" or find=="Forest" or find=="forest": #Searching Forest
-            found=L3.encounter()
-            Game = battle_sys.initiateBattle(NewUser, found)
-            searching=False
-        elif find=="4" or find=="Lake" or find=="lake": #Searching Lake
-            found=L4.encounter()
-            Game = battle_sys.initiateBattle(NewUser, found)
-            searching=False
-        else:
-            #create_msg("you traveled around in a circle from invalid server choice\nPlease Choose a location to explore\n1.Fields\n2.Mountains\n3.Forest\n4.Lake\n")
+    return output, found
 
 #Function to print user's cellmon party
 def playerparty():
     party = True;
     num, i = 1, 0
+    output = []
 
     #Print the cellmon
     while i < len(NewUser.party):
-        #create_msg(f"{num}. {NewUser.party[i].species} <level {NewUser.party[i].level}>")
+        output.append(f"\n{num}. {NewUser.party[i].species} <level {NewUser.party[i].level}>")
         num = num + 1
         i = i + 1
 
-    #Get user input for info
-    while party== True:
-        #create_msg("Enter the # or name of the Cellmon in the party you want info on: ")
-        test_text = str(request.form['Body'])
-        test_input = test_text
-        if test_input=="1" or test_input==NewUser.party[0].species:
-            NewUser.party[0].printMaxStats()
-        elif test_input=="2" or test_input==NewUser.party[1].species:
-            NewUser.party[1].printMaxStats()
-        elif test_input=="3" or test_input==NewUser.party[2].species:
-            NewUser.party[2].printMaxStats()
-        else:
-            #create_msg("Invalid Cellmon ID")
-        party= False
+    return output
 
 #Start of game:
 def start_game():

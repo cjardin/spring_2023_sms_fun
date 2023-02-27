@@ -30,30 +30,34 @@
                         "next_state" : "chooseStarter"
                 },
         "chooseStarter" : {
-                	"content" : "Please Choose your Starter:\n1. Terrasaur\n2. Jellyfists\n3. Fiamelon\n",
+                	"content" : "Please Choose your Starter:\nTerrasaur\nJellyfists\nFiamelon\n",
                 	"next_state" : [
                         		{
                                 		"input" : "Terrasaur",
-                                		"next_state" : "menu"
+                                		"next_state" : "getStarter"
                         		},
 
                         		{
                                 		"input" : "Jellyfists",
-                                		"next_state" : "menu"
+                                		"next_state" : "getStarter"
                         		},
 
                         		{
                                 		"input" : "Fiamelon",
-                                		"next_state" : "menu"
+                                		"next_state" : "getStarter"
                         		}
                 		]
         },
+	"getStarter" : {
+			"content" : "",
+			"next_state" : "warning"
+	},
 	"warning" : {
 			"content" : "Be careful... may you and your Cellmon stand above all.",
 			"next_state" : "menu"
 	},
         "menu" : {
-                	"content" : "1. Search\n2. Party\n3. Quit",
+                	"content" : "What would you like to do?\nSearch\nParty\nQuit",
                 	"next_state" : [
                         		{
                                 		"input" : "Search",
@@ -103,22 +107,22 @@
                 	"next_state" : [
                         		{
                                 		"input" : "Fields",
-                                		"next_state" : "battle"
+                                		"next_state" : "battle_init"
                         		},
 
                         		{
                                 		"input" : "Mountains",
-                                		"next_state" : "battle"
+                                		"next_state" : "battle_init"
                         		},
 
                         		{
                                 		"input" : "Forest",
-                                		"next_state" : "battle"
+                                		"next_state" : "battle_init"
                         		},
 
                         		{
                                 		"input" : "Lake",
-                                		"next_state" : "battle"
+                                		"next_state" : "battle_init"
                         		},
 					{
 						"input" : "quit",
@@ -126,7 +130,11 @@
 					}
                 		]
         },
-	"battle" : {
+	"battle_init" : {
+			"content" : "",
+			"next_state" : "battle_start"
+	},
+	"battle_start" : {
 			"content" : "",
 			"next_state" : "battle_menu"
 	},
@@ -170,11 +178,11 @@
 	},
 	"capture" : {
 			"content" : "",
-			"next_state" : "menu"
+			"next_state" : "battle_menu"
 	},
 	"flee" : {
 			"content" : "",
-			"next_state" : "menu"
+			"next_state" : "battle_menu"
 	},
         "end"  : {
                         "content" : "Thank you for playing!"

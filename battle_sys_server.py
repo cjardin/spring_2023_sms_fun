@@ -7,12 +7,7 @@ from twillio_webhook import *
 
 #Main Function to initiate a mob battle, gives user multiple options for the battle
 def initiateBattle(player, mob):
-    #create_msg(f"{player.name} has encountered a {mob.species}!")
-
     win_cnd, flee_cnd = False, False #Loop conditions
-
-    player_mon = player.party[0] #Get current battle cellmon from user's party
-    #create_msg(f"{player.name} sent out {player_mon.species}!")
 
     #Loop until user successfully wins, loses, or flees the battle
     while win_cnd is False and flee_cnd is False:
@@ -76,9 +71,8 @@ def initiateBattle(player, mob):
 
 #This function will check if player's cellmon was eaten or enemy mob was defeated
 #It returns a condition for continuing the battle
-def checkHP(player, player_mon, mob):
-    if player_mon.currentHP <= 0: #Player's cellmon was eaten
-        #create_msg(f"{player_mon.species} has been eaten!")
+def checkHP(player):
+    if player.party[0].currentHP <= 0: #Player's cellmon was eaten
         player.party.remove(player_mon) #Remove the cellmon from the party
         player_mon = checkCnd(player) #Get next cellmon from party
         return False, player_mon, True #Battle must continue
@@ -115,35 +109,55 @@ def checkSpeed(player_mon, mob):
         return 0
 
 #This function will calculate damage for the attacks
-def attackMob(player_mon, mob, speed_, choice):
-    if choice == "1": #Regular Attack
+def attackMob(player, mob, speed_, choice):
+    output = []
+    response = []
+    win, lose = False, False
+
+    if choice == "attack": #Regular Attack
         if speed_ == 1: #Player attacks first
-            damage = player_mon.doPhysAttack()
-            mob.takePhysDamage(damage)
+            damage, output = player.party[0].doPhysAttack()
+            response, win, lose = mob.takePhysDamage(player, damage)
         else: #Enemy attacks first
-            damage = mob.doPhysAttack()
-            player_mon.takePhysDamage(damage)
-    elif choice == "2": #Special Attack
+            damage, output = mob.doPhysAttack()
+            response, win, lose = player.party[0].takePhysDamage(player, damage)
+    elif choice == "spAttack": #Special Attack
         if speed_ == 1: #Player attacks first
-            damage = player_mon.doSpecialAttack()
-            mob.takeSpecDamage(damage)
+            damage, output = player.party[0].doSpecialAttack()
+            response, win, lose = mob.takeSpecDamage(player, damage)
         else: #Enemy attacks first
-            damage = mob.doSpecialAttack()
-            player_mon.takeSpecDamage(damage)
+            damage, output = mob.doSpecialAttack()
+            response, win, lose = player.party[0].takeSpecDamage(player, damage)
+    
+    output.append(response)
+    return output, win, lose
 
 #This function will display a message whether or not the mob is successfully caught
-def captureMob(player, mob, result):
+def captureMob(player, mob):
+    result = False
+    output = []
+
+    if mob.currentHP <= mob.maxHP * 0.5:
+        result = True #mob caught, set condition
+    else:
+        caught = random.randint(0, 10)
+    
+    if caught >= 5:
+        result = True #mob not caught
+    else:
+        result = False #mob not caught
+
     if result is True: #Caught
         if len(player.party) < 3: #Check if player's party is full
-            #create_msg(f"{mob.species} was successfully caught!")
+            output.append(f"{mob.species} was successfully caught!")
             mob.currentHP = mob.maxHP
             mob = mob.Cellcapture() #Create a new copy of the mob
             player.party.append(mob) #Add the mob to the party
         else:
-            #create_msg(f"{mob.species} was successfully caught, but {player.name}'s party is full!")
+            output.append(f"{mob.species} was successfully caught, but {player.name}'s party is full!")
     else: #Failed to catch
-        #create_msg(f"Failed to capture {mob.species}!")
-    return result, mob #Returns a condition for ending the battle or not
+        output.append(f"Failed to capture {mob.species}!")
+    return output, result #Returns a condition for ending the battle or not
 
 #This function will display a win msg and level up the remaining cellmon
 def winBattle(player, mob):
@@ -154,9 +168,18 @@ def winBattle(player, mob):
             mon.currentHP = mon.maxHP
 
 #This function will display a message whether or not the battle is fled
-def fleeBattle(player, result):
+def fleeBattle(player):
+    chance = random.randint(0, 100)
+    output = []
+    result = False
+
+    if chance <= 75:
+        result = True #Player fled, set condition
+    else:
+        result = False #Player failed to flee
+
     if result is True: #Player fled
-        #create_msg(f"{player.name} fleed the battle.")
+        output.append(f"{player.name} fleed the battle.")
     else: #Player could not flee
-        #create_msg(f"{player.name} could not flee.")
-    return result #Returns a condition for ending the battle or not
+        output.append(f"{player.name} could not flee.")
+    return output, result #Returns a condition for ending the battle or not

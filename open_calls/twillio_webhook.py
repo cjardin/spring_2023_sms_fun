@@ -26,6 +26,7 @@ def create_msg(output):
                      from_=yml_configs['twillio']['phone_number'],
                      to=request.form['From'])
 
+#DO NOT RUN SERVER UNTIL READY
 def handle_request():
     logger.debug(request.form)
 
@@ -36,12 +37,8 @@ def handle_request():
     else:
         player = Player("", request.form['From'], [])
 
-    print(f"in handler_request before get_output, user state is {player.state}")
-
     player.save_msg(request.form['Body'])
     output = player.get_output(request.form['Body'])
-
-    print(f"in handler_request after get_output, user state is {player.state}")
 
     create_msg(output)
 
@@ -51,7 +48,5 @@ def handle_request():
     while player.state == "start_game":
         output = player.get_output("")
         create_msg(output)
-
-    print("done with webhook call")
 
     return json_response( status = "ok" )
