@@ -144,4 +144,6 @@ def start_game():
             Game= False
         else:
             print("Invalid command please select an action")
->>>>>>> origin/main
+
+if __name__ == '__main__':
+    start_game()

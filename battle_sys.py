@@ -162,15 +162,3 @@ def fleeBattle(player, result):
         print(f"{player.name} could not flee.")
     return result #Returns a condition for ending the battle or not
 
-#Testing system
-#party = [Aichu(1), Terrasaur(1)] #Create a new party
-#player = Player("Tucker", 1, party) #Create a new player object
-#mob = Gekkip(1) #Create a new enemy mob
-#result = initiateBattle(player, mob) #Start the battle
-#if result is False: #If player was eaten print message
-#    print("Game Over")
-#else:
-#    mob = Verizard(2)
-#    for mon in player.party:
-#        mon.currentHP = mon.maxHP
-#    result = initiateBattle(player, mob)
