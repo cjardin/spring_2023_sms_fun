@@ -1,9 +1,13 @@
 #Importing required libraries
 import random
-
+import json
 import sys
 sys.path.append('open_calls')
 from twillio_webhook import *
+
+GAME_LOGIC = {}
+with open('cellmon_server.json', 'r') as file:
+    GAME_LOGIC = json.loads(file.read())
 
 #Defines the user's class for the game (name, phone #, and cellmon party)
 class Player:
@@ -11,6 +15,41 @@ class Player:
         user.name = name
         user.number = number
         user.party = party[:2]
+        user.prev_msgs = []
+        user.state = "init"
+
+    def save_msg(user, msg):
+        user.prev_msgs.append(msg)
+
+    def get_output(user, msg_input):
+        found_match = False
+        output = []
+
+        print(f"in get_output user state is {user.state}")
+
+        if 'next_state' not in GAME_LOGIC[ user.state ]:
+            output.append(GAME_LOGIC[ user.state ]['content'])
+            return output
+
+        if type(GAME_LOGIC[ user.state ]['next_state']) != str: # we have choices
+            for next_state in GAME_LOGIC[ user.state ]['next_state']:
+                if msg_input.lower() ==  next_state['input'].lower():
+                    user.state = next_state['next_state']
+                    found_match = True
+                    break
+
+            if found_match == False:
+                return ['Invalid input.']
+
+        if user.state == "wait_name":
+            output.append(f"Welcome {msg_input}!")
+            user.name = msg_input
+        else:
+            output.append(GAME_LOGIC[ user.state ]['content'])
+
+        user.state = GAME_LOGIC[ user.state ]['next_state']
+
+        return output
 
 #Defines the main class of the mobs (species, level, stats)
 class Cellmon:

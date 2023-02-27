@@ -1,9 +1,35 @@
 {
-    "input": {
-        "hello": [
-            "Enter the world of Cellmon? (Y/N)"
-		]
-    	},
-    "Opening": {
-    }
+        "init" : {
+                        "content": "Hello! Would you like to enter the world of Cellmon? (Y/N)",
+                        "next_state": "enter_choose"
+                },
+        "enter_choose" : {
+                        "content" : "",
+                        "next_state" : [
+                                        {
+                                                "input" : "Y",
+                                                "next_state" : "get_name"
+                                        },
+
+                                        {
+                                                "input" : "N",
+                                                "next_state" : "end"
+                                        }
+                                ]
+                },
+        "get_name" : {
+                        "content" : "Enter your name",
+                        "next_state" : "wait_name"
+                },
+        "wait_name" : {
+                        "content" : "",
+                        "next_state" : "start_game"
+                },
+        "start_game" : {
+                        "content" : "\nThis information isn't known to the public only users chosen can know the truth of these creatures. Cellmon...\nThese creatures are living across the cell living peacefully or fighting for territory. If they were to become violent and run rampant it could cause data corruption across the net.\nYour mission as a user is to capture or defeat as many of these creatures as possible.\nI will give you one to start with but be warned... If a Cellmon is defeated by another...\nTheir data becomes corrupt and they will be absorbed by the victor. There is one that we warn all users to avoid at all costs. Jarceus...\nA Cellmon that has lived for years killing and absorbing any Cellmon it comes across.\nNow lets get your journey as a Cellmon trainer started.",
+                        "next_state" : "end"
+                },
+        "end"  : {
+                        "content" : "Thank you for playing!"
+                }
 }
