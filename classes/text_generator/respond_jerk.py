@@ -23,11 +23,14 @@ class JerkResponder(TextGenerator):
 
         for input_word, input_tag in zip(in_text.words, in_text.tags):
             if input_tag == 'VBD':  # Past Tense Verbs
-                responses.append((0.30 + random(), "I " + input_word + " your mom last night"))
-                responses.append((0.30 + random(), "When was the last time you " + input_word + "?"))
+                responses.append((0.50 + random(), "I " + input_word + " your mom last night"))
+                responses.append((0.60 + random(), "When was the last time you " + input_word + "?"))
 
-            if input_tag == 'VB':  # Present Tense Verbs
-                responses.append((0.30 + random(), "When do you think you'll " + input_word + "next?"))
+            if input_tag == 'VBP' and (input_word != "do" or input_word != "are"):  # Present Tense Verbs
+                responses.append((0.60 + random(), "I " + input_word + " once.  Wouldn't recommend it."))
+                responses.append((0.60 + random(), "Do you " + input_word + " often?"))
+                responses.append((0.60 + random(), "Do you " + input_word + " a lot? o_O"))
+                responses.append((0.60 + random(), "When do you think you'll " + input_word + " next?"))
 
 
             if input_tag == 'NN' and input_word != "hello":  # Singular Nouns
@@ -37,6 +40,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.00 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
                 responses.append((0.00 + random(), "So, about this " + input_word + ".  Tell me more about that!"))
                 responses.append((0.00 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word + "!"))
+                responses.append((0.00 + random(), input_word + "? At this time of year, at this time of day, in this part of the country, localized entirely within your kitchen?!"))
             
 
             if input_tag == 'NNS':  # Plural Nouns
