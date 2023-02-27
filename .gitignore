@@ -136,5 +136,4 @@ dmypy.json
 .pyre/
 
 # Mike's Ignores
-classes/__init__.py
 .idea/

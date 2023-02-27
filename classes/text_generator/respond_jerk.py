@@ -15,7 +15,7 @@ from classes.text_generator import TextGenerator
 class JerkResponder(TextGenerator):
 
     def respond(self, in_text: ProcessedText) -> str:
-        return self.response
+        return self.response[0].upper() + self.response[1:]
 
     def rate(self, in_text: ProcessedText) -> float:
         responses = []
