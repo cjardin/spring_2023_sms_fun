@@ -20,7 +20,7 @@ class reponse_question(TextGenerator):
     ## FIX THIS WITH SMARTER THINKING
     
     def respond(self, in_text: ProcessedText) -> str:
-        responses = []
+        response = []
         dont_use = ["who","what", "where", "when", "how", "why"]
         i = random.randint(1,in_text.words.length()-1)
         for word, tag in zip (in_text.words, in_text.tags):
@@ -41,6 +41,8 @@ class reponse_question(TextGenerator):
                         response.append("Hmmm, I'm not really sure who would be related to those, but what else do you know about that?")
                         response.append("I didn't know they were related to that, please tell me more actually. I really do care about knowing this.")
                         break
+                    else:
+                        break
                 elif "what" in in_text.words:
                     if input_tag == 'VBD':
                         response.append("To " + word + " or not to " + word + ".. That really wasn't ever the question")
@@ -56,6 +58,8 @@ class reponse_question(TextGenerator):
                         response.append("What the freakin heck is a " + word )
                         response.append("Please tell me everything you know about " + word + ". Then I will consider telling you more")
                         response.append("I think its best you consider what you just asked about what " + word + " is... Then come talk to me again")
+                        break
+                    else:
                         break
                 elif "where" in in_text.words:
                     if input_tag == 'VBD':
@@ -73,6 +77,8 @@ class reponse_question(TextGenerator):
                         response.append("How the heck do you not know where to find a " + word + "?")
                         response.append("Oh it's literally just down the road from where you live.")
                         break
+                    else:
+                        break
                 elif "when" in in_text.words:
                     if input_tag == 'VBD':
                         response.append("When do you " + word + "? Just asking to get through this conversation.")
@@ -88,6 +94,8 @@ class reponse_question(TextGenerator):
                         response.append("Hm, hm, hm, hm...... I didn't think about when we would chat about this really... Check back later?")
                         response.append("I dunno, tbh, probably during a time that makes sense. Ya know?")
                         response.append("I didn't think about when that might happen with " + word + ".")
+                        break
+                    else:
                         break
                 elif "why" in in_text.words:
                     if input_tag == 'VBD':
@@ -105,6 +113,8 @@ class reponse_question(TextGenerator):
                         response.append("Oh please, tell me why you wanna keep talking about " + word + "? It's truly fascinating, isn't it?")
                         response.append("Mhm.. Mhm... Mhmmmm... I really don't know why you would think that tbh.")
                         break
+                    else:
+                        break
                 elif "how" in in_text.words:
                     if input_tag == 'VBD':
                         response.append("How do you " + word + "? Pft, and here I thought YOU were the expert on " + word + ".")
@@ -121,13 +131,15 @@ class reponse_question(TextGenerator):
                         response.append("Honestly, I really don't have the time to explain all the complexities of " + word + ", so I'd just Wikipedia it.. That's some wisdom of the ages.")
                         response.append("Please don't ask me how " + word + " works.. It's too much to explain.")
                         break
-                else:
-                    responses.append("Who...? Who asked?")
-                    response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
-                    response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
-                    break
+                    else:
+                        break
 
-        return responses
+        responses.append("Who...? Who asked?")
+        response.append("Did you really think I would have an answer to that? I'm not ChatGPT... I actually have an idea of what you are trying to do.")
+        response.append("I never really thought about that question, I will have to think about that and get back to you once I come up with an answer.")
+
+        
+        return response[random.randint(0,len(reponse)-1)]
 
                     
                     
