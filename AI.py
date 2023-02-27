@@ -35,9 +35,8 @@ class AI:
     #TODO: need to fix algorith that takes overall messages and send it to determine the mood
     def clientInput(self, incoming_message):
         self.incoming_message = incoming_message;
-        string, int_value, float_value = analyzeSentiment(self.incoming_message)
-        neg_score = int_value['neg']
-        self.setMood(neg_score)
+        string, sentiment_value, float_value = analyzeSentiment(self.incoming_message)
+        self.setMood(self.getMood()+sentiment_value['compound'])
 
     #temp function
     def response(self):
