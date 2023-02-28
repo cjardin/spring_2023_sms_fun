@@ -197,11 +197,13 @@
         },
         {
             "inputs": [
-                "fuck"
+                "fuck",
+                "shit",
+                "crap",
+                "hell"
             ],
             "outputs": [
-                "That's not a good word.",
-                "You, me, the world?"
+                "That's my favorite word"
             ]
         },
         {
@@ -523,9 +525,6 @@
                 "how can you help me",
                 "how can you help me?",
                 "how can you help?",
-                "how does it work",
-                "how does this ",
-                "how is it",
                 "how will this help me?",
                 "how will you help me?",
                 "human or bot?",
