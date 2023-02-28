@@ -43,7 +43,11 @@ class JerkResponder(TextGenerator):
                 responses.append((0.40 + random(), "I " + input_word + " your mom last night"))
                 responses.append((0.50 + random(), "When was the last time you " + input_word + "?"))
 
-            if input_tag == 'VBP' and input_word != "do" and input_word != "are":  # Present Tense Verbs
+            if input_tag == 'JJ':  # Adjectives
+                responses.append((0.50 + random(), "How " + input_word + "?"))
+                responses.append((0.50 + random(), "Like, really " + input_word + "?"))
+
+            if input_tag == 'VBP' and input_word != "do" and input_word != "are" and input_word != "am":  # Present Tense Verbs
                 responses.append((0.40 + random(), "I " + input_word + " once.  Wouldn't recommend it."))
                 responses.append((0.40 + random(), "Do you " + input_word + " often?"))
                 responses.append((0.40 + random(), "Do you " + input_word + " a lot? o_O"))
@@ -56,7 +60,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.00 + random(), "Please tell me more about this " + input_word + ".  I am sooo interested -_-"))
                 responses.append((0.00 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
                 responses.append((0.00 + random(), "So, about this " + input_word + ".  Tell me more about that!"))
-                responses.append((0.00 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word + "!"))
+                # responses.append((0.00 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word + "!"))
                 # responses.append((0.00 + random(), input_word + "? At this time of year, at this time of day, in this part of the country, localized entirely within your kitchen?!"))
             
 
@@ -76,7 +80,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.50 + random(), input_word + "? From OnlyFans?"))
 
             if input_tag == 'VBG':  # Present Participle (-ing)
-                responses.append((0.70 + random(), input_word + "? Man you're optimistic!"))
+                responses.append((0.60 + random(), input_word + "? Man you're optimistic!"))
 
             if input_tag == 'JJR':  # Comparative adjectives (-er)
                 responses.append((0.65 + random(), "They aren't " + input_word + " than me"))

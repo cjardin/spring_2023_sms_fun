@@ -2,6 +2,30 @@
     "responses": [
         {
             "inputs": [
+                "I would",
+                "I do"
+            ],
+            "outputs": [
+                "Awesome! Not my problem",
+                "Yeah, didn't ask -_-",
+                "No one asked you that",
+                "Cool. Cool cool cool."
+            ]
+        },
+        {
+            "inputs": [
+                "Me too",
+                "same"
+            ],
+            "outputs": [
+                "Awesome!",
+                "Didn't ask -_-",
+                "No one asked you that",
+                "I'm glad we agree"
+            ]
+        },
+        {
+            "inputs": [
                 "why not",
                 "why"
             ],
@@ -76,9 +100,15 @@
         },
         {
             "inputs": [
-                "?"
+                "?",
+                "??",
+                "???",
+                "????"
             ],
             "outputs": [
+                "?",
+                "??",
+                "???",
                 "????"
             ]
         },
@@ -142,7 +172,9 @@
                 "hell"
             ],
             "outputs": [
-                "That's my favorite word"
+                "That's one of my favorite words!",
+                "That's a great word ;)",
+                "Ooh are we cussing?  Frack!"
             ]
         },
         {
@@ -232,14 +264,13 @@
                 "what's cracking",
                 "what's cooking",
                 "hey what's up",
-                "what's up today"
+                "what's up today",
+                "sup"
             ],
             "outputs": [
-                "Nothin much",
-                "Not a whole ",
+                "Nothin' much",
+                "Not a whole lot",
                 "Living the dream",
-                "Hey there",
-                "Sup",
                 "Wouldn't you like to know"
             ]
         },
