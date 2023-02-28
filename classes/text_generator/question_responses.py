@@ -21,7 +21,7 @@ class responseQuestions (TextGenerator):
         # Arbitrarily low, but not -∞.
 
         if (in_text.og_text[len(in_text.og_text)-1] == '?'):
-            return 9.0
+            return 1.5
         else:
             return -1
 
