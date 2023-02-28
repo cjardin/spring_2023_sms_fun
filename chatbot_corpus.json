@@ -1,28 +1,153 @@
 {
-    "input": {
-        "hello": [
-            "piss off",
-            "party",
-            "slay"
-        ],
-        "party": [
-            "\u2764\ufe0f"
-        ],
-        "h": [
-            "DID NOT FIND"
-        ],
-        "aaaaaaaaaaaaaaaaaaa": [
-            "DID NOT FIND"
-        ],
-        "\\": [
-            "DID NOT FIND"
-        ],
-        "hi": [
-            "heeeeeeey, how are you? :)",
-            "oh hey what're you up to",
-            "hi cutie ;)",
-            "Hiiiiiiiiiiiiii"
-            
-        ]
-    }
+	"input": {
+		"hello": {
+			"mad": [
+				"why have you been so mean recently",
+				"what do you want😒",
+				"ugh, why wont you leave me alone?",
+				"Seriously???? GO AWAY!!!!!!!!!!!!!!!!!",
+				"Pound sand creep",
+				"GOOOOOOOOOO AWAAAAAAAAYYYYYYYYYY 😡😡😡😡😡😡😡"
+			],
+			"happy": [
+				"hey how are you",
+				"heeeey 😘",
+				"hello again how are you",
+				"Hi cutie pie",
+				"Hiiiiiiiiiii, I missed you sooooooo much❤❤❤❤"
+			],
+			"neutral":[
+				"Sup",
+				"Hey bro",
+				"Wut it doo?"
+			]
+		},
+		"how are you": {
+			"mad" :[
+				"im a little upset tbh",
+				"I've been better",
+				"Im okay... I guess",
+				"Im fine 😑"
+			],
+			"happy":[ 
+				"im feelin good how are you",
+				"better now😊",
+				"MMMM I'm good a little bored 😉"
+			],
+			"neutral":[
+				"meh",
+				"Im good",
+				"Not bad"
+			]
+		},
+		"wyd": {
+			"mad": [
+				"nothing"
+			],
+			"happy": [
+				"hmm nothing why",
+				"nothing why you wanna do something😉",
+				"oh, just sitting here thinking about you 😘",
+				"About to get in the shower 😏"
+			],
+			"neutral":[
+				"just chllin",
+				"getting ready for work"
+			]
+		},
+		"whats up": {
+			"mad": [
+				"whats up with you"
+			],
+			"happy": [
+				"not much baby how are you",
+				"Heyyy 😊😊😊😊😊😊😊",
+				"my heart rate now 😉"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		},	
+		"party": {
+			"mad": [
+				"nah",
+				"what the hell?"
+			],
+			"happy": [
+				"hell yea 🥳"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		},
+		"h": {
+			"mad": [
+				"wtf"
+			],
+			"happy": [
+				"hi?"
+			],
+			"neutral":[
+				"umm, wut",
+				"response"
+			]
+		},
+		"aaaaaaaaaaaaaaaaaaa": {
+			"mad": [
+				"chill"
+			],
+			"happy": [
+				"DID NOT FIND"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		},
+		"\\": {
+			"mad": [
+				"wtf"
+			],
+			"happy": [
+				"DID NOT FIND"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		},
+		"hi": {
+			"mad": [
+				"what do you want"
+			],
+			"happy": [
+				"heeeeeeey, how are you? :)",
+				"oh hey what're you doin 👀"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		},
+		"fight": {
+			"mad": [
+				"leave me alone"
+			],
+			"happy": [
+				"what kinda fight"
+			],
+			"neutral":[
+				"neutral",
+				"response"
+			]
+		}
+	},
+	"default": {
+		"response": [
+			"not in corpus",
+			"response not in corpus"
+		]
+	}
 }
