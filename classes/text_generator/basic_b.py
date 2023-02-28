@@ -10,9 +10,9 @@ class BasicBResponder(TextGenerator):
     words = in_text.words
     tags = in_text.tags
     if tags == ['NN'] or tags == ['NNP']: #user input is a singular noun
-      responses.append((0.20 + random(), "Is a" + words[0] + " all you want to chat about?"))
-      responses.append((0.15 + random(), "Wow, I was not expecting a " + words[0]))
-      responses.append((0.15 + random(), "Man, I've always wanted a " + words[0]))
+      responses.append((0.00 + random(), "Is a " + words[0] + " all you want to chat about?"))
+      responses.append((0.00 + random(), "Wow, I was not expecting a " + words[0]))
+      responses.append((0.00 + random(), "Man, I've always wanted a " + words[0]))
     elif tags == ['NNS']: #user input is a plural noun
       responses.append((0.65 + random(), "Are " + words[0] + " all that interest you?"))
       responses.append((0.50 + random(), words[0] + ", " + words[0] + ", " + words[0] + "!!"))

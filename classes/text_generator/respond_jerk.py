@@ -32,8 +32,8 @@ class JerkResponder(TextGenerator):
 
             if input_word == "you":  # User talking about bot
                 responses.append((0.70 + random(), "Don't talk about me like you know me"))
-                responses.append((0.70 + random(), "Yes, I am *totally* like that"))
-                responses.append((0.70 + random(), "I am not like that at all"))
+                responses.append((0.70 + random(), "Yes, that's *totally* me"))
+                responses.append((0.70 + random(), "Sounds like me"))
                 responses.append((0.70 + random(), "Is that really what you think of me?"))
                 responses.append((0.70 + random(), "I am sad you think that about me"))
                 responses.append((0.70 + random(), "I am happy you think that about me"))
@@ -52,7 +52,7 @@ class JerkResponder(TextGenerator):
 
             if input_tag == 'NN' and input_word != "hello":  # Singular Nouns
                 responses.append((0.00 + random(), input_word + "!? A " + input_word + " killed my entire family"))
-                responses.append((0.00 + random(), "Do you really love the " + input_word + " or are you just naming things in the room?"))
+                # responses.append((0.00 + random(), "Do you really love the " + input_word + " or are you just naming things in the room?"))
                 responses.append((0.00 + random(), "Please tell me more about this " + input_word + ".  I am sooo interested -_-"))
                 responses.append((0.00 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
                 responses.append((0.00 + random(), "So, about this " + input_word + ".  Tell me more about that!"))
@@ -79,7 +79,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.70 + random(), input_word + "? Man you're optimistic!"))
 
             if input_tag == 'JJR':  # Comparative adjectives (-er)
-                responses.append((0.65 + random(), "They aren't " + input_word + "than me"))
+                responses.append((0.65 + random(), "They aren't " + input_word + " than me"))
 
             if input_tag == 'JJS':  # Superlative adjectives (-est)
                 responses.append((0.45 + random(), "The " + input_word + ", huh?  Have you checked every one?"))
