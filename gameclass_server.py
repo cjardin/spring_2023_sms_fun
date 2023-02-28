@@ -5,13 +5,7 @@ import sys
 sys.path.append('open_calls')
 from twillio_webhook import *
 
-from Main_Game_server import *
-from battle_sys_server import *
-
-mob = None
-response = []
-win = False
-lose = False
+win, lose, flee = False, False, False
 
 GAME_LOGIC = {}
 with open('cellmon_server.json', 'r') as file:
@@ -31,6 +25,10 @@ class Player:
         user.prev_msgs.append(msg)
 
     def get_output(user, msg_input):
+        mob = None
+        response = []
+        global win, lose, flee
+        win, lose, flee = False, False, False
         found_match = False
         output = []
 
@@ -51,49 +49,91 @@ class Player:
         if user.state == "wait_name":
             output.append(f"Welcome {msg_input}!")
             user.name = msg_input
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "getStarter":
-            starter = msg_input.lower().Cellcapture()
-            user.party.append(starter)
+            if msg_input.lower() == "terrasaur":
+                user.party.append(Starter1)
+            elif msg_input.lower() == "jellyfists":
+                user.party.append(Starter2)
+            elif msg_input.lower() == "fiamelon":
+                user.party.append(Starter3)
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
+        elif user.state == "explore":
+            output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "partyTime":
             output.append(GAME_LOGIC[ user.state ]['content'])
-            output.append(playerParty())
+            output.extend(playerparty(user))
         elif user.state == "display":
-            num = int(msg_input)
+            num = int(msg_input) - 1
             output.append(user.party[num].printMaxStats())
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
+            output.extend(playerparty(user))
         elif user.state == "battle_init":
-            response, user.currentEnemy = Cellsearch(msg_input.lower())
+            response, user.currentEnemy = Cellsearch(user, msg_input.lower())
             output.append(response)
-        elif user.state == "battle_start":
-           output.append(f"{player.name} sent out {player.party[0].species}!")
+            output.append(f"{user.name} sent out {user.party[0].species}!")
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "attack" or user.state == "spAttack":
-            speed = checkSpeed(user, user.currentEnemy)
-            response, win, lose = attackMob(user, user.currentEnemy, speed, user.state))
-            output.append(response)
+            speed = checkSpeed(user.party[0], user.currentEnemy)
+            response, win, lose = attackMob(user, user.currentEnemy, speed, user.state)
+            output.extend(response)
+            if lose is False and win is False:
+                if speed == 1:
+                    speed = 0
+                else:
+                    speed = 1
+                response, win, lose = attackMob(user, user.currentEnemy, speed, user.state)
+                output.extend(response)
+                user.state = GAME_LOGIC[ user.state ]['next_state']
+                output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "stats":
-            output.append(f"Printing stats:\n{player.name}'s Current Cellmon\n")
+            output.append(f"Printing stats:\n{user.name}'s Current Cellmon\n")
             output.append(user.party[0].printMaxStats())
             output.append("\nEnemy\n")
             output.append(user.currentEnemy.printMaxStats())
+            user.state = GAME_LOGIC[ user.state ]['next_state']
+            output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "capture":
             response, win = captureMob(user, user.currentEnemy)
             output.append(response)
+            if win is False:
+                user.state = GAME_LOGIC[ user.state ]['next_state']
+                output.append(GAME_LOGIC[ user.state ]['content'])
         elif user.state == "flee":
-            response, win = fleeBattle(user)
+            response, flee = fleeBattle(user)
             output.append(response)
+            if flee is False:
+                user.state = GAME_LOGIC[ user.state ]['next_state']
+                output.append(GAME_LOGIC[ user.state ]['content'])
         else:
             output.append(GAME_LOGIC[ user.state ]['content'])
 
         if win is True:
-            output.append(f"{player.name} has won the battle!\nLooks like your cellmon have gained some levels!")
-            for mon in player.party: #Loop through player's party and level up each cellmon
+            output.append(f"{user.name} has won the battle!\nLooks like your cellmon have gained some levels!")
+            for mon in user.party: #Loop through player's party and level up each cellmon
                 if mon != user.currentEnemy: #Recently caught enemy mob will not be leveled up
                     mon.level_up()
                     mon.currentHP = mon.maxHP
                     output.append(mon.printMaxStats())
             user.state = "menu"
+            output.append(GAME_LOGIC[ user.state ]['content'])
         elif lose is True:
             user.state = "end"
-        else:
+            output.append(GAME_LOGIC[ user.state ]['content'])
+        elif flee is True:
+            user.state = "menu"
+            output.append(GAME_LOGIC[ user.state ]['content'])
+        elif msg_input.lower() == "exit":
+            return output
+        elif type(GAME_LOGIC[ user.state ]['next_state']) == str:
             user.state = GAME_LOGIC[ user.state ]['next_state']
 
         return output
@@ -151,31 +191,49 @@ class Cellmon:
         return response
 
     #Function to calculate physical damage
-    def doPhysAttack(self):
+    def doPhysAttack(self, user):
         response = []
         damage = self.attack + random.randint(-2,2)
-        response.append(f"{self.species} attacked for {damage} damage!")
+        if user.party[0] == self:
+            name = f"{user.name}'s"
+        else:
+            name = "Enemy"
+        response.append(f"{name} {self.species} attacked for {damage} damage!")
         return damage, response
 
     #Function to calculate special damage
-    def doSpecialAttack(self):
+    def doSpecialAttack(self, user):
         response = []
         damage = self.spAttack + random.randint(-2,2)
-        response.append(f"{self.species} attacked for {damage} damage!")
+        if user.party[0] == self:
+            name = f"{user.name}'s"
+        else:
+            name = "Enemy"
+        response.append(f"{name} {self.species} attacked for {damage} damage!")
         return damage, response
 
     #Function to apply physical damage
     def takePhysDamage(self, user, damage):
+        global win, lose
         response = []
         damageCalc = (int)(self.defense * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        if self.currentHP > 0:
-            response.append(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+
+        if user.party[0] == self:
+            name = f"{user.name}'s"
         else:
-            response.append(f"{self.species} has been eaten!")
-            user.party.remove(self.party[0])
-            if user.party is not None:
-                response.append(f"{user.name} sent out {self.party[0].species}!")
+            name = "Enemy"
+
+        if self.currentHP > 0:
+            response.append(f"{name} {self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        elif name == "Enemy":
+            response.append(f"{name} {self.species} has been eaten!")
+            win, lose = True, False
+        elif user.party[0] == self:
+            response.append(f"{name} {self.species} has been eaten!")
+            user.party.remove(user.party[0])
+            if len(user.party) > 0:
+                response.append(f"{user.name} sent out {user.party[0].species}!")
                 win, lose = False, False
             else:
                 response.append(f"\n{user.name} has been eaten!")
@@ -184,17 +242,27 @@ class Cellmon:
         return response, win, lose
 
     #Function to apply special damage
-    def takeSpecDamage(self, damage):
+    def takeSpecDamage(self, user, damage):
+        global win, lose
         response = []
         damageCalc = (int)(self.spDef * .1 * damage)
         self.currentHP = (self.currentHP - damageCalc)
-        if self.currentHP > 0:
-            response.append(f"{self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+
+        if user.party[0] == self:
+            name = f"{user.name}'s"
         else:
-            response.append(f"{self.species} has been eaten!")
-            user.party.remove(self.party[0])
-            if user.party is not None:
-                response.append(f"{user.name} sent out {self.party[0].species}!")
+            name = "Enemy"
+
+        if self.currentHP > 0:
+            response.append(f"{name} {self.species} took {damageCalc} damage! {self.species}'s current HP is {self.currentHP}")
+        elif name == "Enemy":
+            response.append(f"{name} {self.species} has been eaten!")
+            win, lose = True, False
+        elif user.party[0] == self:
+            response.append(f"{name} {self.species} has been eaten!")
+            user.party.remove(user.party[0])
+            if len(user.party) > 0:
+                response.append(f"{user.name} sent out {user.party[0].species}!")
                 win, lose = False, False
             else:
                 response.append(f"\n{user.name} has been eaten!")
@@ -248,8 +316,8 @@ class terrasaur(Cellmon):
         self.baseSpeed = baseSpeed
 
 class verizard(Cellmon):
-    def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=4, baseDefense=3, baseSpDef=2, baseSpeed=4,
-                 starterHP=1, starterAttack=4, starterSpAttack=3, starterDef=2, starterSpDef=3, starterSpeed=4,
+    def __init__(self, level, baseHP=3, baseAttack=2, baseSpAttack=2, baseDefense=3, baseSpDef=2, baseSpeed=4,
+                 starterHP=1, starterAttack=2, starterSpAttack=2, starterDef=2, starterSpDef=3, starterSpeed=4,
                  species="Verizard"):
         self.maxHP = starterHP + (baseHP * level)
         self.attack = starterAttack + (baseAttack * level)
@@ -496,3 +564,142 @@ class Location:
                 return self.mobs[2]
             else:
                 return self.mobs[3]
+
+#Creating the starter cellmon
+Starter1=terrasaur(3)
+Starter2=jellyfists(3)
+Starter3=fiamelon(3)
+
+#Creating the enemy mobs
+A1=aichu(1)
+A2=terrasaur(2)
+A3=verizard(3)
+A4=gekkip(4)
+A5=capybrawla(5)
+A6=beesiege(6)
+A7=jellyfists(7)
+A8=doomosaur(8)
+A9=parsnipe(9)
+A10=pandamonium(10)
+A11=fiamelon(11)
+A12=armordillo(12)
+A13=jarceus(13)
+
+#Creating the areas to explore
+L1=Location("Fields",[A1,A2,A3,A13])
+L2=Location("Mountains",[A4,A5,A6,A13])
+L3=Location("Forest",[A7,A8,A9,A13])
+L4=Location("Lake",[A10,A11,A12,A13])
+
+#Function for user to search locations
+def Cellsearch(user, msg_input):
+    #global Game
+
+    output = []
+
+    if msg_input == "fields": #Searching fields
+        found = L1.encounter()
+    elif msg_input == "mountains": #Searching mountains
+        found = L2.encounter()
+    elif msg_input == "forest": #Searching Forest
+        found = L3.encounter()
+    elif msg_input == "lake": #Searching Lake
+        found = L4.encounter()
+
+    output.append(f"{user.name} has encountered a {found.species}!")
+
+    return output, found
+
+#Function to print user's cellmon party
+def playerparty(user):
+    party = True;
+    num, i = 1, 0
+    output = []
+
+    #Print the cellmon
+    while i < len(user.party):
+        output.append(f"\n{num}. {user.party[i].species} <level {user.party[i].level}>")
+        num = num + 1
+        i = i + 1
+
+    return output
+
+#This function will check the speed of both player and mob, then result is sent back
+def checkSpeed(player_mon, mob):
+    if player_mon.speed > mob.speed: #Player is faster
+        return 1
+    elif player_mon.speed == mob.speed: #Equal speed, randomize
+        return random.randint(0, 1)
+    else: #Enemy is faster
+        return 0
+
+#This function will calculate damage for the attacks
+def attackMob(player, mob, speed_, choice):
+    response1 = []
+    response2 = []
+    global win, lose
+
+    print(f"CURRENT SPEED ----> {speed_}")
+
+    if choice == "attack": #Regular Attack
+        if speed_ == 1: #Player attacks first
+            damage, response1 = player.party[0].doPhysAttack(player)
+            response2, win, lose = mob.takePhysDamage(player, damage)
+        else: #Enemy attacks first
+            damage, response1 = mob.doPhysAttack(player)
+            response2, win, lose = player.party[0].takePhysDamage(player, damage)
+    elif choice == "spAttack": #Special Attack
+        if speed_ == 1: #Player attacks first
+            damage, response1 = player.party[0].doSpecialAttack(player)
+            response2, win, lose = mob.takeSpecDamage(player, damage)
+        else: #Enemy attacks first
+            damage, response1 = mob.doSpecialAttack(player)
+            response2, win, lose = player.party[0].takeSpecDamage(player, damage)
+
+    response1.extend(response2)
+    return response1, win, lose
+
+#This function will display a message whether or not the mob is successfully caught
+def captureMob(player, mob):
+    global win
+    response = []
+    caught = 0
+
+    if mob.currentHP <= mob.maxHP * 0.5:
+        win = True #mob caught, set condition
+    else:
+        caught = random.randint(0, 10)
+
+        if caught >= 5:
+            win = True #mob not caught
+        else:
+            win = False #mob not caught
+
+    if win is True: #Caught
+        if len(player.party) < 3: #Check if player's party is full
+            response.append(f"{mob.species} was successfully caught!")
+            mob.currentHP = mob.maxHP
+            mob = mob.Cellcapture() #Create a new copy of the mob
+            player.party.append(mob) #Add the mob to the party
+        else:
+            response.append(f"{mob.species} was successfully caught, but {player.name}'s party is full!")
+    else: #Failed to catch
+        response.append(f"Failed to capture {mob.species}!")
+    return response, win #Returns a condition for ending the battle or not
+
+#This function will display a message whether or not the battle is fled
+def fleeBattle(player):
+    chance = random.randint(0, 100)
+    response = []
+    global flee
+
+    if chance <= 75:
+        flee = True #Player fled, set condition
+    else:
+        flee = False #Player failed to flee
+
+    if flee is True: #Player fled
+        response.append(f"{player.name} fleed the battle.")
+    else: #Player could not flee
+        response.append(f"{player.name} could not flee.")
+    return response, flee #Returns a condition for ending the battle or not

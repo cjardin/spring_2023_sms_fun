@@ -30,160 +30,156 @@
                         "next_state" : "chooseStarter"
                 },
         "chooseStarter" : {
-                	"content" : "Please Choose your Starter:\nTerrasaur\nJellyfists\nFiamelon\n",
-                	"next_state" : [
-                        		{
-                                		"input" : "Terrasaur",
-                                		"next_state" : "getStarter"
-                        		},
+                        "content" : "Please Choose your Starter:\nTerrasaur\nJellyfists\nFiamelon\n",
+                        "next_state" : [
+                                        {
+                                                "input" : "Terrasaur",
+                                                "next_state" : "getStarter"
+                                        },
 
-                        		{
-                                		"input" : "Jellyfists",
-                                		"next_state" : "getStarter"
-                        		},
+                                        {
+                                                "input" : "Jellyfists",
+                                                "next_state" : "getStarter"
+                                        },
 
-                        		{
-                                		"input" : "Fiamelon",
-                                		"next_state" : "getStarter"
-                        		}
-                		]
+                                        {
+                                                "input" : "Fiamelon",
+                                                "next_state" : "getStarter"
+                                        }
+                                ]
         },
-	"getStarter" : {
-			"content" : "",
-			"next_state" : "warning"
-	},
-	"warning" : {
-			"content" : "Be careful... may you and your Cellmon stand above all.",
-			"next_state" : "menu"
-	},
+        "getStarter" : {
+                        "content" : "",
+                        "next_state" : "warning"
+        },
+        "warning" : {
+                        "content" : "Be careful... may you and your Cellmon stand above all.",
+                        "next_state" : "menu"
+        },
         "menu" : {
-                	"content" : "What would you like to do?\nSearch\nParty\nQuit",
-                	"next_state" : [
-                        		{
-                                		"input" : "Search",
-                                		"next_state" : "explore"
-                        		},
+                        "content" : "What would you like to do?\nSearch\nParty\nExit",
+                        "next_state" : [
+                                        {
+                                                "input" : "Search",
+                                                "next_state" : "explore"
+                                        },
 
-                        		{
-                                		"input" : "Party",
-                                		"next_state" : "partyTime"
-                        		},
+                                        {
+                                                "input" : "Party",
+                                                "next_state" : "partyTime"
+                                        },
 
-                        		{
-                                		"input" : "Quit",
-                                		"next_state" : "end"
-                        		}
-                		]
+                                        {
+                                                "input" : "Exit",
+                                                "next_state" : "end"
+                                        }
+                                ]
         },
         "partyTime" : {
-                	"content" : "Enter the # of the Cellmon in the party you want info on or type quit to go back to the menu: ",
-                	"next_state" : [
-                        		{
-                                		"input" : "1",
-                                		"next_state" : "display"
-                        		},
+                        "content" : "Enter the # of the Cellmon in the party you want info on or type \"exit\" to go back to the menu: ",
+                        "next_state" : [
+                                        {
+                                                "input" : "1",
+                                                "next_state" : "display"
+                                        },
 
-                        		{
-                                		"input" : "2",
-                                		"next_state" : "display"
-                        		},
+                                        {
+                                                "input" : "2",
+                                                "next_state" : "display"
+                                        },
 
-                        		{
-                                		"input" : "3",
-                                		"next_state" : "display"
-                        		},
-					{
-						"input" : "quit",
-						"next_state" : "menu"
-					}
-                		]
+                                        {
+                                                "input" : "3",
+                                                "next_state" : "display"
+                                        },
+                                        {
+                                                "input" : "exit",
+                                                "next_state" : "menu"
+                                        }
+                                ]
         },
-	"display" : {
-			"content" : "",
-			"next_state" : "partyTime"
-	},
+        "display" : {
+                        "content" : "",
+                        "next_state" : "partyTime"
+        },
         "explore" : {
-                	"content" : "Please choose a server to explore:\n1. Fields Threat Level Max: 3\n2. Mountains Threat Level Max: 6\n3. Forest Threat Level Max: 9\n4. Lake Threat level Max: 12i\nOr type quit to go back to the menu.",
-                	"next_state" : [
-                        		{
-                                		"input" : "Fields",
-                                		"next_state" : "battle_init"
-                        		},
+                        "content" : "Please choose a server to explore:\n\"Fields\" Threat Level Max: 3\n\"Mountains\" Threat Level Max: 6\n\"Forest\" Threat Level Max: 9\n\"Lake\" Threat level Max: 12\nOr type \"exit\" to go back to the menu.",
+                        "next_state" : [
+                                        {
+                                                "input" : "Fields",
+                                                "next_state" : "battle_init"
+                                        },
 
-                        		{
-                                		"input" : "Mountains",
-                                		"next_state" : "battle_init"
-                        		},
+                                        {
+                                                "input" : "Mountains",
+                                                "next_state" : "battle_init"
+                                        },
 
-                        		{
-                                		"input" : "Forest",
-                                		"next_state" : "battle_init"
-                        		},
+                                        {
+                                                "input" : "Forest",
+                                                "next_state" : "battle_init"
+                                        },
 
-                        		{
-                                		"input" : "Lake",
-                                		"next_state" : "battle_init"
-                        		},
-					{
-						"input" : "quit",
-						"next_state" : "menu"
-					}
-                		]
+                                        {
+                                                "input" : "Lake",
+                                                "next_state" : "battle_init"
+                                        },
+                                        {
+                                                "input" : "exit",
+                                                "next_state" : "menu"
+                                        }
+                                ]
         },
-	"battle_init" : {
-			"content" : "",
-			"next_state" : "battle_start"
-	},
-	"battle_start" : {
-			"content" : "",
-			"next_state" : "battle_menu"
-	},
-	"battle_menu" : {
-			"content" : "What would you like to do?\nAttack\nSpecial Attack\nCheck Stats\nCapture\nFlee",
-			"next_state" : [
-					{
-						"input" : "Attack",
-						"next_state" : "attack"
-					},
-					{
-						"input" : "Special Attack",
-						"next_state" : "spAttack"
-					},
-					{
-						"input" : "Check Stats",
-						"next_state" : "stats"
-					},
-					{
-						"input" : "Capture",
-						"next_state" : "capture"
-					},
-					{
-						"input" : "Flee",
-						"next_state" : "flee"
-					} 
-				]
-	},
-	"attack" : {
-			"content" : "",
-			"next_state" : "battle_menu"
-	},
-	"spAttack" : {
-			"content" : "",
-			"next_state" : "battle_menu"
+        "battle_init" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
+        },
+        "battle_menu" : {
+                        "content" : "What would you like to do?\nAttack\nSpecial Attack\nCheck Stats\nCapture\nFlee",
+                        "next_state" : [
+                                        {
+                                                "input" : "Attack",
+                                                "next_state" : "attack"
+                                        },
+                                        {
+                                                "input" : "Special Attack",
+                                                "next_state" : "spAttack"
+                                        },
+                                        {
+                                                "input" : "Check Stats",
+                                                "next_state" : "stats"
+                                        },
+                                        {
+                                                "input" : "Capture",
+                                                "next_state" : "capture"
+                                        },
+                                        {
+                                                "input" : "Flee",
+                                                "next_state" : "flee"
+                                        }
+                                ]
+        },
+        "attack" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
+        },
+        "spAttack" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
 
-	},
-	"stats" : {
-			"content" : "",
-			"next_state" : "battle_menu"
-	},
-	"capture" : {
-			"content" : "",
-			"next_state" : "battle_menu"
-	},
-	"flee" : {
-			"content" : "",
-			"next_state" : "battle_menu"
-	},
+        },
+        "stats" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
+        },
+        "capture" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
+        },
+        "flee" : {
+                        "content" : "",
+                        "next_state" : "battle_menu"
+        },
         "end"  : {
                         "content" : "Thank you for playing!"
                 }

@@ -26,7 +26,6 @@ def create_msg(output):
                      from_=yml_configs['twillio']['phone_number'],
                      to=request.form['From'])
 
-#DO NOT RUN SERVER UNTIL READY
 def handle_request():
     logger.debug(request.form)
 
@@ -42,11 +41,10 @@ def handle_request():
 
     create_msg(output)
 
+    if player.state == "end" and request.form['Body'].lower() == "exit":
+        player.state = "menu"
+
     with open(f"users/{request.form['From']}.pkl", "wb") as p:
         pickle.dump(player, p)
-
-    while player.state == "start_game":
-        output = player.get_output("")
-        create_msg(output)
 
     return json_response( status = "ok" )
