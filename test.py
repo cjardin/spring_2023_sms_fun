@@ -12,5 +12,6 @@ user = actor(name)
 while True:
     sent_input = input().lower()
 
+    user.ai.clientInput(sent_input)
     user, response = process_message(user, sent_input)
     print(f'Chatbot: {response}')

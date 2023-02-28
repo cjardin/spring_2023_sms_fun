@@ -8,18 +8,20 @@ class AI:
         #self.mood = random.choice(['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL'])
         self.STRESS_LEVEL = 0 #global incrementor
         self.mood = 'neutral'
+        self.mood_value = 0
         
     #return whatever mood (strgin the AI is feeling)
-    def getMood(self):
-        return self.mood
+    def update_mood_value(self, compound):
+        self.mood_value += compound
+        #return self.mood_value
     
     #TODO: Fix algorithm to set the mood once we can determine the percentajes
-    def setMood(self, Mood_percentaje):
-        if Mood_percentaje > 1:
+    def setMood(self):
+        if self.compound > .2:
             self.mood = 'happy'
-        elif Mood_percentaje == 0:
+        elif self.compound == 0:
             self.mood = 'neutral'
-        else:
+        elif self.compound < (-.2):
             self.mood = 'mad'
 
     #! NOT WORKING, NEEDS TO FIX OVERALL STRESS LEVEL
@@ -37,7 +39,10 @@ class AI:
     def clientInput(self, incoming_message):
         self.incoming_message = incoming_message
         string, sentiment_value, float_value = analyzeSentiment(self.incoming_message)
-        self.setMood(self.getMood()+sentiment_value['compound'])
+        compound = sentiment_value['compound']
+        print(sentiment_value['compound'])
+        self.update_mood_value(compound)
+        #self.setMood(self.mood, sentiment_value['compound'])
 
     #temp function
     def response(self):

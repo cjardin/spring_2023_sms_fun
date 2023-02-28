@@ -1,4 +1,4 @@
-from ai import AI
+from AI_ import AI
 
 class actor:
     def __init__(self, phone_number):
@@ -6,6 +6,7 @@ class actor:
         self.prev_msgs = []
         self.name = ''
         self.ai = AI()
+        self.state = 'begin'
 
     def save_msg(self, msg):
         self.prev_msgs.insert(0, msg)

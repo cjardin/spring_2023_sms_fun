@@ -18,12 +18,14 @@ def handle_request():
     sent_input = str(request.form['Body']).lower()
     
     logger.debug(f"Text: {request.form['Body']}")
+    
+    user.ai.clientInput(sent_input)
     user, response = process_message(user, sent_input)
     
     ### response back
     # sending back message from send_message_back.py
-    # send message 
     send_message(user.phone, response)
+
     # send picture name/url from media.yml
     #picture_name = "catfish-image"
     #send_picture(request.form, picture_name)
