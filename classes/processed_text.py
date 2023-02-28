@@ -11,7 +11,6 @@ class ProcessedText:
         # It would be better to ignore them in analysis rather than discard them outright.
         self.og_text = raw_text
 
-        '''
         raw_text = raw_text.lower()
         
         # Remove Contractions
@@ -63,7 +62,6 @@ class ProcessedText:
 
         raw_text = raw_text.translate(str.maketrans('','', string.punctuation)) # removes punctuation to match more in corpus
 
-        '''
 
         # Store lists of words and Penn Treebank tags.
         # For more info on the latter, see https://www.sketchengine.eu/penn-treebank-tagset/

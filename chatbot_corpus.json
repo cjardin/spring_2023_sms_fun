@@ -38,6 +38,18 @@
         },
         {
             "inputs": [
+                "no",
+                "nope"
+            ],
+            "outputs": [
+                "Why not?",
+                "Bummer",
+                "Well at least you know",
+                "You sure about that?"
+            ]
+        },
+        {
+            "inputs": [
                 "pogchamp"
             ],
             "outputs": [
@@ -155,12 +167,13 @@
         },
         {
             "inputs": [
+                "huh?",
                 "what?"
             ],
             "outputs": [
                 "Huh?",
                 "Sorry you couldn't understand",
-                "*WhAt?* That's what you sound like"
+                "I'll talk slower next time"
             ]
         },
 
@@ -205,17 +218,18 @@
                 "I feel great how are you?",
                 "I'm sure you would like to know.",
                 "It's actually the best day of my life.",
-                "Sometimes I have no feelings.",
+                "Cold, emotionless, full of metal",
                 "I'm chillin how about you?",
                 "Fine",
                 "Great thanks",
-                "What a great day",
+                "I'm having a great day",
                 "This is the worst day of my life"
             ]
         },
         {
             "inputs": [
                 "hi",
+                "hey",
                 "hi!",
                 "hiya",
                 "hello",
@@ -265,7 +279,11 @@
                 "what's cooking",
                 "hey what's up",
                 "what's up today",
-                "sup"
+                "sup",
+                "good, you?",
+                "pretty good, you",
+                "very good, you?",
+                "i'm good, how about you?"
             ],
             "outputs": [
                 "Nothin' much",
@@ -379,6 +397,8 @@
                 "good talking to you",
                 "good to chat",
                 "goodbye",
+                "farewell",
+                "farewell for now",
                 "goodbye for now",
                 "goodbye see you later",
                 "goodnight now",
@@ -575,7 +595,6 @@
                 "he",
                 "hehe",
                 "hehehe",
-                "huh",
                 "laughing out",
                 "lmao",
                 "lol",
@@ -844,15 +863,19 @@
                 "perfect",
                 "yeah",
                 "yup",
-                "absolutely"
+                "absolutely",
+                "that's cool",
+                "that's awesome",
+                "that's very cool"
+
 
             ],
             "outputs": [
-                "Anything else?",
-                "Is that all?",
-                "Okay",
+                "Sweet, anything else?",
+                "Awesome",
+                "I'm glad, is that all? :3",
                 "Perfect",
-                "Anything else?"
+                "Now that that's cleared up, anything else?"
             ]
         },
         {
