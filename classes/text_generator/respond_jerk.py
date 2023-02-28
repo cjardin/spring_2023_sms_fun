@@ -57,7 +57,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.00 + random(), "So, you mentioned " + input_word + ".  Could you tell me more about that?"))
                 responses.append((0.00 + random(), "So, about this " + input_word + ".  Tell me more about that!"))
                 responses.append((0.00 + random(), "Don't worry about " + input_word + ".  Let me worry about " + input_word + "!"))
-                responses.append((0.00 + random(), input_word + "? At this time of year, at this time of day, in this part of the country, localized entirely within your kitchen?!"))
+                # responses.append((0.00 + random(), input_word + "? At this time of year, at this time of day, in this part of the country, localized entirely within your kitchen?!"))
             
 
             if input_tag == 'NNS':  # Plural Nouns

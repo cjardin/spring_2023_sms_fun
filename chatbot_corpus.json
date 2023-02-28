@@ -2,63 +2,14 @@
     "responses": [
         {
             "inputs": [
-                "hello"
+                "why not",
+                "why"
             ],
             "outputs": [
-                "Sup",
-                "Sorry, don't really have time atm",
-                "Hey! How can I assit you?"
-            ]
-        },
-        {
-            "inputs": [
-                "party"
-            ],
-            "outputs": [
-                "Oh, didn't realize you were invited",
-                "Do we have a party coming up?"
-            ]
-        },
-        {
-            "inputs": [
-                "h"
-            ],
-            "outputs": [
-                ".... Gonna need some more to go on, ma dude"
-            ]
-        },
-        {
-            "inputs": [
-                "aaaaaaaaaaaaaaaaaaa"
-            ],
-            "outputs": [
-                "Oh frick, do you need some assitance??"
-            ]
-        },
-        {
-            "inputs": [
-                "\\"
-            ],
-            "outputs": [
-                "Sorry, I am not a bot. I don't read terminal"
-            ]
-        },
-        {
-            "inputs": [
-                "l"
-            ],
-            "outputs": [
-                ".... Gonna need some more to go on, ma dude"
-            ]
-        },
-        {
-            "inputs": [
-                "hi"
-            ],
-            "outputs": [
-                "Sup",
-                "Sorry, don't really have time atm",
-                "Hey! How can I assit you?"
+                "Because I said so",
+                "I don't think anyone knows",
+                "I dunno",
+                "Figure it out"
             ]
         },
         {
@@ -68,26 +19,6 @@
             "outputs": [
                 "Pog?",
                 "Poggers?"
-            ]
-        },
-        {
-            "inputs": [
-                "heyo"
-            ],
-            "outputs": [
-                "Sup",
-                "Sorry, don't really have time atm",
-                "Hey! How can I assit you?"
-            ]
-        },
-        {
-            "inputs": [
-                "yo"
-            ],
-            "outputs": [
-                "Sup",
-                "Sorry, don't really have time atm",
-                "Hey! How can I assit you?"
             ]
         },
         {
@@ -148,10 +79,7 @@
                 "?"
             ],
             "outputs": [
-                "Are you really asking me that?",
-                "How could I possibly know?",
-                "No way",
-                "Sure"
+                "????"
             ]
         },
         {
@@ -195,6 +123,17 @@
                 "I don't know, what's ever up?"
             ]
         },
+        {
+            "inputs": [
+                "what?"
+            ],
+            "outputs": [
+                "Huh?",
+                "Sorry you couldn't understand",
+                "*WhAt?* That's what you sound like"
+            ]
+        },
+
         {
             "inputs": [
                 "fuck",
@@ -246,8 +185,11 @@
             "inputs": [
                 "hi",
                 "hi!",
+                "hiya",
                 "hello",
                 "hello!",
+                "hello there!",
+                "hi there!",
                 "greetings",
                 "greetings!",
                 "nice to meet you",
@@ -255,7 +197,9 @@
                 "nice meeting you",
                 "pleased to meet you",
                 "pleasure meeting you",
-                "pleasure to meet you"
+                "pleasure to meet you",
+                "yo",
+                "howdy"
             ],
             "outputs": [
                 "Hi",
@@ -854,7 +798,6 @@
         },
         {
             "inputs": [
-                "why not",
                 "okay",
                 "kk",
                 "yaass",
