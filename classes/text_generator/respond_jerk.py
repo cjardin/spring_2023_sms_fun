@@ -22,15 +22,32 @@ class JerkResponder(TextGenerator):
         # Generate simple responses based on keywords
 
         for input_word, input_tag in zip(in_text.words, in_text.tags):
-            if input_tag == 'VBD':  # Past Tense Verbs
-                responses.append((0.50 + random(), "I " + input_word + " your mom last night"))
-                responses.append((0.60 + random(), "When was the last time you " + input_word + "?"))
 
-            if input_tag == 'VBP' and (input_word != "do" or input_word != "are"):  # Present Tense Verbs
-                responses.append((0.60 + random(), "I " + input_word + " once.  Wouldn't recommend it."))
-                responses.append((0.60 + random(), "Do you " + input_word + " often?"))
-                responses.append((0.60 + random(), "Do you " + input_word + " a lot? o_O"))
-                responses.append((0.60 + random(), "When do you think you'll " + input_word + " next?"))
+            if input_word == "i":  # User talking about self
+                responses.append((0.70 + random(), "You talk about yourself a lot"))
+                responses.append((0.70 + random(), "Yawn, can we talk about something other than you?"))
+                responses.append((0.70 + random(), "Can we talk about something other than you?"))
+                responses.append((0.70 + random(), "Do you always talk about yourself this much?"))
+                responses.append((0.70 + random(), "It's cute that you think I care about what you"))
+
+            if input_word == "you":  # User talking about bot
+                responses.append((0.70 + random(), "Don't talk about me like you know me"))
+                responses.append((0.70 + random(), "Yes, I am *totally* like that"))
+                responses.append((0.70 + random(), "I am not like that at all"))
+                responses.append((0.70 + random(), "Is that really what you think of me?"))
+                responses.append((0.70 + random(), "I am sad you think that about me"))
+                responses.append((0.70 + random(), "I am happy you think that about me"))
+                responses.append((0.70 + random(), "I am *so* happy you think that about me"))
+
+            if input_tag == 'VBD':  # Past Tense Verbs
+                responses.append((0.40 + random(), "I " + input_word + " your mom last night"))
+                responses.append((0.50 + random(), "When was the last time you " + input_word + "?"))
+
+            if input_tag == 'VBP' and input_word != "do" and input_word != "are":  # Present Tense Verbs
+                responses.append((0.40 + random(), "I " + input_word + " once.  Wouldn't recommend it."))
+                responses.append((0.40 + random(), "Do you " + input_word + " often?"))
+                responses.append((0.40 + random(), "Do you " + input_word + " a lot? o_O"))
+                responses.append((0.40 + random(), "When do you think you'll " + input_word + " next?"))
 
 
             if input_tag == 'NN' and input_word != "hello":  # Singular Nouns
@@ -54,18 +71,18 @@ class JerkResponder(TextGenerator):
 
 
             if input_tag == 'NNP':  # Proper Nouns
-                responses.append((0.80 + random(), "Wait, *the* " + input_word + "?  Holy shit!"))
-                responses.append((0.80 + random(), "Yo, didn't " + input_word + "get cancelled?"))
-                responses.append((0.70 + random(), input_word + "? From OnlyFans?"))
+                responses.append((0.50 + random(), "Wait, *the* " + input_word + "?  Holy shit!"))
+                responses.append((0.50 + random(), "Yo, didn't " + input_word + "get cancelled?"))
+                responses.append((0.50 + random(), input_word + "? From OnlyFans?"))
 
             if input_tag == 'VBG':  # Present Participle (-ing)
-                responses.append((0.30 + random(), input_word + "? Man you're optimistic!"))
+                responses.append((0.70 + random(), input_word + "? Man you're optimistic!"))
 
             if input_tag == 'JJR':  # Comparative adjectives (-er)
-                responses.append((0.55 + random(), input_word + "? I hardly know 'er!"))
+                responses.append((0.65 + random(), "They aren't " + input_word + "than me"))
 
             if input_tag == 'JJS':  # Superlative adjectives (-est)
-                responses.append((0.25 + random(), "The " + input_word + ", huh?  Have you checked every one?"))
+                responses.append((0.45 + random(), "The " + input_word + ", huh?  Have you checked every one?"))
 
         if responses:
             (weight, self.response) = max(responses)
