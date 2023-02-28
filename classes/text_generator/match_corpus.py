@@ -16,7 +16,10 @@ class MatchCorpus(TextGenerator):
                     max_percent = SequenceMatcher(None, in_text.og_text, inputs).ratio()
                     best_output = response["outputs"]
 
-        self.response = best_output[random.randint(0,len(best_output)-1)]
+        if best_output:
+            self.response = best_output[random.randint(0,len(best_output)-1)]
+        else:
+            self.response = ""
 
         # return max_percent * 10
 

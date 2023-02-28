@@ -29,6 +29,7 @@ class JerkResponder(TextGenerator):
                 responses.append((0.70 + random(), "Can we talk about something other than you?"))
                 responses.append((0.70 + random(), "Do you always talk about yourself this much?"))
                 responses.append((0.70 + random(), "It's cute that you think I care about what you"))
+                responses.append((0.70 + random(), "Care to talk about anything besides you?"))
 
             if input_word == "you":  # User talking about bot
                 responses.append((0.70 + random(), "Don't talk about me like you know me"))
