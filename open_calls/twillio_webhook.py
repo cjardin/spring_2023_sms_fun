@@ -2,55 +2,35 @@ import yaml
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 from tools.logging import logger
-import random
-import json
-from pickles import pickling
-from send_test_message import send_message, send_picture
-from os import path
-
-yml_configs = {}
-BODY_MSGS = []
-with open('config.yml', 'r') as yml_file:
-    yml_configs = yaml.safe_load(yml_file)
-
-CORPUS = {}
-with open('chatbot_corpus.json', 'r') as myfile:
-    CORPUS = json.loads(myfile.read())
-
+from pickles import pickling, save_pickle
+from send_message_back import send_message, send_picture
+from processing_message import process_message
 ### Main
 def handle_request():
     # user info
     #logger.debug(request.form)
-    logger.debug(request.form['From'])
+    logger.debug(f"Phone#: {request.form['From']}")
 
-    # pickling
-    pickling(request.form)
+    # pickling from pickles.py
+    user = pickling(request.form)
 
-    # corpus
+    ### processing incoming message from processing_message.py
     sent_input = str(request.form['Body']).lower()
-    if sent_input in CORPUS['input']:
-        response = random.choice(CORPUS['input'][sent_input])
-    else:
-        CORPUS['input'][sent_input] = ['DID NOT FIND']
-        with open('chatbot_corpus.json', 'w') as myfile:
-            myfile.write(json.dumps(CORPUS, indent=4 ))
-    ##########
-    ########## need seperate file w function that takes sent_input and generates and returns a response
+    
+    logger.debug(f"Text: {request.form['Body']}")
+    
+    user.ai.clientInput(sent_input)
+    user, response = process_message(user, sent_input)
+    
+    ### response back
+    # sending back message from send_message_back.py
+    send_message(user.phone, response)
 
+    # send picture name/url from media.yml
+    #picture_name = "catfish-image"
+    #send_picture(request.form, picture_name)
     
-    # response back
-    response = 'response here'
-    logger.debug(response)
-    message = g.sms_client.messages.create(
-                     body=response,
-                     from_=yml_configs['twillio']['phone_number'],
-                     to=request.form['From'])
-    
-    # send message
-    send_message(request.form, "Insert Response Here")
-    # send picture
-    picture_name = "catfish-image"
-    send_picture(request.form, picture_name)
-    
+    # save pickle/user
+    save_pickle(user)
     
     return json_response( status = "ok" )

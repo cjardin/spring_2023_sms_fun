@@ -1,0 +1,14 @@
+{
+    "begin": {
+        "content": "hi whats your name?",
+        "next_state": "questions"
+    },
+
+    "questions": {
+        "content": [
+            "how old are you?",
+            "are you male or female?",
+            ""
+        ]
+    }
+}

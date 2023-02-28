@@ -143,6 +143,130 @@
 				"response"
 			]
 		}
+	"hello": {
+		"mad": [
+			"why have you been so mean recently",
+			"what do you want"
+		],
+		"happy": [
+			"hey how are you",
+			"heeeey 😘",
+			"hello again how are you"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"how are you": {
+		"mad" :[
+			"im a little upset tbh"
+		],
+		"happy":[ 
+			"im feelin good how are you"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"wyd": {
+		"mad": [
+		"nothing"
+		],
+		"happy": [
+			"hmm nothing why",
+			"nothing why you wanna do something?"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"whats up": {
+		"mad": [
+			"whats up with you"
+		],
+		"happy": [
+			"not much baby how are you"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},	
+	"party": {
+		"mad": [
+			"nah"
+		],
+		"happy": [
+			"hell yea 🥳"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"h": {
+		"mad": [
+			"wtf"
+		],
+		"happy": [
+			"hi?"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"aaaaaaaaaaaaaaaaaaa": {
+		"mad": [
+			"chill"
+		],
+		"happy": [
+			"DID NOT FIND"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"\\": {
+		"mad": [
+			"wtf"
+		],
+		"happy": [
+			"DID NOT FIND"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"hi": {
+		"mad": [
+			"what do you want"
+		],
+		"happy": [
+			"heeeeeeey, how are you? :)",
+			"oh hey what're you doin 👀"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
+	},
+	"fight": {
+		"mad": [
+			"leave me alone"
+		],
+		"happy": [
+			"what kinda fight"
+		],
+		"neutral":[
+			"neutral",
+			"response"
+		]
 	},
 	"default": {
 		"response": [
